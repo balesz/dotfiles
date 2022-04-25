@@ -1,8 +1,7 @@
-# Exclude everything
 /*
 !.gitignore
 
-# Include .config/nvim 
 !/.config
 /.config/*
 !/.config/nvim
+
