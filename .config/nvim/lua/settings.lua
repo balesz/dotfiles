@@ -1,16 +1,24 @@
+vim.cmd("colorscheme nordfox")
 
--- using the mouse
+-- mouse
 vim.cmd[[
-	set mouse=a
+  set mouse=a
+]]
+
+-- multiple files
+vim.cmd [[
+  set splitbelow
+  set splitright
+  set equalalways!
 ]]
 
 -- tabs and indenting
 vim.cmd [[
-	set tabstop=2
-	set shiftwidth=2
-	set smarttab
-	set autoindent
-	set smartindent
-	set expandtab
+  set tabstop=2
+  set shiftwidth=2
+  set smarttab
+  set autoindent
+  set smartindent
+  set expandtab
 ]]
 
