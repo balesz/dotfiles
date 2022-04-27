@@ -22,3 +22,8 @@ vim.cmd [[
   set expandtab
 ]]
 
+-- editor
+vim.cmd [[
+  set number
+]]
+
