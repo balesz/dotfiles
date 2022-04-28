@@ -2,9 +2,12 @@
 /*
 !.gitignore
 
-# .config/nvim
+# Neovim
 !/.config
 /.config/*
 !/.config/nvim
 .config/nvim/plugin/packer_compiled.lua
+
+# Sessions
+!Session.vim
 
