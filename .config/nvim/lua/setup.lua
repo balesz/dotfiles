@@ -1,3 +1,5 @@
+require('setup/nvim-cmp')
+
 require("indent_blankline").setup {
 }
 

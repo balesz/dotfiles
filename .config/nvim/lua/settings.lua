@@ -22,6 +22,11 @@ vim.cmd [[
   set expandtab
 ]]
 
+-- autocompletion
+vim.cmd [[
+  set completeopt=menu,menuone,noselect
+]]
+
 -- editor
 vim.cmd [[
   set number
