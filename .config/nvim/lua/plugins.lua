@@ -13,22 +13,22 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
 
   -- user interface
-  use 'karb94/neoscroll.nvim'
-  use 'kyazdani42/nvim-web-devicons'
   use 'EdenEast/nightfox.nvim'
+  use 'kyazdani42/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
+  use 'karb94/neoscroll.nvim'
+  use 'petertriho/nvim-scrollbar'
   use 'nvim-telescope/telescope.nvim'
 
   -- terminal
   use 'voldikss/vim-floaterm'
 
   -- editor
-  use 'lukas-reineke/indent-blankline.nvim'
-
-  -- snippet
-  use 'L3MON4D3/LuaSnip'
+  use 'lukas-reineke/indent-blankline.nvim' -- https://github.com/lukas-reineke/indent-blankline.nvim
 
   -- lsp server / autocompletion
+  use 'nvim-treesitter/nvim-treesitter' -- https://github.com/nvim-treesitter/nvim-treesitter
+  use 'L3MON4D3/LuaSnip'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -36,5 +36,8 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'saadparwaiz1/cmp_luasnip'
+
+  -- http client
+  use 'NTBBloodbath/rest.nvim' -- https://github.com/NTBBloodbath/rest.nvim
 end)
 

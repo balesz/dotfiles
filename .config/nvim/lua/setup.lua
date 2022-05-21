@@ -1,15 +1,9 @@
+require('setup/lualine')
+require('setup/indent-blankline')
+require('setup/neoscroll')
+--require('setup/scrollbar')
+require('setup/telescope')
+require('setup/nvim-treesitter')
 require('setup/nvim-cmp')
-
-require("indent_blankline").setup {
-}
-
-require('lualine').setup {
-  options = { theme = 'gruvbox' }
-}
-
-require('neoscroll').setup {
-}
-
-require('telescope').setup {
-}
+require('setup/rest-nvim')
 
