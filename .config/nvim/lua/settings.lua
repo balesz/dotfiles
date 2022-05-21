@@ -30,5 +30,6 @@ vim.cmd [[
 -- editor
 vim.cmd [[
   set number
+  set wrap
 ]]
 
