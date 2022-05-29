@@ -7,21 +7,21 @@ end
 
 require('packer').startup(function(use)
   -- packer
-  use 'wbthomason/packer.nvim'
+  use 'wbthomason/packer.nvim' -- https://github.com/wbthomason/packer.nvim
 
   -- common
-  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/plenary.nvim' -- https://github.com/nvim-lua/plenary.nvim
 
   -- user interface
-  use 'EdenEast/nightfox.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'nvim-lualine/lualine.nvim'
-  use 'karb94/neoscroll.nvim'
-  use 'petertriho/nvim-scrollbar'
-  use 'nvim-telescope/telescope.nvim'
+  use 'EdenEast/nightfox.nvim' -- https://github.com/EdenEast/nightfox.nvim
+  use 'kyazdani42/nvim-web-devicons' -- https://github.com/kyazdani42/nvim-web-devicons
+  use 'nvim-lualine/lualine.nvim' -- https://github.com/nvim-lualine/lualine.nvim
+  use 'karb94/neoscroll.nvim' -- https://github.com/karb94/neoscroll.nvim
+  use 'petertriho/nvim-scrollbar' -- https://github.com/petertriho/nvim-scrollbar
+  use 'nvim-telescope/telescope.nvim' -- https://github.com/nvim-telescope/telescope.nvim
 
   -- terminal
-  use 'voldikss/vim-floaterm'
+  use 'voldikss/vim-floaterm' -- https://github.com/voldikss/vim-floaterm
 
   -- editor
   use 'lukas-reineke/indent-blankline.nvim' -- https://github.com/lukas-reineke/indent-blankline.nvim
