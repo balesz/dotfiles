@@ -41,3 +41,5 @@ require('packer').startup(function(use)
   use 'NTBBloodbath/rest.nvim' -- https://github.com/NTBBloodbath/rest.nvim
 end)
 
+-- https://github.com/jose-elias-alvarez/null-ls.nvim
+-- https://github.com/folke/trouble.nvim
