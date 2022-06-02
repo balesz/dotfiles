@@ -1,5 +1,3 @@
-vim.cmd("colorscheme nordfox")
-
 -- mouse
 vim.cmd[[
   set mouse=a

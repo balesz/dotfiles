@@ -1,3 +1,4 @@
+require('setup/nightfox')
 require('setup/lualine')
 require('setup/indent-blankline')
 require('setup/neoscroll')

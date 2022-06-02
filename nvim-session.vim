@@ -9,10 +9,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +4 ~/.config/nvim/init.lua
+badd +1 ~/.config/nvim/init.lua
 badd +10 ~/.config/nvim/lua/settings.lua
-badd +19 ~/.config/nvim/lua/plugins.lua
-badd +8 ~/.config/nvim/lua/setup.lua
+badd +24 ~/.config/nvim/lua/plugins.lua
+badd +2 ~/.config/nvim/lua/setup.lua
+badd +4 ~/.config/nvim/lua/setup/nightfox.lua
 argglobal
 %argdel
 edit ~/.config/nvim/init.lua
@@ -40,12 +41,12 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe '1resize ' . ((&lines * 5 + 27) / 55)
-exe 'vert 1resize ' . ((&columns * 50 + 119) / 238)
+exe 'vert 1resize ' . ((&columns * 42 + 119) / 238)
 exe '2resize ' . ((&lines * 13 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 50 + 119) / 238)
+exe 'vert 2resize ' . ((&columns * 42 + 119) / 238)
 exe '3resize ' . ((&lines * 33 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 50 + 119) / 238)
-exe 'vert 4resize ' . ((&columns * 187 + 119) / 238)
+exe 'vert 3resize ' . ((&columns * 42 + 119) / 238)
+exe 'vert 4resize ' . ((&columns * 195 + 119) / 238)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -57,12 +58,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 4 - ((3 * winheight(0) + 2) / 5)
+let s:l = 1 - ((0 * winheight(0) + 2) / 5)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 4
-normal! 0
+keepjumps 1
+normal! 019|
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/.config/nvim/lua/setup.lua", ":p")) | buffer ~/.config/nvim/lua/setup.lua | else | edit ~/.config/nvim/lua/setup.lua | endif
@@ -85,7 +86,7 @@ if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 2
-normal! 033|
+normal! 014|
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/.config/nvim/lua/settings.lua", ":p")) | buffer ~/.config/nvim/lua/settings.lua | else | edit ~/.config/nvim/lua/settings.lua | endif
@@ -103,18 +104,19 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 33 - ((32 * winheight(0) + 16) / 33)
+let s:l = 1 - ((0 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 33
-normal! 010|
+keepjumps 1
+normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/.config/nvim/lua/plugins.lua", ":p")) | buffer ~/.config/nvim/lua/plugins.lua | else | edit ~/.config/nvim/lua/plugins.lua | endif
 if &buftype ==# 'terminal'
   silent file ~/.config/nvim/lua/plugins.lua
 endif
+balt ~/.config/nvim/lua/setup/nightfox.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -125,21 +127,21 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 19 - ((18 * winheight(0) + 26) / 53)
+let s:l = 24 - ((23 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 19
+keepjumps 24
 normal! 0
 wincmd w
 4wincmd w
 exe '1resize ' . ((&lines * 5 + 27) / 55)
-exe 'vert 1resize ' . ((&columns * 50 + 119) / 238)
+exe 'vert 1resize ' . ((&columns * 42 + 119) / 238)
 exe '2resize ' . ((&lines * 13 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 50 + 119) / 238)
+exe 'vert 2resize ' . ((&columns * 42 + 119) / 238)
 exe '3resize ' . ((&lines * 33 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 50 + 119) / 238)
-exe 'vert 4resize ' . ((&columns * 187 + 119) / 238)
+exe 'vert 3resize ' . ((&columns * 42 + 119) / 238)
+exe 'vert 4resize ' . ((&columns * 195 + 119) / 238)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
