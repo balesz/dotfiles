@@ -11,7 +11,7 @@ end
 require('packer').startup(function(use)
   -- Packer
   use 'wbthomason/packer.nvim' 
- 
+
   -- User Interface
   use(require'plugins/nightfox')
   use(require'plugins/lualine')
