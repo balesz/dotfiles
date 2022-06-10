@@ -5,8 +5,8 @@
 # Neovim
 !/.config
 /.config/*
-!/.config/nvim
-.config/nvim/plugin/packer_compiled.lua
+!/.config/nvim.balesz
+.config/nvim.*/plugin/packer_compiled.lua
 
 # Sessions
 !Session.vim
