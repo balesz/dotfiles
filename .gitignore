@@ -1,15 +1,10 @@
-# Exclude everything
 /*
 !.gitignore
-
-# Neovim
 !/.config
 /.config/*
+!/.config/wezterm
 !/.config/nvim.balesz
 !/.config/nvim.nvchad
-.config/nvim.*/plugin/packer_compiled.lua
-
-# Sessions
-!Session.vim
+/.config/nvim.*/plugin/packer_compiled.lua
 !*-session.vim
 
