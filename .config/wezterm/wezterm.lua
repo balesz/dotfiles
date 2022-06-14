@@ -14,6 +14,8 @@ return {
   font_size = 11,
   initial_cols = 120,
   initial_rows = 40,
+  use_fancy_tab_bar= true,
+  tab_bar_at_bottom = true,
   window_background_opacity = 0.9,
   window_padding = {
     left = '0cell',
