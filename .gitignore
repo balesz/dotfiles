@@ -5,6 +5,7 @@
 !/.config/wezterm
 !/.config/nvim.balesz
 !/.config/nvim.nvchad
+!/.config/nvim.nvchad.custom
 /.config/nvim.*/plugin/packer_compiled.lua
 !*-session.vim
 
