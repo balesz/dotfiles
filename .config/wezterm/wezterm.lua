@@ -22,6 +22,10 @@ return {
     right = '0cell',
     top = '0cell',
     bottom = '0cell',
-  }
+  },
+  launch_menu = {
+    { args = { 'top' } },
+    { args = { 'lazygit' } },
+  },
 }
 
