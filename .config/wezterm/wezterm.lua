@@ -10,6 +10,7 @@ end
 
 return {
   default_prog = default_prog,
+  exit_behavior= 'Close',
   font = wezterm.font(font),
   font_size = 11,
   initial_cols = 120,
@@ -24,6 +25,7 @@ return {
     bottom = '0cell',
   },
   launch_menu = {
+    { args = { 'powershell' } },
     { args = { 'top' } },
     { args = { 'lazygit' } },
   },
