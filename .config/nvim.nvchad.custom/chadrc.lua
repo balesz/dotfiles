@@ -5,7 +5,7 @@ local override = require "custom.override"
 M.ui = {
   theme = "chadtain",
   theme_toggle = { 'chadtain', 'one_light' },
-  hl_override = {
+  hl_add = {
     LspCodeLens = { link = 'Comment' }
   },
 }
@@ -16,12 +16,8 @@ M.plugins = {
   options = {
     lspconfig = {
       setup_lspconf = 'custom.plugins.lspconfig',
-    }
+    },
   },
-
-  override = {
-    ['ray-x/lsp_signature.nvim'] = override.signature,
-  }
 }
 
 return M

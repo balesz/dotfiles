@@ -1,12 +1,5 @@
 local disableFlutterTools = true
 
-vim.g['flutter_hot_reload_on_save'] = 1
-vim.g['flutter_show_log_on_run'] = 'hidden'
-vim.g['flutter_show_log_on_attach'] = 'hidden'
-vim.g['flutter_autoscroll'] = 1
-vim.g['flutter_use_last_run_option'] = 1
-vim.g['flutter_use_last_attach_option'] = 1
-
 return {
  ['stevearc/dressing.nvim'] = {
     config = function ()
