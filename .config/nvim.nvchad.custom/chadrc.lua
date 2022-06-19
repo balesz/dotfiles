@@ -1,7 +1,5 @@
 local M = {}
 
-local override = require "custom.override"
-
 M.ui = {
   theme = "chadtain",
   theme_toggle = { 'chadtain', 'one_light' },
