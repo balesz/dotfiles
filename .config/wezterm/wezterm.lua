@@ -9,6 +9,7 @@ if os.getenv('OS') == 'Windows_NT' then
 end
 
 return {
+  color_scheme = 'Operator Mono Dark',
   default_prog = default_prog,
   exit_behavior= 'Close',
   font = wezterm.font(font),
