@@ -1,5 +1,3 @@
-local disableFlutterTools = true
-
 return {
  ['stevearc/dressing.nvim'] = {
     config = function ()
@@ -22,15 +20,11 @@ return {
   },
 
   ['dart-lang/dart-vim-plugin'] = {
-    disable = not disableFlutterTools,
-  },
-
-  ['thosakwe/vim-flutter'] = {
-    disable = not disableFlutterTools,
+    disable = false,
   },
 
   ['akinsho/flutter-tools.nvim'] = {
-    disable = disableFlutterTools,
+    disable = true,
     requires = 'nvim-lua/plenary.nvim',
     config = function()
       require('flutter-tools').setup {}
