@@ -23,6 +23,10 @@ return {
     disable = false,
   },
 
+  ['thosakwe/vim-flutter'] = {
+    disable = false,
+  },
+
   ['akinsho/flutter-tools.nvim'] = {
     disable = true,
     requires = 'nvim-lua/plenary.nvim',
