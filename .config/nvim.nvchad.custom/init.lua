@@ -1,17 +1,20 @@
+local set = vim.opt
+
+local font = 'JetBrainsMono Nerd Font:h11'
+if (os.getenv 'WSL_DISTRO_NAME') then
+  font = 'JetBrainsMono NF:h11'
+end
+
 -- ui
-vim.cmd [[
-  set guifont=JetBrainsMono\ Nerd\ Font:h11
-  set colorcolumn=120
-]]
+set.guifont = font
+set.colorcolumn = 120
 
 -- indent
-vim.cmd [[
-  set tabstop=2
-  'set expandtab
-  set shiftwidth=2
-  set autoindent
-  set smartindent
-]]
+set.tabstop = 2
+--set.expandtab = true
+set.shiftwidth = 2
+set.autoindent = true
+set.smartindent = true
 
 -- dart
 vim.g['dart_style_guide'] = 2
