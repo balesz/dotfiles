@@ -35,10 +35,10 @@ global.flutter_use_last_run_option = 1
 global.flutter_use_last_attach_option = 1
 
 -- terminal
-autocmd('TermOpen', { pattern = '*', callback = function ()
-  vim.wo.number = false
-  vim.wo.relativenumber = false
-end })
+-- autocmd('TermOpen', { pattern = '*', callback = function ()
+--   vim.wo.number = false
+--   vim.wo.relativenumber = false
+-- end })
 
 -- Makefile
 autocmd('FileType', { pattern = 'make', callback = function ()
