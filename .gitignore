@@ -1,5 +1,9 @@
 /*
 !.gitignore
+!*-session.vim
+!.zshenv
+!.zlogin
+
 !/.config
 /.config/*
 !/.config/wezterm
@@ -7,5 +11,4 @@
 !/.config/nvim.nvchad
 !/.config/nvim.nvchad.custom
 /.config/nvim.*/plugin/packer_compiled.lua
-!*-session.vim
 
