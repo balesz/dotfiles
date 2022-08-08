@@ -7,6 +7,12 @@ return {
     end,
   },
 
+  ["mfussenegger/nvim-dap"] = {
+    config = function()
+      require "custom.plugins.dapconfig"
+    end
+  },
+
  ["stevearc/dressing.nvim"] = {
     config = function ()
       require('dressing').setup {}
@@ -39,7 +45,18 @@ return {
     disable = true,
     requires = 'nvim-lua/plenary.nvim',
     config = function()
-      require('flutter-tools').setup {}
+      require('flutter-tools').setup {
+        decorations = {
+          statusline = {
+            app_version = true,
+            device = true,
+          },
+        },
+        debugger = {
+          enabled = true,
+          run_via_dap = true,
+        },
+     }
     end
   }
 
