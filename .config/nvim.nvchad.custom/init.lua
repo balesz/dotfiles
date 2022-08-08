@@ -3,7 +3,7 @@ local global = vim.g
 local autocmd = vim.api.nvim_create_autocmd
 
 local font = 'JetBrainsMono Nerd Font:h11'
-if (os.getenv('WSL_DISTRO_NAME') or os.getenv('VENDOR') == 'alpine') then
+if (os.getenv('WSLENV') or os.getenv('DOCKERENV')) then
   font = 'JetBrainsMono NF:h11'
 end
 
