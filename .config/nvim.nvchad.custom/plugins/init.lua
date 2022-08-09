@@ -1,10 +1,20 @@
 return {
 
+  ["folke/which-key.nvim"] = {
+    disable = false,
+  },
+
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
     end,
+  },
+
+  ["mfussenegger/nvim-dap"] = {
+    config = function()
+      require "custom.plugins.dapconfig"
+    end
   },
 
  ["stevearc/dressing.nvim"] = {
@@ -39,7 +49,18 @@ return {
     disable = true,
     requires = 'nvim-lua/plenary.nvim',
     config = function()
-      require('flutter-tools').setup {}
+      require('flutter-tools').setup {
+        decorations = {
+          statusline = {
+            app_version = true,
+            device = true,
+          },
+        },
+        debugger = {
+          enabled = true,
+          run_via_dap = true,
+        },
+     }
     end
   }
 
