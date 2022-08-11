@@ -16,6 +16,15 @@ M.plugins = {
       setup_lspconf = 'custom.plugins.lspconfig',
     },
   },
+
+  override = {
+    ["nvim-telescope/telescope.nvim"] = {
+      extensions_list = { "themes", "terms", "file_browser" },
+      extensions = {
+        file_browser = {},
+      },
+    },
+  },
 }
 
 M.mappings = require "custom.mappings"

@@ -1,5 +1,9 @@
 return {
 
+  ["nvim-telescope/telescope-file-browser.nvim"] = {
+    disable = false,
+  },
+
   ["folke/which-key.nvim"] = {
     disable = false,
   },
