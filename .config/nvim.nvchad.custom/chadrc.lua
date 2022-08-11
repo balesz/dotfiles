@@ -18,6 +18,22 @@ M.plugins = {
   },
 
   override = {
+    ["NvChad/nvterm"] = {
+      terminals = {
+        type_opts = {
+          float = {
+            relative = "editor",
+            row = 0.05,
+            col = 0.1,
+            width = 0.8,
+            height = 0.8,
+            border = "single",
+          },
+          horizontal = { location = "rightbelow", split_ratio = 0.3 },
+          vertical = { location = "rightbelow", split_ratio = 0.5 },
+        }
+      }
+    },
     ["nvim-telescope/telescope.nvim"] = {
       extensions_list = { "themes", "terms", "file_browser" },
       extensions = {
