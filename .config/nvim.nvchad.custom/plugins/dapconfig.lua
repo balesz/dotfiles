@@ -1,22 +1,11 @@
-local dap = require('dap')
+require("dap.ext.vscode").load_launchjs(nil, { dart = { "dart" } })
 
-local device = "chrome"
-
-dap.adapters.dart = {
+require("dap").adapters.dart = {
   type = "executable",
   command = "flutter",
   args = {"debug_adapter"},
   options = {
-    initialize_timeout_sec = 30,
+    initialize_timeout_sec = 0,
   },
-}
-dap.configurations.dart = {
-  {
-    type = "dart",
-    request = "launch",
-    name = "Launch Flutter Program",
-    program = "lib/main.dart",
-    cwd = "${workspaceFolder}",
-  }
 }
 
