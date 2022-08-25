@@ -7,8 +7,8 @@ if (os.getenv('WSLENV') or os.getenv('DOCKERENV')) then
   font = 'JetBrainsMono NF:h11'
 end
 
-vim.opt.syntax = 'on'
-vim.o.syntax = 'on'
+set.syntax = 'on'
+set.exrc = false
 
 -- ui
 set.guifont = font
@@ -20,6 +20,12 @@ set.expandtab = true
 set.shiftwidth = 2
 set.autoindent = true
 set.smartindent = true
+
+-- folding
+--set.foldcolumn = "1"
+--set.foldlevel = 99
+--set.foldlevelstart = 99
+--set.foldenable = false
 
 -- dart
 global.dart_style_guide = 2
