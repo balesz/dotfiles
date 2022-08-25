@@ -1,5 +1,39 @@
 return {
 
+  ["MunifTanjim/exrc.nvim"] = {
+    config = function ()
+      require("exrc").setup {}
+    end
+  },
+
+  ["is0n/jaq-nvim"] = {
+    config = function ()
+      require("jaq-nvim").setup {}
+    end
+  },
+
+  ["TimUntersberger/neogit"] = {
+    requires = 'nvim-lua/plenary.nvim',
+    config = function ()
+      require("neogit").setup {}
+    end
+  },
+
+  ["kevinhwang91/nvim-ufo"] = {
+    disable = true,
+    requires = "kevinhwang91/promise-async",
+    config = function ()
+     require("ufo").setup {}
+    end
+  },
+
+  ["nvim-treesitter/nvim-treesitter-context"] = {
+    disable = false,
+    config = function ()
+      require("treesitter-context").setup {}
+    end
+  },
+
   ["nvim-telescope/telescope-file-browser.nvim"] = {
     disable = false,
   },
@@ -15,20 +49,20 @@ return {
     end,
   },
 
+  ["rcarriga/nvim-dap-ui"] = {
+    requires = "mfussenegger/nvim-dap",
+    config = function ()
+      require("dapui").setup {}
+    end
+  },
+
   ["mfussenegger/nvim-dap"] = {
     config = function()
       require "custom.plugins.dapconfig"
     end
   },
 
-  ["rcarriga/nvim-dap-ui"] = {
-    requires = "mfussenegger/nvim-dap",
-    config = function ()
-      require('dapui').setup {}
-    end
-  },
-
- ["stevearc/dressing.nvim"] = {
+  ["stevearc/dressing.nvim"] = {
     config = function ()
       require('dressing').setup {}
     end
@@ -74,6 +108,5 @@ return {
      }
     end
   }
-
 }
 
