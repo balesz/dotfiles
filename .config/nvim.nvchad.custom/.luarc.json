@@ -1,0 +1,8 @@
+{
+  "format.defaultConfig": {
+    "ident_style": "space",
+    "ident_size": 2,
+    "tab_width": 4,
+    "quote_style": "double"
+  }
+}
