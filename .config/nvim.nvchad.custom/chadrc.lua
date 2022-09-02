@@ -18,6 +18,11 @@ M.plugins = {
   },
 
   override = {
+    ["NvChad/ui"] = {
+      tabufline = {
+        lazyload = false
+      }
+    },
     ["NvChad/nvterm"] = {
       terminals = {
         type_opts = {
