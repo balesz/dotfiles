@@ -1,5 +1,3 @@
-require("dap.ext.vscode").load_launchjs(nil, { dart = { "dart" } })
-
 require("dap").adapters.dart = {
   type = "executable",
   command = "flutter",
