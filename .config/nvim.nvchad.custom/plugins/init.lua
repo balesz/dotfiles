@@ -1,5 +1,9 @@
 return {
 
+  ["marklcrns/vim-smartq"] = {
+    disable = false,
+  },
+
   ["NvChad/nvim-colorizer.lua"] = {
     disable = true,
   },
