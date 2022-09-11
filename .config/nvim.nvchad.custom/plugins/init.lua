@@ -1,5 +1,16 @@
 return {
 
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = {
+      view = {
+        adaptive_size = false,
+        side = "left",
+        width = 45,
+        hide_root_folder = true,
+      },
+    }
+  },
+
   ["NvChad/ui"] = {
     override_options = {
       tabufline = {
