@@ -31,7 +31,7 @@ return {
             height = 0.8,
             border = "single",
           },
-          horizontal = { location = "rightbelow", split_ratio = 0.4 },
+          horizontal = { location = "rightbelow", split_ratio = 0.25 },
           vertical = { location = "rightbelow", split_ratio = 0.5 },
         }
       }
