@@ -68,9 +68,16 @@ return {
   },
 
   ["TimUntersberger/neogit"] = {
-    requires = 'nvim-lua/plenary.nvim',
+    requires = "nvim-lua/plenary.nvim",
     config = function ()
       require("neogit").setup {}
+    end
+  },
+
+  ["sindrets/diffview.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+    config = function ()
+      require("diffview").setup{}
     end
   },
 
