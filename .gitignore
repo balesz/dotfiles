@@ -4,6 +4,12 @@
 !.zshenv
 !.zlogin
 
+!/.local
+/.local/*
+!/.local/bin
+/.local/bin/*
+!/.local/bin/dotenv-setup.sh
+
 !/.config
 /.config/*
 !/.config/wezterm
