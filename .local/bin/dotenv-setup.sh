@@ -11,4 +11,5 @@ tar xvzf /tmp/go1.19.1.linux-amd64.tar.gz
 # Install Applications
 go install github.com/anmitsu/goful@latest
 go install github.com/jesseduffield/lazygit@latest
+go install github.com/go-task/task/v3/cmd/task@latest
 
