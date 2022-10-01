@@ -3,6 +3,7 @@
 !*-session.vim
 !.zshenv
 !.zlogin
+!.zprofile
 
 !/.local
 /.local/*
