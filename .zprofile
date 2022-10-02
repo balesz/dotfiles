@@ -1,10 +1,14 @@
 function nvim_env() {
- 
+
   # List environments
   if [[ $# == 0 ]] || [[ $1 == -l ]]; then
+    typeset environments=""
+    echo "Current environment:\n\t$(basename `readlink ~/.config/nvim`)"
     for i in $(ls -d ~/.config/nvim*); do
-      [ $(basename $i) != "nvim" ] && echo $(basename $i)
+      [ $(basename $i) != "nvim" ] && environments+=( `basename $i` )
     done
+    environments=$(echo $environments | sed "s/\s/, /g")
+    echo "Available environments:\n\t$environments"
     return 0
   fi
 
