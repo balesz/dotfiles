@@ -6,6 +6,8 @@ if not hasPacker then
   end
 end
 
-pcall(require, "plugins")
-pcall(require, "settings")
-
+if hasPacker then
+  pcall(require, "settings")
+  pcall(require, "plugins")
+  pcall(require, "keymaps")
+end
