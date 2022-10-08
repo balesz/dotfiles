@@ -19,3 +19,6 @@ map("n", "<S-TAB>", "<cmd>BufferPrevious<CR>", noremap)
 map("n", "<C-TAB>", "<cmd>BufferMoveNext<CR>", noremap)
 map("n", "<S-C-TAB>", "<cmd>BufferMovePrevious<CR>", noremap)
 
+-- terminal
+map("t", "<C-x>", "<C-\\><C-n>", noremap)
+
