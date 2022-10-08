@@ -1,4 +1,10 @@
-vim.cmd("colorscheme nordfox")
+-- ui
+vim.cmd[[
+  colorscheme nordfox
+  set guifont=FiraCode\ Nerd\ Font:h12
+  set laststatus=3
+  set noshowmode
+]]
 
 -- mouse
 vim.cmd[[
