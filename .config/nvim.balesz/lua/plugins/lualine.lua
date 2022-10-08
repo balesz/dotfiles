@@ -6,7 +6,7 @@ return {
   requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   config = function()
     require('lualine').setup {
-      options = { theme = 'gruvbox' }
+      options = { theme = 'nord' }
     }
   end
 }
