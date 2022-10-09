@@ -10,6 +10,7 @@ autocmd({"TermOpen"}, {
   callback = function()
     setlocal.number = false
     setlocal.relativenumber = false
+    vim.cmd 'startinsert'
   end
 })
 
