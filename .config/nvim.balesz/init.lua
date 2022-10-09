@@ -10,7 +10,6 @@ if not hasPacker then return end
 
 require 'settings'
 require 'keymaps'
-require 'autocommands'
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
@@ -23,6 +22,7 @@ require('packer').startup(function(use)
   require('features/bufferline').setup(use)
   require('features/editor').setup(use)
   require('features/syntax').setup(use)
+  require('features/terminal').setup(use)
   require('features/telescope').setup(use)
 
   use(require'plugins/rest-nvim')
