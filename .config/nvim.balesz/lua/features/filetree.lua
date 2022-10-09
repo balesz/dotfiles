@@ -6,6 +6,7 @@ M.setup = function(use)
   --
   use {
     'nvim-neo-tree/neo-tree.nvim',
+    disable = false,
     requires = {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons",
