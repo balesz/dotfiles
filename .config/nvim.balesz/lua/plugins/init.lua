@@ -3,21 +3,17 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-web-devicons'
 
-  -- User Interface
-  use(require'plugins/nightfox')
-  use(require'plugins/statusline')
-  use(require'plugins/bufferline')
+  require('plugins/colorscheme').setup(use)
+  require('plugins/filetree').setup(use)
+  require('plugins/statusline').setup(use)
+  require('plugins/bufferline').setup(use)
+  require('plugins/editor').setup(use)
+  
   use(require'plugins/telescope')
-
-  -- File Manager
-  use(require'plugins/filetree')
-
-  -- Editor
-  use(require'plugins/neoscroll')
-  use(require'plugins/indent-blankline')
+  use(require'plugins/rest-nvim')
+  use(require'plugins/nvim-treesitter')
 
   -- LSP / Autocompletion
-  use(require'plugins/nvim-treesitter')
   --use 'L3MON4D3/LuaSnip'
   --use 'williamboman/nvim-lsp-installer'
   --use 'neovim/nvim-lspconfig' 
@@ -29,9 +25,6 @@ require('packer').startup(function(use)
   --use 'hrsh7th/cmp-nvim-lua'
   --use 'saadparwaiz1/cmp_luasnip'
   --use { 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' }
-
-  -- Tools
-  use(require'plugins/rest-nvim')
 end)
 
 --
