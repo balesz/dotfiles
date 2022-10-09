@@ -5,12 +5,12 @@ require('packer').startup(function(use)
 
   -- User Interface
   use(require'plugins/nightfox')
-  use(require'plugins/lualine')
-  use(require'plugins/barbar')
+  use(require'plugins/statusline')
+  use(require'plugins/bufferline')
   use(require'plugins/telescope')
 
   -- File Manager
-  use(require'plugins/neo-tree')
+  use(require'plugins/filetree')
 
   -- Editor
   use(require'plugins/neoscroll')
