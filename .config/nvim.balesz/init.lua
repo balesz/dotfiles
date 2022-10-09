@@ -17,15 +17,15 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-web-devicons'
 
-  require('features.colorscheme').setup(use)
-  require('features.filetree').setup(use)
-  require('features.statusline').setup(use)
-  require('features.bufferline').setup(use)
-  require('features.editor').setup(use)
+  require('features/colorscheme').setup(use)
+  require('features/filetree').setup(use)
+  require('features/statusline').setup(use)
+  require('features/bufferline').setup(use)
+  require('features/editor').setup(use)
+  require('features/syntax').setup(use)
   require('features/telescope').setup(use)
-  
+
   use(require'plugins/rest-nvim')
-  use(require'plugins/nvim-treesitter')
 
   -- LSP / Autocompletion
   --use 'L3MON4D3/LuaSnip'
