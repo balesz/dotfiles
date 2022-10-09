@@ -22,7 +22,7 @@ require('packer').startup(function(use)
   require('features.statusline').setup(use)
   require('features.bufferline').setup(use)
   require('features.editor').setup(use)
-  use(require'features/telescope')
+  require('features/telescope').setup(use)
   
   use(require'plugins/rest-nvim')
   use(require'plugins/nvim-treesitter')
