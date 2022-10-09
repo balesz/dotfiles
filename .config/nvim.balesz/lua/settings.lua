@@ -1,5 +1,5 @@
 -- ui
-vim.cmd[[
+vim.cmd [[
   colorscheme nordfox
   set guifont=FiraCode\ Nerd\ Font:h12
   set laststatus=3
