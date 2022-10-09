@@ -10,4 +10,5 @@ if hasPacker then
   pcall(require, "settings")
   pcall(require, "plugins")
   pcall(require, "keymaps")
+  pcall(require, "autocommands")
 end
