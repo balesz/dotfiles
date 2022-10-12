@@ -1,4 +1,6 @@
 local hasPacker = pcall(require, "packer")
+local hasDevicons = pcall(require, 'nvim-web-devicons')
+
 if not hasPacker then
   local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -8,13 +10,12 @@ end
 
 if not hasPacker then return end
 
-require 'settings'
-require 'keymaps'
-
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-web-devicons'
+
+  if not hasDevicons then return end
 
   require('features/colorscheme').setup(use)
   require('features/filetree').setup(use)
@@ -24,7 +25,6 @@ require('packer').startup(function(use)
   require('features/syntax').setup(use)
   require('features/terminal').setup(use)
   require('features/telescope').setup(use)
-
   use(require'plugins/rest-nvim')
 
   -- LSP / Autocompletion
@@ -40,6 +40,10 @@ require('packer').startup(function(use)
   --use 'saadparwaiz1/cmp_luasnip'
   --use { 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' }
 end)
+
+require 'settings'
+
+require 'keymaps'
 
 --
 --
