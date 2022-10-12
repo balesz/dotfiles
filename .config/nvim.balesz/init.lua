@@ -1,20 +1,23 @@
-local hasPacker = pcall(require, 'packer')
-
-if not hasPacker then
-  local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local ensure_packer = function()
+  local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+    vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
   end
+  return false
 end
 
-if not hasPacker then
-  vim.cmd 'exit'
-end
+local packer_bootstrap = ensure_packer()
 
-local function setupFactory(use)
+local function setup_factory(use)
   return function(package)
     local ok, pkg = pcall(require, package)
-    if not ok then return else pkg.setup(use) end
+    if not ok then
+      print(package .. " not found")
+    else
+      pcall(pkg.setup, use)
+    end
   end
 end
 
@@ -22,7 +25,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-web-devicons'
-  local setup = setupFactory(use)
+  local setup = setup_factory(use)
   setup('features/autocompletion')
   setup('features/bufferline')
   setup('features/colorscheme')
@@ -36,4 +39,7 @@ require('packer').startup(function(use)
   setup('features/telescope')
   setup('features/terminal')
   setup('plugins')
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
