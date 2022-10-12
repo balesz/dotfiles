@@ -12,6 +12,13 @@ function nvim_env() {
     return 0
   fi
 
+  # Reset environment
+  if [[ $1 == -r ]] && [[ -d ~/.config/nvim.$2 ]]; then
+    echo "Reseting environment: $2"
+    rm -rf ~/.cache/nvim.$2/* ~/.local/share/nvim.$2/* ~/.local/state/nvim.$2/*
+    return
+  fi
+
   # Delete environment
   if [[ $1 == -d ]] && [[ -d ~/.config/nvim.$2 ]]; then
     echo "Deleting environment: $2"
