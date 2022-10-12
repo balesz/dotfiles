@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function(use)
+function M.setup(use)
   --
   -- https://github.com/lukas-reineke/indent-blankline.nvim
   --
@@ -26,5 +26,16 @@ M.setup = function(use)
     end
   }
 end
+
+vim.cmd [[
+  set tabstop=2
+  set shiftwidth=2
+  set smarttab
+  set autoindent
+  set smartindent
+  set expandtab
+  set number
+  set wrap
+]]
 
 return M

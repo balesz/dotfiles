@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function(use) 
+function M.setup(use)
   --
   -- https://github.com/nvim-neo-tree/neo-tree.nvim
   --

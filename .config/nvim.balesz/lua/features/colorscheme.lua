@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function(use)
+function M.setup(use)
   --
   -- https://github.com/EdenEast/nightfox.nvim
   --
@@ -11,5 +11,13 @@ M.setup = function(use)
     end
   }
 end
+
+if pcall(require, 'nightfox') then
+  vim.cmd 'colorscheme nordfox'
+end
+
+vim.cmd [[
+  set guifont=FiraCode\ Nerd\ Font:h12
+]]
 
 return M

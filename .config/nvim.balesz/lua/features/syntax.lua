@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function(use)
+function M.setup(use)
   --
   -- https://github.com/nvim-treesitter/nvim-treesitter
   --
@@ -9,7 +9,7 @@ M.setup = function(use)
     run = ':TSUpdate',
     config = function()
       require'nvim-treesitter.configs'.setup {
-        ensure_installed = { "rust", "javascript", "typescript", "tsx", "http", "json", "lua", "make", "go", "dart", "proto", "dockerfile", "java", "kotlin", "markdown", "markdown_inline", "regex", "toml", "yaml", "help" },
+        ensure_installed = { "http", "json", "lua", "make", "go", "dart", "proto", "dockerfile", "markdown", "markdown_inline", "regex", "toml", "yaml", "help" },
         ignore_install = {},
         sync_install = true,
         auto_install = true,

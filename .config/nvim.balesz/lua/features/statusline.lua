@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function(use)
+function M.setup(use)
   --
   -- https://github.com/nvim-lualine/lualine.nvim
   --
@@ -14,5 +14,10 @@ M.setup = function(use)
     end
   }
 end
+
+vim.cmd [[
+  set laststatus=3
+  set noshowmode
+]]
 
 return M
