@@ -16,8 +16,11 @@ if pcall(require, 'nightfox') then
   vim.cmd 'colorscheme nordfox'
 end
 
-vim.cmd [[
-  set guifont=FiraCode\ Nerd\ Font:h12
-]]
+local font = "FiraCode Nerd Font:h12"
+if os.getenv("WSL_DISTRO_NAME") ~= "" then
+  font = "FiraCode NF:h12"
+end
+
+vim.opt_global.guifont = font
 
 return M
