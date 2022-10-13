@@ -3,8 +3,7 @@ local M = {}
 function M.setup(use)
 end
 
-vim.cmd[[
-]]
+vim.g.mapleader = "<Space>"
 
 vim.api.nvim_set_keymap("", "<C-h>", "<HOME>", {noremap=true})
 vim.api.nvim_set_keymap("", "<C-l>", "<END>", {noremap=true})
