@@ -26,12 +26,11 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-web-devicons'
   local setup = setup_factory(use)
+  setup('features/appearance')
   setup('features/autocompletion')
   setup('features/bufferline')
-  setup('features/colorscheme')
   setup('features/editor')
   setup('features/filetree')
-  setup('features/layout')
   setup('features/mouse')
   setup('features/neovim')
   setup('features/statusline')
