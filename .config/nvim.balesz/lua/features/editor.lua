@@ -28,6 +28,7 @@ function M.setup(use)
 end
 
 vim.cmd [[
+  set clipboard=unnamed
   set tabstop=2
   set shiftwidth=2
   set smarttab
