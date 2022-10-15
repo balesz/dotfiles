@@ -22,7 +22,7 @@ end
 
 vim.api.nvim_set_keymap("n", "<TAB>", "<cmd>BufferNext<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<S-TAB>", "<cmd>BufferPrevious<CR>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<C-TAB>", "<cmd>echo 'Hello World'", {noremap=true})
+vim.api.nvim_set_keymap("n", "<C-TAB>", "<cmd>BufferMoveNext<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<S-C-TAB>", "<cmd>BufferMovePrevious<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "x", "<cmd>BufferDelete<CR>", {noremap=true})
 
