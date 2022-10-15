@@ -2,6 +2,13 @@ local M = {}
 local map = vim.api.nvim_set_keymap
 
 function M.setup(use)
+  use {
+    "folke/which-key.nvim",
+    disable = false,
+    config = function()
+      require("which-key").setup {}
+    end
+  }
 end
 
 vim.g.mapleader = " "
