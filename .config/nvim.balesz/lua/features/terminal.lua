@@ -1,4 +1,5 @@
 local M = {}
+local map = vim.api.nvim_set_keymap
 
 function M.setup(use)
   --
@@ -13,7 +14,10 @@ function M.setup(use)
   }
 end
 
-vim.api.nvim_set_keymap("t", "<C-x>", "<C-\\><C-n>", {noremap=true})
+map("", "<Leader><A-f>", "<Cmd>ToggleTerm direction=float<CR>", {noremap=true})
+map("", "<Leader><A-h>", "<Cmd>ToggleTerm size=16 direction=horizontal<CR>", {noremap=true})
+map("", "<Leader><A-v>", "<Cmd>ToggleTerm size=80 direction=vertical<CR>", {noremap=true})
+map("t", "<C-x>", "<C-\\><C-n>", {noremap=true})
 
 vim.api.nvim_create_augroup("BaleszTerminal", {clear=true})
 vim.api.nvim_create_autocmd({"TermOpen"}, {
