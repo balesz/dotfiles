@@ -3,10 +3,8 @@ local M = {}
 function M.setup(use)
 end
 
-vim.cmd [[
-  set splitbelow
-  set splitright
-  set equalalways!
-]]
+vim.opt_global.splitbelow = true
+vim.opt_global.splitright = true
+vim.opt_global.equalalways = true
 
 return M

@@ -15,9 +15,7 @@ function M.setup(use)
   }
 end
 
-vim.cmd [[
-  set laststatus=3
-  set noshowmode
-]]
+vim.opt_global.laststatus = 3
+vim.opt_global.showmode = false
 
 return M

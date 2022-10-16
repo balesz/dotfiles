@@ -3,8 +3,6 @@ local M = {}
 function M.setup(use)
 end
 
-vim.cmd[[
-  set mouse=a
-]]
+vim.opt_global.mouse = "a"
 
 return M
