@@ -1,5 +1,4 @@
 local M = {}
-local map = vim.api.nvim_set_keymap
 
 function M.setup(use)
   --
@@ -35,6 +34,8 @@ function M.setup(use)
     end
   }
 end
+
+local map = vim.api.nvim_set_keymap
 
 map("", "<Leader><A-n>", "<Cmd>NeoTreeShow<CR>", {noremap=true})
 

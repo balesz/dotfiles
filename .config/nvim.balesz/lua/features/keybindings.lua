@@ -1,5 +1,4 @@
 local M = {}
-local map = vim.api.nvim_set_keymap
 
 function M.setup(use)
   use {
@@ -12,6 +11,8 @@ function M.setup(use)
 end
 
 vim.g.mapleader = " "
+
+local map = vim.api.nvim_set_keymap
 
 map("n", "q", "<cmd>quit<CR>", {noremap=true})
 map("n", "<Esc>", "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>", {noremap=true})
