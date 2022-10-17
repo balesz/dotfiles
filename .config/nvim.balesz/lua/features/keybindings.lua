@@ -17,15 +17,15 @@ vim.api.nvim_set_keymap("n", "<Esc>", "<Cmd>nohlsearch|diffupdate|normal! <C-L><
 vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>w!<CR>", {noremap=true})
 vim.api.nvim_set_keymap("v", "<C-h>", "y:help <C-R>\"<CR>", {noremap=true})
 
-vim.api.nvim_set_keymap("n", "<A-h>", "<C-w><Left>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<A-l>", "<C-w><Right>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<A-j>", "<C-w><Down>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<A-k>", "<C-w><Up>", {noremap=true})
+vim.api.nvim_set_keymap("", "<A-h>", "<Home>", {noremap=true})
+vim.api.nvim_set_keymap("", "<A-l>", "<End>", {noremap=true})
+vim.api.nvim_set_keymap("", "<A-j>", "<PageDown>", {noremap=true})
+vim.api.nvim_set_keymap("", "<A-k>", "<PageUp>", {noremap=true})
 
-vim.api.nvim_set_keymap("n", "<C-h>", "<Home>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<C-l>", "<End>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<C-j>", "<PageDown>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<C-k>", "<PageUp>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w><Left>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w><Right>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w><Down>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w><Up>", {noremap=true})
 
 vim.api.nvim_set_keymap("i", "<A-h>", "<Home>", {noremap=true})
 vim.api.nvim_set_keymap("i", "<A-l>", "<End>", {noremap=true})

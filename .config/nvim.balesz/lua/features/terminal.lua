@@ -24,9 +24,9 @@ vim.api.nvim_create_autocmd({"TermOpen"}, {
   end
 })
 
-vim.api.nvim_set_keymap("", "<Leader><A-f>", "<Cmd>ToggleTerm direction=float<CR>", {noremap=true})
-vim.api.nvim_set_keymap("", "<Leader><A-h>", "<Cmd>ToggleTerm size=16 direction=horizontal<CR>", {noremap=true})
-vim.api.nvim_set_keymap("", "<Leader><A-v>", "<Cmd>ToggleTerm size=80 direction=vertical<CR>", {noremap=true})
+vim.api.nvim_set_keymap("", "<Leader>ti", "<Cmd>ToggleTerm direction=float<CR>", {noremap=true})
+vim.api.nvim_set_keymap("", "<Leader>th", "<Cmd>ToggleTerm size=16 direction=horizontal<CR>", {noremap=true})
+vim.api.nvim_set_keymap("", "<Leader>tv", "<Cmd>ToggleTerm size=80 direction=vertical<CR>", {noremap=true})
 vim.api.nvim_set_keymap("t", "<C-x>", "<C-\\><C-n>", {noremap=true})
 
 return M

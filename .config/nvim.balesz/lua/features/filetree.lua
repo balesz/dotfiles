@@ -35,6 +35,6 @@ function M.setup(use)
   }
 end
 
-vim.api.nvim_set_keymap("", "<Leader><A-t>", "<Cmd>NeoTreeShow<CR>", {noremap=true})
+vim.api.nvim_set_keymap("", "<Leader>tt", "<Cmd>NeoTreeShow<CR>", {noremap=true})
 
 return M
