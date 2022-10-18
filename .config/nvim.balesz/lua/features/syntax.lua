@@ -16,9 +16,18 @@ function M.setup(use)
         highlight = {
           enable = true,
           disable = {},
-          additional_vim_regex_highlighting = false,
+          additional_vim_regex_highlighting = { "makefile" },
         },
       }
+    end
+  }
+  --
+  -- https://github.com/nvim-treesitter/playground
+  --
+  use {
+    'nvim-treesitter/playground',
+    config = function()
+      require'nvim-treesitter.configs'.setup {}
     end
   }
 end
