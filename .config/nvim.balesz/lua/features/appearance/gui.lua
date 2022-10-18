@@ -10,6 +10,6 @@ if os.getenv("WSL_DISTRO_NAME") ~= "" then
   font = "JetBrainsMono NF:h11"
 end
 
-vim.opt_global.guifont = font
+vim.opt.guifont = font
 
 return M

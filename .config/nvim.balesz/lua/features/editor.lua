@@ -34,14 +34,14 @@ vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "eol:↴"
 
-vim.opt_global.clipboard = "unnamed"
-vim.opt_global.tabstop=2
-vim.opt_global.shiftwidth=2
-vim.opt_global.smarttab = true
-vim.opt_global.autoindent = true
-vim.opt_global.smartindent = true
-vim.opt_global.expandtab = true
-vim.opt_global.number = true
-vim.opt_global.wrap = true
+vim.opt.clipboard = "unnamed"
+vim.opt.tabstop=2
+vim.opt.shiftwidth=2
+vim.opt.smarttab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.number = true
+vim.opt.wrap = true
 
 return M
