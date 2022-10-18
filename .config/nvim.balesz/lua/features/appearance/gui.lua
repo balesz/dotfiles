@@ -3,13 +3,13 @@ local M = {}
 function M.setup(use)
 end
 
---local font = "FiraCode Nerd Font:h11"
-local font = "JetBrainsMono Nerd Font:h11"
+local font = ""
+font = "FiraCode Nerd Font"
+font = "JetBrainsMono Nerd Font"
 if os.getenv("WSL_DISTRO_NAME") ~= "" then
-  --font = "FiraCode NF:h11"
-  font = "JetBrainsMono NF:h11"
+  font = font:gsub("Nerd Font", "NF")
 end
 
-vim.opt.guifont = font
+vim.opt.guifont = font .. ":h11"
 
 return M
