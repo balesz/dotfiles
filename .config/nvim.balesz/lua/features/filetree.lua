@@ -35,6 +35,6 @@ function M.setup(use)
   }
 end
 
-vim.keymap.set("", "<Leader>tt", "<Cmd>NeoTreeShow<CR>", {noremap=true})
+vim.keymap.set("", "<Leader>tt", "<Cmd>NeoTreeFocus<CR>", {noremap=true})
 
 return M
