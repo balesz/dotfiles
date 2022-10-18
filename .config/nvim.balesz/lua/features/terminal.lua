@@ -27,7 +27,9 @@ vim.api.nvim_create_autocmd({"TermClose"}, {
   pattern = "*",
   group = "BaleszTerminal",
   callback = function()
-    require'features/bufferline'.close()
+    local ok, bufferline = pcall(require, "features/bufferline")
+    if not ok then return end
+    pcall(bufferline.close)
   end
 })
 
