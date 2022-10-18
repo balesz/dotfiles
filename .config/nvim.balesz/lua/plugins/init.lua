@@ -4,8 +4,6 @@ function M.setup(use)
   use(require'plugins/rest-nvim')
   -- LSP / Autocompletion
   --use 'L3MON4D3/LuaSnip'
-  --use 'williamboman/nvim-lsp-installer'
-  --use 'neovim/nvim-lspconfig' 
   --use { 'hrsh7th/nvim-cmp', config = require'plugins/nvim-cmp' }
   --use 'hrsh7th/cmp-nvim-lsp'
   --use 'hrsh7th/cmp-buffer'
@@ -29,9 +27,6 @@ return M
 -- https://github.com/ghillb/cybu.nvim
 -- https://github.com/sindrets/winshift.nvim
 -- https://github.com/petertriho/nvim-scrollbar
---
--- ## File Manager 
--- https://github.com/kyazdani42/nvim-tree.lua
 --
 -- ## Editor
 -- https://github.com/mg979/vim-visual-multi
