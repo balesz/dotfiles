@@ -13,7 +13,14 @@ function M.setup(use)
       "MunifTanjim/nui.nvim",
     },
     config = function()
-      require('neo-tree').setup {} 
+      require('neo-tree').setup {
+        filesystem = {
+          follow_current_file = true,
+        },
+        buffers = {
+          follow_current_file = true,
+        },
+      } 
     end
   }
   --
@@ -32,7 +39,7 @@ function M.setup(use)
         }
       }
     end
-  }
+   }
 end
 
 vim.keymap.set("", "<Leader>tt", "<Cmd>NeoTreeFocus<CR>", {noremap=true})
