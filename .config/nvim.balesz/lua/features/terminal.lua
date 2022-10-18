@@ -23,6 +23,13 @@ vim.api.nvim_create_autocmd({"TermOpen"}, {
     vim.cmd 'startinsert'
   end
 })
+vim.api.nvim_create_autocmd({"TermClose"}, {
+  pattern = "*",
+  group = "BaleszTerminal",
+  callback = function()
+    require'features/bufferline'.close()
+  end
+})
 
 vim.keymap.set("", "<Leader>ti", "<Cmd>ToggleTerm direction=float<CR>", {noremap=true})
 vim.keymap.set("", "<Leader>th", "<Cmd>ToggleTerm size=16 direction=horizontal<CR>", {noremap=true})

@@ -20,6 +20,10 @@ function M.setup(use)
   }
 end
 
+function M.close()
+  vim.cmd 'BufferClose'
+end
+
 vim.keymap.set("n", "<TAB>", "<cmd>BufferNext<CR>", {noremap=true})
 vim.keymap.set("n", "<S-TAB>", "<cmd>BufferPrevious<CR>", {noremap=true})
 vim.keymap.set("n", "<C-TAB>", "<cmd>BufferMoveNext<CR>", {noremap=true})
