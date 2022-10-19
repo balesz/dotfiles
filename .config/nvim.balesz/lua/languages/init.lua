@@ -1,23 +1,10 @@
 local M = {}
 
 function M.setup(use)
-  --
-  -- https://github.com/williamboman/mason.nvim
-  --
-  use {
-    "williamboman/mason.nvim",
-  }
-  --
-  -- https://github.com/neovim/nvim-lspconfig
-  --
-  use {
-    "neovim/nvim-lspconfig",
-  }
-  --
-  -- https://github.com/williamboman/mason-lspconfig.nvim
-  --
   use {
     "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
     config = function()
       require("mason").setup {}
       require("mason-lspconfig").setup {
@@ -27,6 +14,9 @@ function M.setup(use)
   }
 end
 
-require'languages/lua'
+vim.keymap.set("n", "<Leader>lf", vim.lsp.buf.format, { desc = "Lsp - Format" })
+vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover, { desc = "Lsp - Hover" })
+
+require 'languages/lua'
 
 return M
