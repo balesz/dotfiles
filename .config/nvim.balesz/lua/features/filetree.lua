@@ -20,7 +20,7 @@ function M.setup(use)
         buffers = {
           follow_current_file = true,
         },
-      } 
+      }
     end
   }
   --
