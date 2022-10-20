@@ -2,9 +2,15 @@ local M = {}
 
 function M.setup(use)
   use {
-    "williamboman/mason-lspconfig.nvim",
-    "williamboman/mason.nvim",
     "neovim/nvim-lspconfig",
+  }
+
+  use {
+    "williamboman/mason.nvim",
+  }
+
+  use {
+    "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason").setup {}
       require("mason-lspconfig").setup {
