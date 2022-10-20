@@ -14,6 +14,7 @@ rm /tmp/go${GO_VERION}.linux-amd64.tar.gz
 # Install Applications
 go install github.com/anmitsu/goful@latest
 go install github.com/jesseduffield/lazygit@latest
+go install github.com/jesseduffield/lazydocker@latest
 go install github.com/go-task/task/v3/cmd/task@latest
 go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
 
