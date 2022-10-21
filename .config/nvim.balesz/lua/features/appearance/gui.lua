@@ -11,5 +11,6 @@ if os.getenv("WSL_DISTRO_NAME") ~= "" then
 end
 
 vim.opt.guifont = font .. ":h11"
+vim.opt.guicursor = "n-v-c-sm:block-lCursor,i-ci-ve:ver25-lCursor,r-cr-o:hor25-lCursor"
 
 return M
