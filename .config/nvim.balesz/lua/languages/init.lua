@@ -21,6 +21,7 @@ function M.setup(use)
 end
 
 require 'languages/lua'
+require 'languages/dart'
 
 vim.api.nvim_create_augroup("BaleszLsp", { clear = true })
 vim.api.nvim_create_autocmd("LspAttach", {
