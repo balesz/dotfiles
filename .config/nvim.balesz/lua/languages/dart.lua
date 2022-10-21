@@ -8,12 +8,15 @@ if not ok then return end
 --
 
 lspconfig.dartls.setup {
+  workspace_folders = {
+    { uri = "file:///home/balesz/fvm/versions/3.0.5/packages/flutter", name = "framework" },
+  },
   init_options = {
-    closingLabels = true,
-    flutterOutline = true,
-    onlyAnalyzeProjectsWithOpenFiles = false,
-    outline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
     suggestFromUnimportedLibraries = true,
+    closingLabels = true,
+    outline = true,
+    flutterOutline = true,
   },
   settings = {
     dart = {
