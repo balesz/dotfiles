@@ -2,6 +2,10 @@ local ok, lspconfig = pcall(require, 'lspconfig')
 
 if not ok then return end
 
+--
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
+--
+
 lspconfig.sumneko_lua.setup {
   settings = {
     Lua = {
