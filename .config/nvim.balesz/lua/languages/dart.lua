@@ -1,4 +1,4 @@
-local ok, lspconfig = pcall(require, 'lspconfig')
+local ok, lspconfig = pcall(require, "lspconfig")
 
 if not ok then return end
 
@@ -8,9 +8,6 @@ if not ok then return end
 --
 
 lspconfig.dartls.setup {
-  workspace_folders = {
-    { uri = "file:///home/balesz/fvm/versions/3.0.5/packages/flutter", name = "framework" },
-  },
   init_options = {
     onlyAnalyzeProjectsWithOpenFiles = true,
     suggestFromUnimportedLibraries = true,
