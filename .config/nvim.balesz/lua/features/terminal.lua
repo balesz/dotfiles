@@ -5,8 +5,15 @@ function M.setup(use)
     "akinsho/toggleterm.nvim",
     tag = "*",
     config = function()
-      require("toggleterm").setup {}
+      require("toggleterm").setup {
+        persist_mode = false, persist_size = false,
+        close_on_exit = true,
+      }
     end
+  }
+  use {
+    "voldikss/vim-floaterm",
+    disable = false,
   }
 end
 
@@ -48,9 +55,20 @@ local float = toggleterm.Terminal:new {
   hidden = true,
 }
 
-vim.keymap.set("", "<Leader>th", function() horizontal:toggle(vim.o.lines * 0.3) end)
-vim.keymap.set("", "<Leader>tv", function() vertical:toggle(vim.o.columns * 0.3) end)
-vim.keymap.set("", "<Leader>tf", function() float:toggle() end)
 vim.keymap.set("t", "<C-x>", "<C-\\><C-n>")
+
+vim.keymap.set("", "<Leader>th", function()
+  vertical:close()
+  horizontal:toggle(vim.o.lines * 0.3)
+end)
+
+vim.keymap.set("", "<Leader>tv", function()
+  horizontal:close()
+  vertical:toggle(vim.o.columns * 0.3)
+end)
+
+vim.keymap.set("", "<Leader>tf", function()
+  float:toggle()
+end)
 
 return M
