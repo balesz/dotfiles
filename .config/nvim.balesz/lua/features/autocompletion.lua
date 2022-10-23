@@ -38,6 +38,12 @@ function M.setup(use)
   end }
 end
 
+function M.getCapabilities()
+  local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+  if not ok then return nil end
+  return cmp_nvim_lsp.default_capabilities()
+end
+
 vim.opt.completeopt = "menu,menuone,noselect"
 
 return M

@@ -1,12 +1,12 @@
 local ok, lspconfig = pcall(require, "lspconfig")
-
 if not ok then return end
 
---
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
---
+local capabilities
+local okCmp, autocompletion = pcall(require, "features/autocompletion")
+if okCmp then capabilities = autocompletion.getCapabilities() end
 
 lspconfig.sumneko_lua.setup {
+  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
