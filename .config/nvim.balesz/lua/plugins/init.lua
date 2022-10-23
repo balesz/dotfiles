@@ -2,16 +2,6 @@ local M = {}
 
 function M.setup(use)
   use(require'plugins/rest-nvim')
-  -- LSP / Autocompletion
-  --use 'L3MON4D3/LuaSnip'
-  --use { 'hrsh7th/nvim-cmp', config = require'plugins/nvim-cmp' }
-  --use 'hrsh7th/cmp-nvim-lsp'
-  --use 'hrsh7th/cmp-buffer'
-  --use 'hrsh7th/cmp-path'
-  --use 'hrsh7th/cmp-cmdline'
-  --use 'hrsh7th/cmp-nvim-lua'
-  --use 'saadparwaiz1/cmp_luasnip'
-  --use { 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' }
 end
 
 return M
@@ -46,9 +36,4 @@ return M
 -- https://github.com/tpope/vim-fugitive
 -- https://github.com/lewis6991/gitsigns.nvim
 -- https://github.com/axkirillov/telescope-changed-files
---
--- ## Terminal
--- https://github.com/voldikss/vim-floaterm
--- https://github.com/akinsho/toggleterm.nvim
--- https://github.com/hkupty/nvimux
 --
