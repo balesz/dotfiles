@@ -5,10 +5,10 @@ function M.setup(use)
   -- https://github.com/romgrk/barbar.nvim
   --
   use {
-    'romgrk/barbar.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
+    "romgrk/barbar.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require('bufferline').setup {
+      require("bufferline").setup {
         animation = true,
         auto_hide = false,
         tabpages = true,
@@ -21,13 +21,13 @@ function M.setup(use)
 end
 
 function M.close()
-  vim.cmd 'BufferClose'
+  vim.cmd "BufferClose"
 end
 
-vim.keymap.set("n", "<TAB>", "<cmd>BufferNext<CR>", {noremap=true})
-vim.keymap.set("n", "<S-TAB>", "<cmd>BufferPrevious<CR>", {noremap=true})
-vim.keymap.set("n", "<C-TAB>", "<cmd>BufferMoveNext<CR>", {noremap=true})
-vim.keymap.set("n", "<S-C-TAB>", "<cmd>BufferMovePrevious<CR>", {noremap=true})
-vim.keymap.set("n", "x", "<cmd>BufferDelete<CR>", {noremap=true})
+vim.keymap.set("n", "<TAB>", "<cmd>BufferNext<CR>")
+vim.keymap.set("n", "<S-TAB>", "<cmd>BufferPrevious<CR>")
+vim.keymap.set("n", "<Leader>t<TAB>", "<cmd>BufferMoveNext<CR>")
+vim.keymap.set("n", "<Leader>t<S-TAB>", "<cmd>BufferMovePrevious<CR>")
+vim.keymap.set("n", "x", "<cmd>BufferDelete<CR>")
 
 return M
