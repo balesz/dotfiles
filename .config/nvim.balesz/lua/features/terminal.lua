@@ -8,10 +8,6 @@ function M.setup(use)
       require("toggleterm").setup {}
     end
   }
-  use {
-    "voldikss/vim-floaterm",
-    disable = true,
-  }
 end
 
 vim.api.nvim_create_augroup("BaleszTerminal", {})
@@ -34,13 +30,27 @@ vim.api.nvim_create_autocmd({ "TermClose" }, {
   end
 })
 
-local floating = "<Cmd>ToggleTerm direction=float<CR>"
-local horizontal = "<Cmd>ToggleTerm size=16 direction=horizontal<CR>"
-local vertical = "<Cmd>ToggleTerm size=80 direction=vertical<CR>"
+local ok, toggleterm = pcall(require, "toggleterm.terminal")
+if not ok then return end
 
-vim.keymap.set("", "<Leader>ti", floating)
-vim.keymap.set("", "<Leader>th", horizontal)
-vim.keymap.set("", "<Leader>tv", vertical)
+local horizontal = toggleterm.Terminal:new {
+  direction = "horizontal",
+  hidden = true,
+}
+
+local vertical = toggleterm.Terminal:new {
+  direction = "vertical",
+  hidden = true,
+}
+
+local float = toggleterm.Terminal:new {
+  direction = "float",
+  hidden = true,
+}
+
+vim.keymap.set("", "<Leader>th", function() horizontal:toggle(vim.o.lines * 0.3) end)
+vim.keymap.set("", "<Leader>tv", function() vertical:toggle(vim.o.columns * 0.3) end)
+vim.keymap.set("", "<Leader>tf", function() float:toggle() end)
 vim.keymap.set("t", "<C-x>", "<C-\\><C-n>")
 
 return M
