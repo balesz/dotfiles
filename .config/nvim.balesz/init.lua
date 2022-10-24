@@ -1,7 +1,9 @@
 local ensure_packer = function()
-  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+  local install_path = vim.fn.stdpath("data") ..
+      "/site/pack/packer/start/packer.nvim"
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    vim.fn.system({ "git", "clone", "--depth", "1",
+      "https://github.com/wbthomason/packer.nvim", install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -21,26 +23,26 @@ local function setup_factory(use)
   end
 end
 
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'kyazdani42/nvim-web-devicons'
+require("packer").startup(function(use)
+  use "wbthomason/packer.nvim"
+  use "nvim-lua/plenary.nvim"
+  use "kyazdani42/nvim-web-devicons"
   local setup = setup_factory(use)
-  setup('features/keybindings')
-  setup('features/appearance')
-  setup('features/autocompletion')
-  setup('features/bufferline')
-  setup('features/editor')
-  setup('features/filetree')
-  setup('features/git')
-  setup('features/mouse')
-  setup('features/statusline')
-  setup('features/syntax')
-  setup('features/telescope')
-  setup('features/terminal')
-  setup('languages')
-  setup('plugins')
+  setup("features/keybindings")
+  setup("features/appearance")
+  setup("features/autocompletion")
+  setup("features/bufferline")
+  setup("features/editor")
+  setup("features/filetree")
+  setup("features/git")
+  setup("features/languages")
+  setup("features/mouse")
+  setup("features/statusline")
+  setup("features/syntax")
+  setup("features/telescope")
+  setup("features/terminal")
+  setup("plugins")
   if packer_bootstrap then
-    require('packer').sync()
+    require("packer").sync()
   end
 end)
