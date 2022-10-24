@@ -22,17 +22,26 @@ function M.setup(use)
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
+      completion = {
+        autocomplete = false,
+      },
       mapping = cmp.mapping.preset.insert({
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<A-j>"] = cmp.mapping.scroll_docs(-4),
+        ["<A-k>"] = cmp.mapping.scroll_docs(4),
+        ["<C-h>"] = cmp.mapping.abort(),
+        ["<C-l>"] = cmp.mapping.confirm({ select = true }),
+        ["<ESC>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
+      }, {
+        { name = "buffer" },
       }),
     }
   end }
@@ -44,6 +53,6 @@ function M.getCapabilities()
   return cmp_nvim_lsp.default_capabilities()
 end
 
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noinsert,noselect,preview"
 
 return M
