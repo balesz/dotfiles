@@ -6,9 +6,9 @@ function M.setup(use)
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-buffer"
-  --use 'hrsh7th/cmp-path'
-  --use 'hrsh7th/cmp-cmdline'
-  --use { 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' }
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use { "petertriho/cmp-git", requires = "nvim-lua/plenary.nvim" }
   use { "hrsh7th/nvim-cmp", config = function()
     local ok, cmp = pcall(require, "cmp")
     if not ok then return end
@@ -44,13 +44,31 @@ function M.setup(use)
         { name = "buffer" },
       }),
     }
-  end }
-end
 
-function M.getCapabilities()
-  local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-  if not ok then return nil end
-  return cmp_nvim_lsp.default_capabilities()
+    cmp.setup.filetype("gitcommit", {
+      sources = cmp.config.sources({
+        { name = "cmp_git" },
+      }, {
+        { name = "buffer" },
+      })
+    })
+
+    cmp.setup.cmdline("/", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" }
+      }
+    })
+
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" }
+      }, {
+        { name = "cmdline" }
+      })
+    })
+  end }
 end
 
 vim.opt.completeopt = "menu,menuone,noinsert,noselect,preview"
