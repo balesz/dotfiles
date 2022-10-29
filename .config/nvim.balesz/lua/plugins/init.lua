@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup(use)
-  use(require'plugins/rest-nvim')
+  require("plugins/rest-nvim").setup(use)
 end
 
 return M
