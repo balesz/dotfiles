@@ -44,7 +44,7 @@ function M.setup(use)
   }
 end
 
-vim.keymap.set("", "<Leader>tt", "<Cmd>NeoTreeFocus<CR>")
+vim.keymap.set("", "<Leader>ft", "<Cmd>NeoTreeFocus<CR>", { desc = "Open Neo-tree" })
 
 if ok_terminal then
   local goful = toggleterm.Terminal:new {
