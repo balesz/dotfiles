@@ -1,8 +1,8 @@
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
-local okCmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-local capabilities = okCmp and cmp_nvim_lsp.default_capabilities() or nil
+local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local capabilities = ok_cmp and cmp_nvim_lsp.default_capabilities() or nil
 
 lspconfig.sumneko_lua.setup {
   capabilities = capabilities,

@@ -1,8 +1,8 @@
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
-local okCmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-local capabilities = okCmp and cmp_nvim_lsp.default_capabilities() or nil
+local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local capabilities = ok_cmp and cmp_nvim_lsp.default_capabilities() or nil
 
 --
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
@@ -24,6 +24,7 @@ lspconfig.dartls.setup {
       enableSdkFormatter = true,
       lineLength = 120,
       showTodos = true,
+      analysisExcludedFolders = {},
     }
   }
 }
