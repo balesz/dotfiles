@@ -18,10 +18,9 @@ function M.setup(use)
       }
     end
   }
+  require("languages/dart").setup(use)
+  require("languages/lua").setup(use)
 end
-
-require 'languages/lua'
-require 'languages/dart'
 
 vim.api.nvim_create_augroup("BaleszLsp", {})
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -39,7 +38,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       { buffer = args.buf, desc = "Hover" })
     vim.keymap.set("n", "<Leader>lr", vim.lsp.buf.rename,
       { buffer = args.buf, desc = "Rename" })
- end
+  end
 })
 
 return M
