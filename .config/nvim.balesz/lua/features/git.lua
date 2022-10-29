@@ -1,5 +1,7 @@
 local M = {}
 
+local ok_terminal, toggleterm = pcall(require, "toggleterm.terminal")
+
 function M.setup(use)
   --
   -- https://github.com/lewis6991/gitsigns.nvim
@@ -12,18 +14,17 @@ function M.setup(use)
   }
 end
 
-local ok, toggleterm = pcall(require, "toggleterm.terminal")
-if not ok then return end
+if ok_terminal then
+  local lazygit = toggleterm.Terminal:new {
+    cmd = "lazygit",
+    direction = "float",
+    close_on_exit = true,
+    hidden = true,
+  }
 
-local lazygit = toggleterm.Terminal:new {
-  cmd = "lazygit",
-  direction = "float",
-  close_on_exit = true,
-  hidden = true,
-}
-
-vim.keymap.set("", "<Leader>gl", function()
-  lazygit:toggle()
-end, { desc = "Open layzgit" })
+  vim.keymap.set("", "<Leader>gl", function()
+    lazygit:toggle()
+  end, { desc = "Open layzgit" })
+end
 
 return M
