@@ -16,7 +16,7 @@ local function setup_factory(use)
   return function(package)
     local ok, pkg = pcall(require, package)
     if not ok then
-      print(package .. " not found")
+      vim.notify(package .. " not found", vim.log.levels.WARN)
     else
       pcall(pkg.setup, use)
     end
