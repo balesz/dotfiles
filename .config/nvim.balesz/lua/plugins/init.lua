@@ -31,9 +31,3 @@ return M
 -- ## Tools
 -- https://github.com/akinsho/flutter-tools.nvim
 --
--- ## Git
--- https://github.com/kdheepak/lazygit.nvim
--- https://github.com/tpope/vim-fugitive
--- https://github.com/lewis6991/gitsigns.nvim
--- https://github.com/axkirillov/telescope-changed-files
---
