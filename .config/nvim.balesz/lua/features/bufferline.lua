@@ -39,7 +39,7 @@ function M.setup(use)
       require("bufferline").setup {
         options = {
           close_command = close_command,
-          right_mouse_command = nil,
+          right_mouse_command = close_command,
           middle_mouse_command = close_command,
         }
       }
