@@ -16,6 +16,7 @@ function M.setup(use)
         closable = true,
         clickable = true,
         icons = true,
+        no_name_title = "empty",
       }
     end,
     setup = function()
@@ -24,6 +25,7 @@ function M.setup(use)
       vim.keymap.set("n", "<Leader>t<TAB>", "<cmd>BufferMoveNext<CR>")
       vim.keymap.set("n", "<Leader>t<S-TAB>", "<cmd>BufferMovePrevious<CR>")
       vim.keymap.set("n", "x", "<Cmd>BufferClose<CR>")
+      vim.api.nvim_create_user_command("BaleszBuffDelete", "BufferClose", {})
     end
   }
   use {
@@ -40,13 +42,13 @@ function M.setup(use)
       vim.keymap.set("n", "<Leader>t<TAB>", "<cmd>BufferLineMoveNext<CR>")
       vim.keymap.set("n", "<Leader>t<S-TAB>", "<cmd>BufferLineMovePrev<CR>")
       vim.keymap.set("n", "x", "<Cmd>Bdelete<CR>")
+      vim.api.nvim_create_user_command("BaleszBuffDelete", "Bdelete", {})
     end
   }
 end
 
 function M.close()
-  vim.cmd "BufferClose"
-  vim.cmd "Bdelete"
+  vim.cmd "BaleszBuffDelete"
 end
 
 return M
