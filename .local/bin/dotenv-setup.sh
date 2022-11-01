@@ -18,3 +18,8 @@ go install github.com/jesseduffield/lazydocker@latest
 go install github.com/go-task/task/v3/cmd/task@latest
 go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
 
+# Install Flutter
+mkdir -p ~/.local/opt ; rm -rf ~/.local/opt/flutter
+pushd ~/.local/opt
+git clone https://github.com/flutter/flutter.git -b stable
+popd
