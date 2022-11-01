@@ -11,6 +11,13 @@ function M.setup(use)
   -- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md
   --
   local _ = ok_lsp and lspconfig.dartls.setup {
+    root_dir = function(filename, bufnr)
+      local clients = vim.lsp.get_active_clients({ name = "dartls" })
+      if #clients > 0 then
+        return clients[1].config.root_dir
+      end
+      return lspconfig.util.root_pattern("pubspec.yaml")(filename, bufnr)
+    end,
     capabilities = ok_cmp and cmp_nvim_lsp.default_capabilities() or nil,
     init_options = {
       onlyAnalyzeProjectsWithOpenFiles = true,
