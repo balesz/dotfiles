@@ -3,9 +3,7 @@ local M = {}
 local ok_lsp, lspconfig = pcall(require, "lspconfig")
 local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
-function M.setup(use)
-  use("dart-lang/dart-vim-plugin")
-
+function M.setup(_)
   --
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
   -- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md
@@ -13,12 +11,12 @@ function M.setup(use)
   local _ = ok_lsp and lspconfig.dartls.setup {
     root_dir = function(filename, bufnr)
       local clients = vim.lsp.get_active_clients({ name = "dartls" })
-      if #clients > 0 then
-        return clients[1].config.root_dir
-      end
+      if #clients > 0 then return clients[1].config.root_dir end
       return lspconfig.util.root_pattern("pubspec.yaml")(filename, bufnr)
     end,
-    capabilities = ok_cmp and cmp_nvim_lsp.default_capabilities() or nil,
+    capabilities = (function()
+      return ok_cmp and cmp_nvim_lsp.default_capabilities() or nil
+    end)(),
     init_options = {
       onlyAnalyzeProjectsWithOpenFiles = true,
       suggestFromUnimportedLibraries = true,
@@ -32,7 +30,15 @@ function M.setup(use)
         enableSdkFormatter = true,
         lineLength = 120,
         showTodos = true,
-        analysisExcludedFolders = {},
+        analysisExcludedFolders = (function()
+          local flutter_path = vim.fn.resolve(vim.fn.exepath("flutter"))
+          local flutter_sdk = flutter_path:gsub("/bin/flutter", "")
+          return {
+            flutter_sdk .. "/packages",
+            flutter_sdk .. "/.pub-cache",
+            os.getenv("HOME") .. "/.pub-cache",
+          }
+        end)(),
       }
     }
   }
