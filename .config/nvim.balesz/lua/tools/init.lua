@@ -1,7 +1,8 @@
 local M = {}
 
 function M.setup(use)
-  require("plugins/rest-nvim").setup(use)
+  require("tools/flutter").setup(use)
+  require("tools/rest-nvim").setup(use)
 end
 
 return M

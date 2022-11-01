@@ -42,7 +42,7 @@ require("packer").startup(function(use)
   setup("features/telescope")
   setup("features/terminal")
   setup("languages")
-  setup("plugins")
+  setup("tools")
   if packer_bootstrap then
     require("packer").sync()
   end
