@@ -2,6 +2,7 @@ local M = {}
 
 local ok_lsp, lspconfig = pcall(require, "lspconfig")
 local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local ok_flutter, flutter = pcall(require, "utils/flutter")
 
 function M.setup(_)
   --
@@ -30,15 +31,9 @@ function M.setup(_)
         enableSdkFormatter = true,
         lineLength = 120,
         showTodos = true,
-        analysisExcludedFolders = (function()
-          local flutter_path = vim.fn.resolve(vim.fn.exepath("flutter"))
-          local flutter_sdk = flutter_path:gsub("/bin/flutter", "")
-          return {
-            flutter_sdk .. "/packages",
-            flutter_sdk .. "/.pub-cache",
-            os.getenv("HOME") .. "/.pub-cache",
-          }
-        end)(),
+        analysisExcludedFolders = ok_flutter
+            and flutter.get_excluded_folders()
+            or {},
       }
     }
   }
