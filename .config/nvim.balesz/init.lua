@@ -1,5 +1,7 @@
 pcall(require, "utils")
 
+vim.env.PATH = vim.fn.system("echo $PATH"):gsub("\n", "")
+
 local ensure_packer = function()
   local install_path = vim.fn.stdpath("data") ..
       "/site/pack/packer/start/packer.nvim"
