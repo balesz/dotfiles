@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function(args)
     local client = vim.lsp.get_active_clients({ bufnr = args.buf })
     if #client == 0 then return end
-    vim.lsp.buf.formatting_sync({ bufnr = args.buf })
+    vim.lsp.buf.format({ async = false, bufnr = args.buf })
   end
 })
 
