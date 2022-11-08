@@ -8,9 +8,20 @@ local function get_capabilities()
 end
 
 local function get_root_dir(filename, bufnr)
-  local clients = vim.lsp.get_active_clients({ name = "dartls" })
-  if #clients > 0 then return clients[1].config.root_dir end
-  return lspconfig.util.root_pattern("pubspec.yaml")(filename, bufnr)
+  local root_dir = lspconfig.util.root_pattern("pubspec.yaml")(filename, bufnr)
+
+  local paths = vim.fs.find({ ".dart_tool" }, {
+    path = root_dir, type = "directory", limit = 1,
+  })
+
+  if #paths == 0 then
+    local clients = vim.lsp.get_active_clients({ name = "dartls" })
+    if #clients > 0 then
+      return clients[1].config.root_dir
+    end
+  end
+
+  return root_dir
 end
 
 local function get_excluded_folders()
