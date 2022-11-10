@@ -19,6 +19,7 @@ function M.setup(use)
     end
   }
   require("languages/dart").setup(use)
+  require("languages/go").setup(use)
   require("languages/lua").setup(use)
 end
 
