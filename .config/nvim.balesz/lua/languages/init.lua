@@ -24,6 +24,7 @@ function M.setup(use)
 end
 
 vim.api.nvim_create_augroup("BaleszLsp", {})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = "BaleszLsp",
   callback = function(args)
@@ -41,12 +42,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
       { buffer = args.buf, desc = "Rename" })
   end
 })
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = "BaleszLsp",
   callback = function(args)
     local client = vim.lsp.get_active_clients({ bufnr = args.buf })
     if #client == 0 then return end
     vim.lsp.buf.format({ async = false, bufnr = args.buf })
+  end
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = "BaleszLsp",
+  callback = function(args)
+    vim.diagnostic.show(nil, args.buf)
   end
 })
 
