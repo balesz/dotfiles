@@ -7,8 +7,8 @@ local function get_capabilities()
   return ok_cmp_nvim_lsp and cmp_nvim_lsp.default_capabilities() or nil
 end
 
-local function get_root_dir(filename, bufnr)
-  local root_dir = lspconfig.util.root_pattern("pubspec.yaml")(filename, bufnr)
+local function get_root_dir(filename, _)
+  local root_dir = lspconfig.util.root_pattern("pubspec.yaml")(filename)
 
   local paths = vim.fs.find({ ".dart_tool" }, {
     path = root_dir, type = "directory", limit = 1,
