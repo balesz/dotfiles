@@ -4,6 +4,7 @@
 !.zshenv
 !.zlogin
 !.zprofile
+!.zshrc
 
 !/.local
 /.local/*
