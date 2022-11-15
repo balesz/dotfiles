@@ -58,7 +58,7 @@ function M.setup(_)
   --
   local _ = ok_lsp and lspconfig.dartls.setup {
     root_dir = get_root_dir,
-    capabilities = get_capabilities(),
+    --capabilities = get_capabilities(),
     init_options = {
       onlyAnalyzeProjectsWithOpenFiles = true,
       suggestFromUnimportedLibraries = true,

@@ -46,7 +46,7 @@ end
 
 local function organize_imports(buf)
   local params = vim.lsp.util.make_range_params()
-  params.context = { only = { "source.organizeImports" } }
+  params.context = { only = { "source.organizeImports" }, diagnostics = {} }
   local result = vim.lsp.buf_request_sync(buf, "textDocument/codeAction", params)
   for cid, res in pairs(result or {}) do
     for _, r in pairs(res.result or {}) do
@@ -54,6 +54,8 @@ local function organize_imports(buf)
         local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding
             or "utf-16"
         vim.lsp.util.apply_workspace_edit(r.edit, enc)
+      elseif r.command then
+        vim.lsp.buf.execute_command(r.command)
       end
     end
   end
