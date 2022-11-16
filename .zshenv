@@ -1,4 +1,4 @@
-export TERM=xterm-color
+export TERM=xterm-256color
 
 export ANDROID_HOME=$HOME/.local/opt/android
 export ANDROID_SDK_PATH=$HOME/.local/opt/android
