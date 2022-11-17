@@ -45,6 +45,8 @@ local function format_on_save(buf)
 end
 
 local function organize_imports(buf)
+  local client = vim.lsp.get_active_clients({ bufnr = buf })
+  if #client == 0 then return end
   local params = vim.lsp.util.make_range_params()
   params.context = { only = { "source.organizeImports" }, diagnostics = {} }
   local result = vim.lsp.buf_request_sync(buf, "textDocument/codeAction", params)
