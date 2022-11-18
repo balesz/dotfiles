@@ -9,7 +9,6 @@ function M.setup(use)
     event = "BufRead",
     config = function()
       require("indent_blankline").setup {
-        char_blankline = "|",
         indentLine_enabled = 1,
         show_current_context = true,
         show_current_context_start = true,
