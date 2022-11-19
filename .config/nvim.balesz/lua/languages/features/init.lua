@@ -1,6 +1,21 @@
 local M = {}
 
-function M.format_on_save(buf)
+function M.set_keymaps(buf)
+  vim.keymap.set("n", "<Leader>la", vim.lsp.buf.code_action,
+    { buffer = buf, desc = "Code Action" })
+  vim.keymap.set("n", "<Leader>ld", vim.lsp.buf.references,
+    { buffer = buf, desc = "References" })
+  vim.keymap.set("n", "<Leader>lf", vim.lsp.buf.format,
+    { buffer = buf, desc = "Format" })
+  vim.keymap.set("n", "<Leader>lg", vim.lsp.buf.definition,
+    { buffer = buf, desc = "Definition" })
+  vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover,
+    { buffer = buf, desc = "Hover" })
+  vim.keymap.set("n", "<Leader>lr", vim.lsp.buf.rename,
+    { buffer = buf, desc = "Rename" })
+end
+
+function M.format(buf)
   local client = vim.lsp.get_active_clients({ bufnr = buf })
   if #client == 0 then return end
   vim.lsp.buf.format({ async = false, bufnr = buf })
