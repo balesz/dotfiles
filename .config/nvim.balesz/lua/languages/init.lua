@@ -23,6 +23,8 @@ function M.setup(use)
   require("languages/lua").setup(use)
 end
 
+local features = require "languages/features"
+
 local function set_keymaps(buf)
   vim.keymap.set("n", "<Leader>la", vim.lsp.buf.code_action,
     { buffer = buf, desc = "Code Action" })
@@ -38,43 +40,6 @@ local function set_keymaps(buf)
     { buffer = buf, desc = "Rename" })
 end
 
-local function format_on_save(buf)
-  local client = vim.lsp.get_active_clients({ bufnr = buf })
-  if #client == 0 then return end
-  vim.lsp.buf.format({ async = false, bufnr = buf })
-end
-
-local function organize_imports(buf)
-  local client = vim.lsp.get_active_clients({ bufnr = buf })
-  if #client == 0 then return end
-
-  local method = "textDocument/codeAction"
-  local kind = "source.organizeImports"
-
-  local params = vim.lsp.util.make_range_params()
-  params.context = { only = { kind }, diagnostics = {} }
-  local result = vim.lsp.buf_request_sync(buf, method, params)
-
-  for cid, res in pairs(result or {}) do
-    for _, r in pairs(res.result or {}) do
-      if r.kind == kind and r.edit then
-        local clnt = vim.lsp.get_client_by_id(cid) or {}
-        local enc = clnt.offset_encoding or "utf-16"
-        vim.lsp.util.apply_workspace_edit(r.edit, enc)
-      elseif r.kind == kind and r.command then
-        vim.lsp.buf.execute_command(r.command)
-      end
-    end
-  end
-end
-
-local function show_diagnostic(buf)
-  vim.diagnostic.show(nil, buf)
-end
-
---
--- Autocommands
---
 vim.api.nvim_create_augroup("BaleszLsp", {})
 vim.api.nvim_create_autocmd("LspAttach", {
   group = "BaleszLsp",
@@ -85,14 +50,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = "BaleszLsp",
   callback = function(args)
-    organize_imports(args.buf)
-    format_on_save(args.buf)
+    features.organize_imports(args.buf)
+    features.format_on_save(args.buf)
   end
 })
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = "BaleszLsp",
   callback = function(args)
-    show_diagnostic(args.buf)
+    features.show_diagnostic(args.buf)
   end
 })
 
