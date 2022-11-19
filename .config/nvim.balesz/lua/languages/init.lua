@@ -31,6 +31,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = "BaleszLsp",
   callback = function(args)
     features.set_keymaps(args.buf)
+    features.refresh_codelens(args.buf)
+  end
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+  group = "BaleszLsp",
+  callback = function(args)
+    features.refresh_codelens(args.buf)
   end
 })
 

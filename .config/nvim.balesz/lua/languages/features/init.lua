@@ -15,15 +15,29 @@ function M.set_keymaps(buf)
     { buffer = buf, desc = "Rename" })
 end
 
+function M.refresh_codelens(buf)
+  local clients = vim.lsp.get_active_clients({ bufnr = buf })
+  for _, client in ipairs(clients) do
+    if client.server_capabilities.codeLensProvider then
+      vim.lsp.codelens.refresh()
+    end
+  end
+end
+
 function M.format(buf)
-  local client = vim.lsp.get_active_clients({ bufnr = buf })
-  if #client == 0 then return end
-  vim.lsp.buf.format({ async = false, bufnr = buf })
+  local clients = vim.lsp.get_active_clients({ bufnr = buf })
+  for _, client in ipairs(clients) do
+    if client.server_capabilities.documentFormattingProvider then
+      vim.lsp.buf.format({ async = false, bufnr = buf })
+    end
+  end
 end
 
 function M.organize_imports(buf)
   local client = vim.lsp.get_active_clients({ bufnr = buf })
-  if #client == 0 then return end
+  if #client == 0 then
+    return
+  end
 
   local method = "textDocument/codeAction"
   local kind = "source.organizeImports"
