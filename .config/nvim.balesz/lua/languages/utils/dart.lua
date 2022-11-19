@@ -1,8 +1,12 @@
 local M = {}
 
-local lspconfig = require "lspconfig"
+local ok_lsp, lspconfig = pcall(require, "lspconfig")
 
 function M.get_root_dir(filename, _)
+  if not ok_lsp then
+    return ""
+  end
+
   local root_dir = lspconfig.util.root_pattern("pubspec.yaml")(filename)
 
   local paths = vim.fs.find({ ".dart_tool" }, {
