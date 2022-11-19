@@ -21,6 +21,7 @@ function M.setup(use)
   require("languages/dart").setup(use)
   require("languages/go").setup(use)
   require("languages/lua").setup(use)
+  require("languages/dockerfile").setup(use)
 end
 
 local features = require "languages/features"
