@@ -1,6 +1,7 @@
 local M = {}
 
 local ok_lsp, lspconfig = pcall(require, "lspconfig")
+local utils = require "languages/utils"
 local dart = require "languages/utils/dart"
 
 function M.setup(_)
@@ -10,7 +11,7 @@ function M.setup(_)
   --
   local _ = ok_lsp and lspconfig.dartls.setup {
     root_dir = dart.get_root_dir,
-    --capabilities = get_capabilities(),
+    capabilities = utils.get_capabilities(),
     init_options = {
       onlyAnalyzeProjectsWithOpenFiles = true,
       suggestFromUnimportedLibraries = true,
