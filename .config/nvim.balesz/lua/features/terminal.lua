@@ -11,13 +11,10 @@ function M.setup(use)
       }
     end
   }
-  use {
-    "voldikss/vim-floaterm",
-    disable = false,
-  }
 end
 
 vim.api.nvim_create_augroup("BaleszTerminal", {})
+
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
   pattern = "*",
   group = "BaleszTerminal",
@@ -27,6 +24,7 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
     vim.cmd "startinsert"
   end
 })
+
 vim.api.nvim_create_autocmd({ "TermClose" }, {
   pattern = "*",
   group = "BaleszTerminal",
