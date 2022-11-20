@@ -6,24 +6,19 @@ function M.setup(use)
     tag = "*",
     config = function()
       require("toggleterm").setup {
-        persist_mode = false, persist_size = false,
-        close_on_exit = true,
+        auto_scroll = true,
+        close_on_exit = false,
+        hide_numbers = true,
+        persist_mode = false,
+        persist_size = false,
+        shade_terminals = false,
+        start_in_insert = true,
       }
     end
   }
 end
 
 vim.api.nvim_create_augroup("BaleszTerminal", {})
-
-vim.api.nvim_create_autocmd({ "TermOpen" }, {
-  pattern = "*",
-  group = "BaleszTerminal",
-  callback = function()
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-    vim.cmd "startinsert"
-  end
-})
 
 vim.api.nvim_create_autocmd({ "TermClose" }, {
   pattern = "*",
