@@ -7,7 +7,7 @@ end
 
 return {
   default_prog = default_prog,
-  color_scheme = "Operator Mono Dark",
+  color_scheme = "nord",
   keys = require "features/keymaps",
   font = require "features/font",
   font_size = 11,
