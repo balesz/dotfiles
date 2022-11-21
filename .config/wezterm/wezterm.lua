@@ -1,4 +1,4 @@
-require "features/events"
+require "features/title"
 
 local default_prog = nil
 if os.getenv("OS") == "Windows_NT" then
