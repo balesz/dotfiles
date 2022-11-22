@@ -1,4 +1,4 @@
-require "features/title"
+require "title"
 
 local default_prog = nil
 if os.getenv("OS") == "Windows_NT" then
@@ -8,8 +8,8 @@ end
 return {
   default_prog = default_prog,
   color_scheme = "nord",
-  keys = require "features/keymaps",
-  font = require "features/font",
+  keys = require "keymaps",
+  font = require "font",
   font_size = 11,
   exit_behavior = "Close",
   initial_cols = 120,
