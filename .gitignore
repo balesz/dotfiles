@@ -5,6 +5,7 @@
 !.zlogin
 !.zprofile
 !.zshrc
+!.tmux.conf
 
 !/.local
 /.local/*
