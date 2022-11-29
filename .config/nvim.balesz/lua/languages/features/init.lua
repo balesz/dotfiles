@@ -3,6 +3,8 @@ local M = {}
 function M.set_keymaps(buf)
   vim.keymap.set("n", "<Leader>la", vim.lsp.buf.code_action,
     { buffer = buf, desc = "Code Action" })
+  vim.keymap.set("n", "<Leader>ll", vim.lsp.codelens.run,
+    { buffer = buf, desc = "CodeLens" })
   vim.keymap.set("n", "<Leader>ld", vim.lsp.buf.references,
     { buffer = buf, desc = "References" })
   vim.keymap.set("n", "<Leader>lf", vim.lsp.buf.format,
