@@ -8,12 +8,20 @@ function M.setup(use)
       require("which-key").setup {}
     end
   }
+  use {
+    "mrjones2014/legendary.nvim",
+    disable = false,
+    config = function()
+      require("legendary").setup {}
+    end
+  }
 end
 
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "q", "<cmd>quit<CR>", { noremap = true })
-vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>", { noremap = true })
+vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>",
+  { noremap = true })
 vim.keymap.set("n", "<C-s>", "<cmd>w!<CR>", { noremap = true })
 vim.keymap.set("v", "<C-h>", "y:help <C-R>\"<CR>", { noremap = true })
 
