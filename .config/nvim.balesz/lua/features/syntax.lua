@@ -1,15 +1,15 @@
 local M = {}
 
 function M.setup(use)
-  --
-  -- https://github.com/nvim-treesitter/nvim-treesitter
-  --
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    "nvim-treesitter/nvim-treesitter",
+    disable = false,
+    run = ":TSUpdate",
     config = function()
-      require'nvim-treesitter.configs'.setup {
-        ensure_installed = { "http", "json", "lua", "make", "go", "dart", "proto", "dockerfile", "markdown", "markdown_inline", "regex", "toml", "yaml", "help" },
+      require "nvim-treesitter.configs".setup {
+        ensure_installed = { "http", "json", "lua", "make", "go", "dart", "proto",
+          "dockerfile", "markdown", "markdown_inline", "regex", "toml", "yaml",
+          "help" },
         ignore_install = {},
         sync_install = true,
         auto_install = true,
@@ -21,13 +21,11 @@ function M.setup(use)
       }
     end
   }
-  --
-  -- https://github.com/nvim-treesitter/playground
-  --
   use {
-    'nvim-treesitter/playground',
+    "nvim-treesitter/playground",
+    disable = false,
     config = function()
-      require'nvim-treesitter.configs'.setup {}
+      require "nvim-treesitter.configs".setup {}
     end
   }
 end
