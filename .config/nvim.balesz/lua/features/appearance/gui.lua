@@ -1,6 +1,11 @@
 local M = {}
 
-function M.setup(_)
+local ok_notify, notify = pcall(require, "notify")
+
+function M.setup(use)
+  use "MunifTanjim/nui.nvim"
+  use "rcarriga/nvim-notify"
+  vim.notify = ok_notify and notify or vim.notify
 end
 
 local font = ""
