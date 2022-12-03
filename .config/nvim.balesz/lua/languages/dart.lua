@@ -1,6 +1,7 @@
 local M = {}
 
 local ok_lsp, lspconfig = pcall(require, "lspconfig")
+local ok_navic, navic = pcall(require, "nvim-navic")
 local utils = require "languages/utils"
 local dart = require "languages/utils/dart"
 
@@ -27,7 +28,10 @@ function M.setup(_)
         showTodos = true,
         analysisExcludedFolders = dart.get_excluded_folders(),
       }
-    }
+    },
+    on_attach = function(client, bufnr)
+      local _ = ok_navic and navic.attach(client, bufnr) or nil
+    end,
   }
 end
 

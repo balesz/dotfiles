@@ -1,9 +1,6 @@
 local M = {}
 
 function M.setup(use)
-  --
-  -- https://github.com/lukas-reineke/indent-blankline.nvim
-  --
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
@@ -18,13 +15,16 @@ function M.setup(use)
       }
     end
   }
-  --
-  -- https://github.com/karb94/neoscroll.nvim
-  --
   use {
     "karb94/neoscroll.nvim",
     config = function()
       require("neoscroll").setup {}
+    end
+  }
+  use {
+    "SmiteshP/nvim-navic",
+    config = function()
+      require("nvim-navic").setup {}
     end
   }
 end

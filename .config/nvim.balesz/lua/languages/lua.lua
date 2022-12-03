@@ -2,6 +2,7 @@ local M = {}
 
 local ok_lsp, lspconfig = pcall(require, "lspconfig")
 local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local ok_navic, navic = pcall(require, "nvim-navic")
 
 function M.setup(_)
   local _ = ok_lsp and lspconfig.sumneko_lua.setup {
@@ -31,6 +32,9 @@ function M.setup(_)
         },
       },
     },
+    on_attach = function(client, bufnr)
+      local _ = ok_navic and navic.attach(client, bufnr)
+    end,
   }
 end
 
