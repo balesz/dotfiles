@@ -1,12 +1,20 @@
-require "title"
+local wezterm = require("wezterm")
 
-local default_prog = nil
 if os.getenv("OS") == "Windows_NT" then
-  default_prog = { "wsl", "-d", "Ubuntu", "--cd", "~" }
+  local wsl_path = wezterm.config_dir
+  if not package.path:find(wsl_path) then
+    package.path = table.concat({
+      package.path,
+      wsl_path .. "\\?.lua",
+      wsl_path .. "\\?\\init.lua",
+    }, ";")
+  end
 end
 
+require "title"
+
 return {
-  default_prog = default_prog,
+  default_prog = require "default_prog",
   color_scheme = "nord",
   keys = require "keymaps",
   font = require "font",
