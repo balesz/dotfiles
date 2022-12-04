@@ -33,9 +33,4 @@ return {
     top = "0cell",
     bottom = "0cell",
   },
-  launch_menu = {
-    { args = { "powershell" } },
-    { args = { "top" } },
-    { args = { "lazygit" } },
-  },
 }
