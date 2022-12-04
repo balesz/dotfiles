@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
--- wezterm-gui.exe --config-file \\wsl.localhost\Ubuntu\{HOME_DIR}\.config\wezterm\wezterm.lua
+-- wezterm-gui.exe --config-file \\wsl.localhost\{DISTRIBUTION}\home\{USER}\.config\wezterm\wezterm.lua
 if os.getenv("OS") == "Windows_NT" then
   local wsl_path = wezterm.config_dir
   if not package.path:find(wsl_path) then

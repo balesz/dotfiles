@@ -1,7 +1,8 @@
-local default_prog = { "zsh" }
+local wezterm = require "wezterm"
 
-if os.getenv("OS") == "Windows_NT" then
-  default_prog = { "wsl", "-d", "Ubuntu", "--cd", "~" }
+if wezterm.config_dir:find("wsl.localhost") then
+  local distrib = wezterm.config_dir:gsub("\\\\wsl.localhost\\(.*)\\.*", "%1")
+  return { "wsl", "-d", distrib, "--cd", "~" }
 end
 
-return default_prog
+return { "zsh" }
