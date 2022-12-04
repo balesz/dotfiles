@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 -- wezterm-gui.exe --config-file \\wsl.localhost\{DISTRIBUTION}\home\{USER}\.config\wezterm\wezterm.lua
-if os.getenv("OS") == "Windows_NT" then
+if wezterm.config_dir:find("wsl.localhost") then
   local wsl_path = wezterm.config_dir
   if not package.path:find(wsl_path) then
     package.path = table.concat({
@@ -15,7 +15,8 @@ end
 require "title"
 
 return {
-  default_prog = require "default_prog",
+  default_domain = require "defaults".domain,
+  default_prog = require "defaults".prog,
   color_scheme = "nord",
   keys = require "keymaps",
   font = require "font",
