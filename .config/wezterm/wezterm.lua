@@ -15,17 +15,18 @@ end
 require "title"
 
 return {
+  color_scheme = "nord",
   default_domain = require "defaults".domain,
   default_prog = require "defaults".prog,
-  color_scheme = "nord",
-  keys = require "keymaps",
-  font = require "font",
-  font_size = 11,
   exit_behavior = "Close",
+  font = require "font".font,
+  font_size = require "font".size,
   initial_cols = 120,
   initial_rows = 40,
-  use_fancy_tab_bar = true,
+  keys = require "keymaps",
+  ssh_backend = "Ssh2",
   tab_bar_at_bottom = true,
+  use_fancy_tab_bar = true,
   window_background_opacity = 0.9,
   window_padding = {
     left = "0cell",
