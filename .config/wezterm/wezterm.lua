@@ -16,6 +16,7 @@ require "title"
 
 return {
   color_scheme = "nord",
+  default_cwd = require "defaults".cwd,
   default_domain = require "defaults".domain,
   default_prog = require "defaults".prog,
   exit_behavior = "Close",
