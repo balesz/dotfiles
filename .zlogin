@@ -4,4 +4,3 @@ source "$(gcloud --format='value(installation.sdk_root)' info)/completion.zsh.in
 if [[ -v WSLENV ]]; then
   eval `keychain --agents ssh --eval id_rsa`
 fi
-cd ~

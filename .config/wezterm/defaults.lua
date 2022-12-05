@@ -1,13 +1,13 @@
 local wezterm = require "wezterm"
 
-local M = { cwd = "~", domain = "local", prog = { "zsh" } }
+local M = { cwd = "~", domain = "local", }
 
 if wezterm.config_dir:find("wsl.localhost") then
   local distrib = wezterm.config_dir:gsub("\\\\wsl.localhost\\(%a*)\\.*", "%1")
-  for _, dom in ipairs(wezterm.default_wsl_domains()) do
+  M.wsl_domains = wezterm.default_wsl_domains()
+  for _, dom in ipairs(M.wsl_domains) do
     if dom.name == "WSL:" .. distrib then
       dom.default_cwd = M.cwd
-      dom.default_prog = M.prog
       M.domain = dom.name
     end
   end

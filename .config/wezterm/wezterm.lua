@@ -35,4 +35,5 @@ return {
     top = "0cell",
     bottom = "0cell",
   },
+  wsl_domains = require "defaults".wsl_domains,
 }
