@@ -3,12 +3,9 @@ local M = {}
 local ok_terminal, toggleterm = pcall(require, "toggleterm.terminal")
 
 function M.setup(use)
-  --
-  -- https://github.com/nvim-neo-tree/neo-tree.nvim
-  --
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    disable = false,
+    disable = true,
     requires = {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons",
@@ -25,26 +22,45 @@ function M.setup(use)
       }
     end
   }
-  --
-  -- https://github.com/nvim-tree/nvim-tree.lua
-  --
   use {
     "nvim-tree/nvim-tree.lua",
-    disable = true,
+    disable = false,
     requires = "nvim-tree/nvim-web-devicons",
     tag = "nightly",
     config = function()
       require("nvim-tree").setup {
+        sync_root_with_cwd = true,
+        reload_on_bufenter = true,
         view = {
-          side = "right",
+          side = "left",
+          width = 40,
+          adaptive_size = false,
+          centralize_selection = true,
           preserve_window_proportions = true,
-        }
+          signcolumn = "auto",
+        },
+        renderer = {
+          group_empty = true
+        },
+        update_focused_file = {
+          enable = true,
+          update_root = true,
+        },
+        diagnostics = {
+          enable = true,
+        },
       }
     end
   }
 end
 
-vim.keymap.set("", "<Leader>ft", "<Cmd>NeoTreeFocus<CR>", { desc = "Open Neo-tree" })
+vim.keymap.set("", "<Leader>ft", function()
+  if pcall(require, "neo-tree") then
+    vim.cmd "NeoTreeFocus"
+  elseif pcall(require, "nvim-tree") then
+    vim.cmd "NvimTreeFocus"
+  end
+end, { desc = "Open Neo-tree" })
 
 if ok_terminal then
   local goful = toggleterm.Terminal:new {
@@ -55,7 +71,9 @@ if ok_terminal then
   }
   vim.keymap.set("", "<Leader>fg", function()
     goful:toggle()
-  end, { desc = "Open goful" })
+  end, {
+    desc = "Open goful"
+  })
 end
 
 return M

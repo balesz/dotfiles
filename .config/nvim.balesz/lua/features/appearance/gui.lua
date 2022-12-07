@@ -40,6 +40,7 @@ end
 vim.opt.title = true
 vim.opt.guifont = font .. ":h11"
 vim.opt.guicursor = "n-v-c-sm:block-lCursor,i-ci-ve:ver25-lCursor,r-cr-o:hor25-lCursor"
+vim.opt.cursorline = true
 vim.opt.termguicolors = true
 
 vim.api.nvim_create_augroup("BaleszGui", {})
