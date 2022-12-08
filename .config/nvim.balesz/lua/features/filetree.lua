@@ -44,7 +44,7 @@ function M.setup(use)
         },
         update_focused_file = {
           enable = true,
-          update_root = true,
+          update_root = false,
         },
         diagnostics = {
           enable = true,
@@ -71,9 +71,7 @@ if ok_terminal then
   }
   vim.keymap.set("", "<Leader>fg", function()
     goful:toggle()
-  end, {
-    desc = "Open goful"
-  })
+  end, { desc = "Open goful" })
 end
 
 return M
