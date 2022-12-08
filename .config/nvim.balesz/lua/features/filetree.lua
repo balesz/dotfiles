@@ -38,6 +38,12 @@ function M.setup(use)
           centralize_selection = true,
           preserve_window_proportions = true,
           signcolumn = "auto",
+          mappings = {
+            list = {
+              { key = ".", action = "cd" },
+              { key = "<A-r>", action = "run_file_command" },
+            },
+          },
         },
         renderer = {
           group_empty = true
@@ -45,6 +51,10 @@ function M.setup(use)
         update_focused_file = {
           enable = true,
           update_root = false,
+        },
+        filters = {
+          dotfiles = false,
+          custom = { ".git" },
         },
         diagnostics = {
           enable = true,
