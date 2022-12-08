@@ -33,7 +33,7 @@ end
 vim.api.nvim_create_augroup("BaleszSyntax", {})
 
 vim.api.nvim_create_autocmd({ "BufEnter", }, {
-  pattern = { "Makefile", "*.mk" },
+  pattern = "*",
   group = "BaleszSyntax",
   desc = "Enable syntax",
   command = "syntax on",
