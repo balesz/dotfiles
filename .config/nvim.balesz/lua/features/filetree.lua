@@ -55,7 +55,7 @@ function M.setup(use)
         },
         filters = {
           dotfiles = false,
-          custom = { ".git" },
+          custom = { "\\.git" },
         },
         diagnostics = {
           enable = true,

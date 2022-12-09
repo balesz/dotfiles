@@ -3,13 +3,11 @@ local M = {}
 local ok_terminal, toggleterm = pcall(require, "toggleterm.terminal")
 
 function M.setup(use)
-  --
-  -- https://github.com/lewis6991/gitsigns.nvim
-  --
   use {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup {}
+      require("scrollbar.handlers.gitsigns").setup()
     end
   }
 end
