@@ -1,6 +1,6 @@
 local M = {}
 
-local ok_notify, notify = pcall(require, "notify")
+local _, notify = pcall(require, "notify")
 
 function M.setup(use)
   use "MunifTanjim/nui.nvim"
@@ -27,7 +27,7 @@ function M.setup(use)
       }
     end
   }
-  vim.notify = ok_notify and notify or vim.notify
+  vim.notify = notify or vim.notify
 end
 
 local font = ""

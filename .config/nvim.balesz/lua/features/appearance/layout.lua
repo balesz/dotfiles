@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setup(use)
+function M.setup(_)
 end
 
 vim.opt.splitbelow = true
