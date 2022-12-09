@@ -42,6 +42,7 @@ function M.setup(use)
             list = {
               { key = ".", action = "cd" },
               { key = "<A-r>", action = "run_file_command" },
+              { key = "?", action = "toggle_help" },
             },
           },
         },
