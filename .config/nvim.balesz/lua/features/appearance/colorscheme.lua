@@ -23,4 +23,6 @@ elseif pcall(require, "catppuccin") then
   vim.cmd "colorscheme catppuccin"
 end
 
+vim.cmd [[hi! link VertSplit FloatBorder]]
+
 return M
