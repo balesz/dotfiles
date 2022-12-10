@@ -5,7 +5,7 @@ local ok_terminal, toggleterm = pcall(require, "toggleterm.terminal")
 function M.setup(use)
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    disable = true,
+    disable = false,
     requires = {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons",
@@ -24,7 +24,7 @@ function M.setup(use)
   }
   use {
     "nvim-tree/nvim-tree.lua",
-    disable = false,
+    disable = true,
     requires = "nvim-tree/nvim-web-devicons",
     tag = "nightly",
     config = function()
@@ -65,6 +65,7 @@ function M.setup(use)
   }
   use {
     "sidebar-nvim/sidebar.nvim",
+    disable = true,
     config = function()
       require("sidebar-nvim").setup {
         open = false,
