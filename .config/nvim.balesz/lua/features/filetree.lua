@@ -18,6 +18,7 @@ function M.setup(use)
         },
         filesystem = {
           follow_current_file = true,
+          use_libuv_file_watcher = true,
         },
         buffers = {
           follow_current_file = true,
