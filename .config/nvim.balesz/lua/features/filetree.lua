@@ -63,6 +63,20 @@ function M.setup(use)
       }
     end
   }
+  use {
+    "sidebar-nvim/sidebar.nvim",
+    config = function()
+      require("sidebar-nvim").setup {
+        open = false,
+        initial_width = 40,
+        sections = { "buffers", "files" },
+        buffers = {
+          sorting = "name",
+          ignore_not_loaded = true,
+        },
+      }
+    end
+  }
 end
 
 vim.keymap.set("", "<Leader>ft", function()
