@@ -1,15 +1,18 @@
 local M = {}
 
 function M.setup(use)
-  --
-  -- https://github.com/nvim-lualine/lualine.nvim
-  --
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function()
-      require('lualine').setup {
-        options = { theme = 'nord' }
+      require("lualine").setup {
+        options = {
+          theme = "nord",
+          globalstatus = true,
+          ignore_focus = {
+            "neo-tree",
+          },
+        }
       }
     end
   }
