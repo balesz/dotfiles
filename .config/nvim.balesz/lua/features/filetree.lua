@@ -22,6 +22,12 @@ function M.setup(use)
         buffers = {
           follow_current_file = true,
         },
+        window = {
+          mappings = {
+            ["<A-h>"] = "prev_source",
+            ["<A-l>"] = "next_source",
+          },
+        },
       }
     end
   }
