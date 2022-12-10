@@ -31,9 +31,9 @@ function M.setup(use)
   }
   use {
     "akinsho/bufferline.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
     tag = "v3.*",
-    disable = false,
+    requires = "kyazdani42/nvim-web-devicons",
+    disable = true,
     config = function()
       local close_command = "BaleszBuffDelete %d"
       require("bufferline").setup {
@@ -54,12 +54,32 @@ function M.setup(use)
       end, { nargs = "?" })
     end
   }
+  use {
+    "ghillb/cybu.nvim",
+    branch = "main",
+    requires = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" },
+    disable = false,
+    config = function()
+      require("cybu").setup {}
+    end,
+    setup = function()
+      --vim.keymap.set("n", "K", "<Plug>(CybuPrev)")
+      --vim.keymap.set("n", "J", "<Plug>(CybuNext)")
+      vim.keymap.set({ "n", "v" }, "<Tab>", "<Plug>(CybuLastusedNext)")
+      vim.keymap.set({ "n", "v" }, "<S-Tab>", "<Plug>(CybuLastusedPrev)")
+      vim.api.nvim_create_user_command("BaleszBuffDelete", function(params)
+        vim.cmd("Bdelete " .. params.args)
+      end, { nargs = "?" })
+    end
+  }
 end
-
-vim.keymap.set("n", "x", "<Cmd>BaleszBuffDelete<CR>")
 
 function M.close()
   vim.cmd "BaleszBuffDelete"
 end
+
+vim.keymap.set("n", "x", function()
+  M.close()
+end)
 
 return M
