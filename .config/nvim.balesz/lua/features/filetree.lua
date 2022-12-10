@@ -13,6 +13,9 @@ function M.setup(use)
     },
     config = function()
       require("neo-tree").setup {
+        source_selector = {
+          winbar = true,
+        },
         filesystem = {
           follow_current_file = true,
         },
@@ -59,21 +62,6 @@ function M.setup(use)
         },
         diagnostics = {
           enable = true,
-        },
-      }
-    end
-  }
-  use {
-    "sidebar-nvim/sidebar.nvim",
-    disable = true,
-    config = function()
-      require("sidebar-nvim").setup {
-        open = false,
-        initial_width = 40,
-        sections = { "buffers", "files" },
-        buffers = {
-          sorting = "name",
-          ignore_not_loaded = true,
         },
       }
     end
