@@ -16,18 +16,6 @@ function M.setup(use)
     end
   }
   use {
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup {}
-    end
-  }
-  use {
-    "petertriho/nvim-scrollbar",
-    config = function()
-      require("scrollbar").setup {}
-    end
-  }
-  use {
     "SmiteshP/nvim-navic",
     config = function()
       require("nvim-navic").setup {}
