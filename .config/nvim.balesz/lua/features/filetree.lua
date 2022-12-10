@@ -76,7 +76,7 @@ end
 
 vim.keymap.set("", "<Leader>ft", function()
   if pcall(require, "neo-tree") then
-    vim.cmd "NeoTreeFocus"
+    vim.cmd "NeoTreeFocusToggle"
   elseif pcall(require, "nvim-tree") then
     vim.cmd "NvimTreeFocus"
   end
