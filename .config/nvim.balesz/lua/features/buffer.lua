@@ -26,12 +26,6 @@ function M.setup(use)
           },
         }
       }
-    end,
-    setup = function()
-      vim.keymap.set("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>")
-      vim.keymap.set("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<CR>")
-      vim.keymap.set("n", "<Leader>t<TAB>", "<cmd>BufferLineMoveNext<CR>")
-      vim.keymap.set("n", "<Leader>t<S-TAB>", "<cmd>BufferLineMovePrev<CR>")
     end
   }
   use {
@@ -41,18 +35,22 @@ function M.setup(use)
     disable = false,
     config = function()
       require("cybu").setup {}
-    end,
-    setup = function()
-      --vim.keymap.set("n", "K", "<Plug>(CybuPrev)")
-      --vim.keymap.set("n", "J", "<Plug>(CybuNext)")
-      vim.keymap.set({ "n", "v" }, "<Tab>", "<Plug>(CybuLastusedNext)")
-      vim.keymap.set({ "n", "v" }, "<S-Tab>", "<Plug>(CybuLastusedPrev)")
     end
   }
 end
 
-function M.close() vim.cmd "Bdelete" end
+function M.close()
+  vim.cmd "Bdelete"
+end
 
 vim.keymap.set("n", "x", M.close)
+vim.keymap.set("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<Leader>t<TAB>", "<cmd>BufferLineMoveNext<CR>")
+vim.keymap.set("n", "<Leader>t<S-TAB>", "<cmd>BufferLineMovePrev<CR>")
+--vim.keymap.set("n", "K", "<Plug>(CybuPrev)")
+--vim.keymap.set("n", "J", "<Plug>(CybuNext)")
+--vim.keymap.set({ "n", "v" }, "<Tab>", "<Plug>(CybuLastusedNext)")
+--vim.keymap.set({ "n", "v" }, "<S-Tab>", "<Plug>(CybuLastusedPrev)")
 
 return M
