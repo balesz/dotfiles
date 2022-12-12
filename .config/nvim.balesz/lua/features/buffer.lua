@@ -12,10 +12,14 @@ function M.setup(use)
       local close_command = "Bdelete! %d"
       require("bufferline").setup {
         options = {
+          always_show_bufferline = true,
+          diagnostics = "nvim_lsp",
+          diagnostics_update_in_insert = true,
           close_command = close_command,
           right_mouse_command = close_command,
           middle_mouse_command = close_command,
           separator_style = "slant",
+          sort_by = "insert_after_current",
           offsets = {
             {
               filetype = "neo-tree",
