@@ -9,7 +9,7 @@ function M.setup(use)
     tag = "v3.*",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      local close_command = "BaleszBuffDelete %d"
+      local close_command = "Bdelete! %d"
       require("bufferline").setup {
         options = {
           close_command = close_command,
