@@ -35,7 +35,7 @@ function M.setup(use)
 end
 
 vim.keymap.set("", "<Leader>ft", function()
-  vim.cmd "NeoTreeFocusToggle"
+  vim.cmd "NeoTreeFocus"
 end, { desc = "Open Neo-tree" })
 
 if ok_terminal then
