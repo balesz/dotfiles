@@ -3,63 +3,72 @@
 cd ~
 
 init () {
+  cd ~
   mkdir -p ~/.local/opt
-  sudo apt-get update
-  sudo apt-get upgrade
+  sudo apt-get -y update
+  sudo apt-get -y upgrade
+  sudo apt-get -y install apt-utils build-essential git software-properties-common wget unzip zip
 }
 
 install_ohmyzsh () {
-  sudo apt-get install zsh
+  cd ~
+  sudo apt-get -y install zsh
   sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 }
 
 install_git () {
+  cd ~
   sudo add-apt-repository ppa:git-core/ppa
-  sudo apt update
-  sudo apt install git
-  sudo apt upgrade
+  sudo apt-get -y update
+  sudo apt-get -y install git
+  sudo apt-get -y upgrade
 }
 
 install_docker () {
-  sudo apt-get remove docker docker-engine docker.io containerd runc
-  sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
+  cd ~
+  sudo apt-get -y remove docker docker-engine docker.io containerd runc
+  sudo apt-get -y purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
   sudo rm -rf /var/lib/docker
   sudo rm -rf /var/lib/containerd
-  sudo apt-get update
-  sudo apt-get install ca-certificates curl gnupg lsb-release
+  sudo apt-get -y update
+  sudo apt-get -y install ca-certificates curl gnupg lsb-release
   sudo mkdir -p /etc/apt/keyrings
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt-get update
-  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+  sudo apt-get -y update
+  sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 }
 
 install_sublime_merge () {
+  cd ~
   wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
-  sudo apt-get install apt-transport-https
+  sudo apt-get -y install apt-transport-https
   echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-  sudo apt-get update
-  sudo apt-get install sublime-merge
+  sudo apt-get -y update
+  sudo apt-get -y install sublime-merge
 }
 
 install_flutter () {
+  PATH=$PATH:~/.local/opt/flutter/bin
   rm -rf ~/.local/opt/flutter
-  pushd ~/.local/opt
+  cd ~/.local/opt
   git clone https://github.com/flutter/flutter.git -b stable
-  popd
+  flutter channel stable
+  flutter upgrade
 }
 
 install_go () {
-  GO_VERION=1.19.4
+  GO_VERSION=1.19.4
   rm -rf ~/.local/opt/go
-  wget -P /tmp https://go.dev/dl/go${GO_VERION}.linux-amd64.tar.gz
-  tar -C ~/.local/opt -xvzf /tmp/go${GO_VERION}.linux-amd64.tar.gz
-  rm /tmp/go${GO_VERION}.linux-amd64.tar.gz
+  wget -q -P /tmp https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
+  tar -C ~/.local/opt -xzf /tmp/go${GO_VERSION}.linux-amd64.tar.gz
+  rm /tmp/go${GO_VERSION}.linux-amd64.tar.gz
 }
 
 install_go_apps () {
+  PATH=$PATH:~/.local/opt/go/bin
   go install github.com/anmitsu/goful@latest
   go install github.com/jesseduffield/lazygit@latest
   go install github.com/jesseduffield/lazydocker@latest
