@@ -1,5 +1,4 @@
-local wezterm = require("wezterm")
-
+local wezterm = require "wezterm"
 -- wezterm-gui.exe --config-file \\wsl.localhost\{DISTRIBUTION}\home\{USER}\.config\wezterm\wezterm.lua
 if wezterm.config_dir:find("wsl.localhost") then
   local wsl_path = wezterm.config_dir
@@ -14,17 +13,21 @@ end
 
 require "title"
 
+local defaults = require "defaults"
+local font = require "font"
+local keymaps = require "keymaps"
+
 return {
   color_scheme = "nord",
-  default_cwd = require "defaults".cwd,
-  default_domain = require "defaults".domain,
-  default_prog = require "defaults".prog,
+  default_cwd = defaults.cwd,
+  default_domain = defaults.domain,
+  default_prog = defaults.prog,
   exit_behavior = "Close",
-  font = require "font".font,
-  font_size = require "font".size,
+  font = font.font,
+  font_size = font.size,
   initial_cols = 120,
   initial_rows = 40,
-  keys = require "keymaps",
+  keys = keymaps,
   ssh_backend = "Ssh2",
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = true,
@@ -35,5 +38,5 @@ return {
     top = "0cell",
     bottom = "0cell",
   },
-  wsl_domains = require "defaults".wsl_domains,
+  wsl_domains = defaults.wsl_domains,
 }
