@@ -19,6 +19,9 @@ end
 
 vim.g.mapleader = " "
 
+vim.keymap.set("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>',
+  { noremap = true, silent = true })
+
 vim.keymap.set("n", "q", "<cmd>quit<CR>", { noremap = true })
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>",
   { noremap = true })
