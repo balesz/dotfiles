@@ -5,7 +5,7 @@ local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 local ok_navic, navic = pcall(require, "nvim-navic")
 
 function M.setup(_)
-  local _ = ok_lsp and lspconfig.sumneko_lua.setup {
+  local _ = ok_lsp and lspconfig.lua_ls.setup {
     capabilities = ok_cmp and cmp_nvim_lsp.default_capabilities() or nil,
     settings = {
       Lua = {
