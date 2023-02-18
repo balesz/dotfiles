@@ -10,7 +10,8 @@ function M.setup(_)
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
   -- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md
   --
-  local _ = ok_lsp and lspconfig.dartls.setup {
+  if not ok_lsp then return end
+  lspconfig.dartls.setup {
     root_dir = dart.get_root_dir,
     capabilities = utils.get_capabilities(),
     init_options = {
