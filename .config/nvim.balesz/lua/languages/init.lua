@@ -13,7 +13,7 @@ function M.setup(use)
       require("mason").setup {}
       require("mason-lspconfig").setup {
         ensure_installed = {
-          "sumneko_lua", "bashls", "dockerls", "jsonls", "yamlls"
+          "lua_ls", "bashls", "dockerls", "jsonls", "yamlls"
         }
       }
     end

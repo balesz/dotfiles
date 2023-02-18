@@ -5,7 +5,8 @@ local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 local ok_navic, navic = pcall(require, "nvim-navic")
 
 function M.setup(_)
-  local _ = ok_lsp and lspconfig.lua_ls.setup {
+  if not ok_lsp then return end
+  lspconfig.lua_ls.setup {
     capabilities = ok_cmp and cmp_nvim_lsp.default_capabilities() or nil,
     settings = {
       Lua = {
