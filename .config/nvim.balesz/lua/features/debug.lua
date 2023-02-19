@@ -2,7 +2,10 @@ local M = {}
 
 function M.setup(use)
   use {
-    "mfussenegger/nvim-dap"
+    "mfussenegger/nvim-dap",
+    config = function()
+      require("languages/dart").dap_setup()
+    end,
   }
   use {
     "rcarriga/nvim-dap-ui",

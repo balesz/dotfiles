@@ -2,10 +2,16 @@ local M = {}
 
 function M.setup(use)
   use {
-    "neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
   }
   use {
-    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("languages/dart").lsp_setup(use)
+      require("languages/go").setup(use)
+      require("languages/lua").setup(use)
+      require("languages/dockerfile").setup(use)
+    end
   }
   use {
     "williamboman/mason-lspconfig.nvim",
@@ -18,10 +24,10 @@ function M.setup(use)
       }
     end
   }
-  require("languages/dart").setup(use)
-  require("languages/go").setup(use)
-  require("languages/lua").setup(use)
-  require("languages/dockerfile").setup(use)
+end
+
+function M.on_attach(client, bufnr)
+  require("features/editor").on_attach(client, bufnr)
 end
 
 local features = require "languages/features"

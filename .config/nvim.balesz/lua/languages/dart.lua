@@ -1,17 +1,13 @@
 local M = {}
 
-local ok_lsp, lspconfig = pcall(require, "lspconfig")
-local ok_navic, navic = pcall(require, "nvim-navic")
-local utils = require "languages/utils"
-local dart = require "languages/utils/dart"
-
-function M.setup(_)
-  --
-  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
-  -- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md
-  --
-  if not ok_lsp then return end
-  lspconfig.dartls.setup {
+--
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
+-- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md
+--
+function M.lsp_setup(_)
+  local utils = require "languages/utils"
+  local dart = require "languages/utils/dart"
+  require("lspconfig").dartls.setup {
     root_dir = dart.get_root_dir,
     capabilities = utils.get_capabilities(),
     init_options = {
@@ -31,8 +27,38 @@ function M.setup(_)
       }
     },
     on_attach = function(client, bufnr)
-      local _ = ok_navic and navic.attach(client, bufnr) or nil
+      require("languages").on_attach(client, bufnr)
     end,
+  }
+end
+
+--
+-- https://gist.github.com/christopherfujino/80be0f4cd88f75c4991b478e6b071153
+-- https://github.com/dart-lang/sdk/tree/main/pkg/dds/tool/dap#debug-adapter-protocol
+-- https://github.com/flutter/flutter/blob/master/packages/flutter_tools/lib/src/debug_adapters/README.md
+--
+function M.dap_setup(_)
+  require("dap").adapters.dart = {
+    type = "executable",
+    command = "flutter",
+    args = { "debug_adapter" },
+    options = {
+      max_retries = 100,
+      initialize_timeout_sec = 30,
+    },
+  }
+end
+
+function M.dap_config()
+  require("dap").configurations.dart = {
+    {
+      type = "dart",
+      request = "launch",
+      name = "debug",
+      cwd = "${workspaceFolder}",
+      program = "lib/main.dart",
+      flutterMode = "debug",
+    }
   }
 end
 
