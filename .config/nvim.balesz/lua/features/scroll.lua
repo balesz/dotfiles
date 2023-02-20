@@ -9,6 +9,7 @@ function M.setup(use)
   }
   use {
     "petertriho/nvim-scrollbar",
+    disable = true,
     config = function()
       require("scrollbar").setup {
         excluded_filetypes = {
