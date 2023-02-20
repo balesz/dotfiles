@@ -21,7 +21,7 @@ function M.lsp_setup(_)
       dart = {
         completeFunctionCalls = true,
         enableSdkFormatter = true,
-        lineLength = 120,
+        lineLength = 200,
         showTodos = true,
         analysisExcludedFolders = dart.get_excluded_folders(),
       }
