@@ -62,4 +62,6 @@ function M.dap_config()
   }
 end
 
+M.dap_config()
+
 return M
