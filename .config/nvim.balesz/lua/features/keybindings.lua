@@ -26,7 +26,6 @@ vim.keymap.set("n", "q", "<cmd>quit<CR>", { noremap = true })
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>",
   { noremap = true })
 vim.keymap.set("n", "<C-s>", "<cmd>w!<CR>", { noremap = true })
-vim.keymap.set("v", "<C-h>", "y:help <C-R>\"<CR>", { noremap = true })
 
 vim.keymap.set("", "<A-h>", "<Home>", { noremap = true })
 vim.keymap.set("", "<A-l>", "<End>", { noremap = true })
