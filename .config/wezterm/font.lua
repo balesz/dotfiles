@@ -2,12 +2,14 @@ local wezterm = require "wezterm";
 
 local M = {}
 
-local font = "JetBrainsMono Nerd Font"
+local font = ""
+font = "FiraCode Nerd Font"
+font = "JetBrainsMono Nerd Font"
 if os.getenv("OS") == "Windows_NT" then
-  font = "JetBrainsMono NF"
+  font = font:gsub("Nerd Font", "NF")
 end
 
 M.font = wezterm.font(font)
-M.size = 10
+M.size = 11
 
 return M
