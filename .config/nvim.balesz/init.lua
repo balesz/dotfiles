@@ -16,15 +16,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- setup lazy.nvim
-require("lazy").setup("plugins")
+require("lazy").setup("features")
 
 -- loading import.nvim
 require("import")
 
 -- setting up features
-require("plugins/appearance/setup")
-require("plugins/buffer/setup")
-require("plugins/filetree/setup")
-require("plugins/keymap/setup")
-require("plugins/terminal/setup")
-
+require("features/appearance/setup")
+require("features/buffer/setup")
+require("features/filetree/setup")
+require("features/keymap/setup")
+require("features/terminal/setup")
