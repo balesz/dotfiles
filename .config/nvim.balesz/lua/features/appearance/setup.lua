@@ -21,39 +21,43 @@ vim.cmd [[hi VertSplit guifg=#4c566a]]
 
 import("notify", function(notify)
   vim.notify = notify
-end)
+end, {})
 
-import("dressing", function(dressing) dressing.setup {
-  select = {
-    get_config = function(opts)
-      if opts.kind == "legendary.nvim" then
-        return {
-          telescope = {
-            sorter = require("telescope.sorters").get_fzy_sorter({})
+import("dressing", function(dressing)
+  dressing.setup {
+    select = {
+      get_config = function(opts)
+        if opts.kind == "legendary.nvim" then
+          return {
+            telescope = {
+              sorter = require("telescope.sorters").get_fzy_sorter({})
+            }
           }
-        }
-      end
-      return {}
-    end,
+        end
+        return {}
+      end,
+    }
   }
-} end)
+end, {})
 
-import("noice", function(noice) noice.setup {
-  lsp = {
-    override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      ["vim.lsp.util.stylize_markdown"] = true,
-      ["cmp.entry.get_documentation"] = true,
+import("noice", function(noice)
+  noice.setup {
+    lsp = {
+      override = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true,
+      },
     },
-  },
-  presets = {
-    bottom_search = true,
-    command_palette = true,
-    long_message_to_split = true,
-    inc_rename = false,
-    lsp_doc_border = false,
-  },
-} end)
+    presets = {
+      bottom_search = true,
+      command_palette = true,
+      long_message_to_split = true,
+      inc_rename = false,
+      lsp_doc_border = false,
+    },
+  }
+end, {})
 
 local font = ""
 font = "FiraCode Nerd Font"

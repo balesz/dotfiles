@@ -3,7 +3,7 @@ local M = {}
 local ok_lsp, lspconfig = pcall(require, "lspconfig")
 local utils = require "languages/utils"
 
-function M.setup(_)
+function M.setup()
   --
   -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
   --

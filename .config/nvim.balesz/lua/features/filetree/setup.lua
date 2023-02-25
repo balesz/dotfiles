@@ -21,7 +21,7 @@ vim.keymap.set("", "<Leader>ft", function()
   vim.cmd "NeoTreeFocus"
 end, { desc = "Open Neo-tree" })
 
-import("toggleterm.terminal", function(terminal)
+import("toggleterm.terminal", function(toggleterm)
   local goful = toggleterm.Terminal:new {
     cmd = "goful",
     direction = "float",
@@ -31,4 +31,4 @@ import("toggleterm.terminal", function(terminal)
   vim.keymap.set("", "<Leader>fg", function()
     goful:toggle()
   end, { desc = "Open goful" })
-end)
+end, {})

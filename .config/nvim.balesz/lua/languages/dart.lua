@@ -4,7 +4,7 @@ local M = {}
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
 -- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md
 --
-function M.lsp_setup(_)
+function M.lsp_setup()
   local utils = require "languages/utils"
   local dart = require "languages/utils/dart"
   require("lspconfig").dartls.setup {
@@ -37,7 +37,7 @@ end
 -- https://github.com/dart-lang/sdk/tree/main/pkg/dds/tool/dap#debug-adapter-protocol
 -- https://github.com/flutter/flutter/blob/master/packages/flutter_tools/lib/src/debug_adapters/README.md
 --
-function M.dap_setup(_)
+function M.dap_setup()
   require("dap").adapters.dart = {
     type = "executable",
     command = "flutter",

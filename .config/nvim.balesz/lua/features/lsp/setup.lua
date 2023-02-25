@@ -6,10 +6,10 @@ require("mason-lspconfig").setup {
   }
 }
 
-require("languages/dart").lsp_setup(use)
-require("languages/go").setup(use)
-require("languages/lua").setup(use)
-require("languages/dockerfile").setup(use)
+require("languages/dart").lsp_setup()
+require("languages/go").setup()
+require("languages/lua").setup()
+require("languages/dockerfile").setup()
 
 local features = require "languages/features"
 

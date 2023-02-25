@@ -1,6 +1,6 @@
 vim.opt.completeopt = "menu,menuone,noinsert,noselect,preview"
 
-local ok, cmp = pcall(require, "cmp")
+local _, cmp = pcall(require, "cmp")
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -18,7 +18,7 @@ cmp.setup {
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<A-j>"] = cmp.mapping.scroll_docs(-4),
+    ["<A-j>"] = cmp.mapping.scroll_docs( -4),
     ["<A-k>"] = cmp.mapping.scroll_docs(4),
     ["<C-h>"] = cmp.mapping.abort(),
     ["<C-l>"] = cmp.mapping.confirm({ select = true }),
