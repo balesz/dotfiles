@@ -32,7 +32,8 @@ require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons"
   local setup = setup_factory(use)
-  setup("features/keybindings")
+  setup("features/keymap")
+  setup("features/terminal")
   setup("features/appearance")
   setup("features/autocompletion")
   setup("features/buffer")
@@ -46,7 +47,6 @@ require("packer").startup(function(use)
   setup("features/statusline")
   setup("features/syntax")
   setup("features/telescope")
-  setup("features/terminal")
   setup("languages")
   setup("tools")
   if packer_bootstrap then
