@@ -15,13 +15,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- setup lazy.nvim
 require("lazy").setup("features")
-
--- loading import.nvim
-require("import")
-
--- setting up features
 require("features/autocompletion/setup")
 require("features/buffer/setup")
 require("features/colorscheme/setup")
