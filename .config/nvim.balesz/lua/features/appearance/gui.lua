@@ -3,8 +3,14 @@ local M = {}
 local _, notify = pcall(require, "notify")
 
 function M.setup(use)
-  use "MunifTanjim/nui.nvim"
-  use "rcarriga/nvim-notify"
+  use { "MunifTanjim/nui.nvim" }
+  use { "rcarriga/nvim-notify" }
+  use {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup {}
+    end
+  }
   use {
     "folke/noice.nvim",
     disable = true,
@@ -27,8 +33,9 @@ function M.setup(use)
       }
     end
   }
-  vim.notify = notify or vim.notify
 end
+
+vim.notify = notify or vim.notify
 
 local font = ""
 font = "FiraCode Nerd Font"
@@ -39,7 +46,8 @@ end
 
 vim.opt.title = true
 vim.opt.guifont = font .. ":h11"
-vim.opt.guicursor = "n-v-c-sm:block-lCursor,i-ci-ve:ver25-lCursor,r-cr-o:hor25-lCursor"
+vim.opt.guicursor =
+"n-v-c-sm:block-lCursor,i-ci-ve:ver25-lCursor,r-cr-o:hor25-lCursor"
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
