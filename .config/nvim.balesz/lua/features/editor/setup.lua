@@ -9,6 +9,9 @@ require("indent_blankline").setup {
 
 require("nvim-navic").setup {}
 
+vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
+
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "eol:↴"
