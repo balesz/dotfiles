@@ -1,9 +1,10 @@
-local M = {}
-
-function M.setup(use)
-  require("features/appearance/colorscheme").setup(use)
-  require("features/appearance/gui").setup(use)
-  require("features/appearance/layout").setup(use)
-end
-
-return M
+return {
+  -- colorscheme
+  { "EdenEast/nightfox.nvim" },
+  { "catppuccin/nvim" },
+  -- gui
+  { "MunifTanjim/nui.nvim" },
+  { "rcarriga/nvim-notify" },
+  { "stevearc/dressing.nvim" },
+  { "folke/noice.nvim" },
+}
