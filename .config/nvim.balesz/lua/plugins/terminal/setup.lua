@@ -1,22 +1,12 @@
-local M = {}
-
-function M.setup(use)
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = "*",
-    config = function()
-      require("toggleterm").setup {
-        auto_scroll = true,
-        close_on_exit = false,
-        hide_numbers = false,
-        persist_mode = false,
-        persist_size = false,
-        shade_terminals = false,
-        start_in_insert = false,
-      }
-    end
-  }
-end
+require("toggleterm").setup {
+  auto_scroll = true,
+  close_on_exit = false,
+  hide_numbers = false,
+  persist_mode = false,
+  persist_size = false,
+  shade_terminals = false,
+  start_in_insert = false,
+}
 
 vim.api.nvim_create_augroup("BaleszTerminal", {})
 
@@ -76,5 +66,3 @@ end)
 vim.keymap.set("", "<Leader>tf", function()
   float:toggle()
 end)
-
-return M

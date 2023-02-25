@@ -23,5 +23,8 @@ require("import")
 
 -- setting up features
 require("plugins/appearance/setup")
+require("plugins/buffer/setup")
 require("plugins/filetree/setup")
 require("plugins/keymap/setup")
+require("plugins/terminal/setup")
+
