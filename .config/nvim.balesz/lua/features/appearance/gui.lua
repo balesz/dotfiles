@@ -8,7 +8,20 @@ function M.setup(use)
   use {
     "stevearc/dressing.nvim",
     config = function()
-      require("dressing").setup {}
+      require("dressing").setup {
+        select = {
+          get_config = function(opts)
+            if opts.kind == "legendary.nvim" then
+              return {
+                telescope = {
+                  sorter = require("telescope.sorters").get_fzy_sorter({})
+                }
+              }
+            end
+            return {}
+          end,
+        }
+      }
     end
   }
   use {
