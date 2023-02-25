@@ -1,23 +1,8 @@
-local M = {}
+local ok_which, which = pcall(require, "which-key")
+local _ = ok_which and which.setup {}
 
-function M.setup(use)
-  use {
-    "folke/which-key.nvim",
-    disable = false,
-    config = function()
-      require("which-key").setup {}
-    end
-  }
-  use {
-    "mrjones2014/legendary.nvim",
-    disable = false,
-    config = function()
-      require("legendary").setup {}
-    end
-  }
-end
-
-vim.g.mapleader = " "
+local ok_legendary, legendary = pcall(require, "legendary")
+local _ = ok_legendary and legendary.setup {}
 
 vim.keymap.set("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>',
   { noremap = true, silent = true })
@@ -56,5 +41,3 @@ vim.keymap.set("c", "<C-l>", "<Right>", { noremap = true })
 vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
 vim.keymap.set("c", "<C-k>", "<Up>", { noremap = true })
 vim.keymap.set("c", "<C-d>", "<Del>", { noremap = true })
-
-return M
