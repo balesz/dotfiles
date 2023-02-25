@@ -1,11 +1,13 @@
-local M = {}
-
-function M.setup(use)
-  require("tools/flutter").setup(use)
-  require("tools/rest-nvim").setup(use)
-end
-
-return M
+return {
+  {
+    "akinsho/flutter-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "NTBBloodbath/rest.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  }
+}
 
 --
 -- ## User Interface
