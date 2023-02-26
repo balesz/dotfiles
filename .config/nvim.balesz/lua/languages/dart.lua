@@ -37,10 +37,12 @@ end
 -- https://github.com/dart-lang/sdk/tree/main/pkg/dds/tool/dap#debug-adapter-protocol
 -- https://github.com/flutter/flutter/blob/master/packages/flutter_tools/lib/src/debug_adapters/README.md
 --
-function M.dap_setup()
+function M.dap_setup(is_dart)
+  local command = "flutter"
+  if is_dart then command = "dart" end
   require("dap").adapters.dart = {
     type = "executable",
-    command = "flutter",
+    command = command,
     args = { "debug_adapter" },
     options = {
       max_retries = 100,
@@ -61,7 +63,5 @@ function M.dap_config()
     }
   }
 end
-
-M.dap_config()
 
 return M
