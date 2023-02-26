@@ -1,6 +1,10 @@
-require("gitsigns").setup {}
+if pcall(require, "gitsigns") then
+  require("gitsigns").setup {}
+end
 
-require("scrollbar.handlers.gitsigns").setup()
+if pcall(require, "scrollbar") then
+  require("scrollbar.handlers.gitsigns").setup()
+end
 
 if pcall(require, "toggleterm") then
   local lazygit = require("toggleterm.terminal").Terminal:new {

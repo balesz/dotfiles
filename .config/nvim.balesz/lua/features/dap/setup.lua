@@ -1,3 +1,7 @@
-require("languages/dart").dap_setup()
+if pcall(require, "languages") then
+  require("languages").dap_setup()
+end
 
-require("dapui").setup {}
+if pcall(require, "dapui") then
+  require("dapui").setup {}
+end

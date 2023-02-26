@@ -1,5 +1,5 @@
 return {
-  { "famiu/bufdelete.nvim", },
+  "famiu/bufdelete.nvim",
   {
     "akinsho/bufferline.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons" }

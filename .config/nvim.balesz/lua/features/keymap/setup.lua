@@ -1,8 +1,10 @@
-local ok_which, which = pcall(require, "which-key")
-local _ = ok_which and which.setup {}
+if pcall(require, "which-key") then
+  require("which-key").setup {}
+end
 
-local ok_legendary, legendary = pcall(require, "legendary")
-local _ = ok_legendary and legendary.setup {}
+if pcall(require, "legendary") then
+  require("legendary").setup {}
+end
 
 vim.keymap.set("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>',
   { noremap = true, silent = true })

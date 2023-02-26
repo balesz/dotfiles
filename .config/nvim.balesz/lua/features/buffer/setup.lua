@@ -1,8 +1,7 @@
-local close_command = "Bdelete! %d"
-
 vim.keymap.set("n", "x", "<cmd>Bdelete<CR>")
 
 if pcall(require, "bufferline") then
+  local close_command = "Bdelete! %d"
   require("bufferline").setup {
     options = {
       always_show_bufferline = true,

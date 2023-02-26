@@ -1,6 +1,8 @@
 vim.opt.completeopt = "menu,menuone,noinsert,noselect,preview"
 
-local _, cmp = pcall(require, "cmp")
+local ok_cmp, cmp = pcall(require, "cmp")
+if not ok_cmp then return end
+
 cmp.setup {
   snippet = {
     expand = function(args)

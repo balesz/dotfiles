@@ -1,9 +1,9 @@
-require("telescope").setup {
-  extensions = {
-    file_browser = {}
+if pcall(require, "telescope") then
+  require("telescope").setup {
+    extensions = {
+      file_browser = {}
+    }
   }
-}
-
-require("telescope").load_extension("file_browser")
-
-require("telescope").load_extension("project")
+  require("telescope").load_extension("file_browser")
+  require("telescope").load_extension("project")
+end

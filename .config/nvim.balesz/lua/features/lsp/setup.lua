@@ -1,15 +1,18 @@
-require("mason").setup {}
+if pcall(require, "mason") then
+  require("mason").setup {}
+end
 
-require("mason-lspconfig").setup {
-  ensure_installed = {
-    "lua_ls", "bashls", "dockerls", "jsonls", "yamlls"
+if pcall(require, "mason-lspconfig") then
+  require("mason-lspconfig").setup {
+    ensure_installed = {
+      "lua_ls", "bashls", "dockerls", "jsonls", "yamlls"
+    }
   }
-}
+end
 
-require("languages/dart").lsp_setup()
-require("languages/go").setup()
-require("languages/lua").setup()
-require("languages/dockerfile").setup()
+if pcall(require, "languages") then
+  require("languages").lsp_setup()
+end
 
 local features = require "languages/features"
 
