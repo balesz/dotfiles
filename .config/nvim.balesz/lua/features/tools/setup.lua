@@ -1,4 +1,6 @@
-require("flutter-tools").setup {}
+if pcall(require, "flutter-tools") then
+  require("flutter-tools").setup {}
+end
 
 require("rest-nvim").setup {
   -- Open request results in a horizontal split
