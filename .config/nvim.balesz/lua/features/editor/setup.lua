@@ -30,3 +30,11 @@ end
 if pcall(require, "nvim-navic") then
   require("nvim-navic").setup {}
 end
+
+if pcall(require, "twilight") then
+  require("twilight").setup {}
+end
+
+if pcall(require, "zen-mode") then
+  require("zen-mode").setup {}
+end
