@@ -37,3 +37,7 @@ if pcall(require, "noice") then
     },
   }
 end
+
+if pcall(require, "trouble") then
+  require("trouble").setup {}
+end

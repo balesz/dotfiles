@@ -2,10 +2,10 @@ return {
   "famiu/bufdelete.nvim",
   {
     "akinsho/bufferline.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" }
+    dependencies = { "nvim-tree/nvim-web-devicons" }
   },
   {
     "ghillb/cybu.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons", "nvim-lua/plenary.nvim" }
+    dependencies = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" }
   }
 }
