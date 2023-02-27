@@ -23,7 +23,7 @@ end
 if pcall(require, "toggleterm") then
   require("toggleterm").setup {
     auto_scroll = true,
-    close_on_exit = false,
+    close_on_exit = true,
     hide_numbers = false,
     persist_mode = false,
     persist_size = false,
