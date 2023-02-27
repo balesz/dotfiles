@@ -14,11 +14,11 @@
   "gitsigns.nvim": { "branch": "main", "commit": "f388995990aba04cfdc7c3ab870c33e280601109" },
   "import.nvim": { "branch": "main", "commit": "ae0204208ecd1eb2239f3597df6a9b2dc5686b37" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
-  "lazy.nvim": { "branch": "main", "commit": "8077428e63feb0f3bf795d53b23ba1695b28ab0e" },
+  "lazy.nvim": { "branch": "main", "commit": "5694483e8782f4d9a01ea8822166998924df5f00" },
   "legendary.nvim": { "branch": "master", "commit": "9e38951df410c6d65fa2b932832d201d7cd6ca62" },
   "lualine.nvim": { "branch": "master", "commit": "e99d733e0213ceb8f548ae6551b04ae32e590c80" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "3f9c0ea157e88b08e2d11ec65002eeb6e421f0da" },
-  "mason.nvim": { "branch": "main", "commit": "63cff223169324a2e633954ac580c7c327182a97" },
+  "mason.nvim": { "branch": "main", "commit": "5f38eca64b7ed9f8a1f997ce67f2ccc80ab80c91" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "74040b34278910d9b467fd914862e2a9a1ebacaa" },
   "neoscroll.nvim": { "branch": "master", "commit": "d7601c26c8a183fa8994ed339e70c2d841253e93" },
   "nightfox.nvim": { "branch": "main", "commit": "be5e53df21c8f41790d25c56cd16cda90137dc63" },
@@ -46,5 +46,5 @@
   "trouble.nvim": { "branch": "main", "commit": "3b754285635a66a93aeb15fa71a23417d8997217" },
   "twilight.nvim": { "branch": "main", "commit": "9410252bed96887ca5a86bf16435a3a51a0e6ce5" },
   "which-key.nvim": { "branch": "main", "commit": "5224c261825263f46f6771f1b644cae33cd06995" },
-  "zen-mode.nvim": { "branch": "main", "commit": "3c92f503823088862ca2a7809d1c7edc90fb92fa" }
+  "zen-mode.nvim": { "branch": "main", "commit": "4f2e70d75b7ece1c2a7c852664db492537078996" }
 }
