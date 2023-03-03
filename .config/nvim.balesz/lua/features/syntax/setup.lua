@@ -14,11 +14,13 @@ if pcall(require, "nvim-treesitter") then
   }
 end
 
-vim.api.nvim_create_augroup("BaleszSyntax", {})
+if false then
+  vim.api.nvim_create_augroup("BaleszSyntax", {})
 
-vim.api.nvim_create_autocmd({ "BufEnter", }, {
-  pattern = "*",
-  group = "BaleszSyntax",
-  desc = "Enable syntax",
-  command = "syntax on",
-})
+  vim.api.nvim_create_autocmd({ "BufEnter", }, {
+    pattern = "*",
+    group = "BaleszSyntax",
+    desc = "Enable syntax",
+    command = "syntax on",
+  })
+end
