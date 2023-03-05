@@ -31,6 +31,16 @@ install_wezterm () {
   rm wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb 
 }
 
+install_font () {
+  cd ~
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
+  mkdir -p ~/.local/share/fonts/JetBrainsMonoNF
+  unzip -d ~/.local/share/fonts/JetBrainsMonoNF JetBrainsMono.zip
+  rm ~/.local/share/fonts/JetBrainsMonoNF/*Windows\ Compatible.ttf
+  rm JetBrainsMono.zip
+  fc-cache -f -v
+}
+
 install_neovim () {
   cd ~
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
