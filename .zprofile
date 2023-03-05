@@ -1,2 +1,2 @@
 alias nv="NVIM_APPNAME=nvim.balesz nvim"
-alias docker="podman"
+alias nvide="NVIM_APPNAME=nvim.balesz neovide"
