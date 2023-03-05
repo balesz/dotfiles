@@ -74,6 +74,11 @@ install_sublime_merge () {
   sudo apt-get -y install sublime-merge
 }
 
+install_node () {
+  curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+}
+
 install_flutter () {
   PATH=$PATH:~/.local/opt/flutter/bin
   rm -rf ~/.local/opt/flutter
