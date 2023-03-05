@@ -11,7 +11,7 @@
 /.local/*
 !/.local/bin
 /.local/bin/*
-!/.local/bin/dotenv-setup.sh
+!/.local/bin/dotenv.sh
 
 !/.config
 /.config/*

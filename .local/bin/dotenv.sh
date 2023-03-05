@@ -24,6 +24,20 @@ install_git () {
   sudo apt-get -y upgrade
 }
 
+install_wezterm () {
+  cd ~
+  wget https://github.com/wez/wezterm/releases/download/20221119-145034-49b9839f/wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb
+  sudo apt-get -y install ./wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb
+  rm wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb 
+}
+
+install_neovim () {
+  cd ~
+  wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+  sudo apt-get -y install ./nvim-linux64.deb
+  rm nvim-linux64.deb
+}
+
 install_docker () {
   cd ~
   sudo apt-get -y remove docker docker-engine docker.io containerd runc
@@ -60,14 +74,14 @@ install_flutter () {
 }
 
 install_go () {
-  GO_VERSION=1.19.4
+  GO_VERSION=1.20.1
   rm -rf ~/.local/opt/go
-  wget -q -P /tmp https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
-  tar -C ~/.local/opt -xzf /tmp/go${GO_VERSION}.linux-amd64.tar.gz
+  wget -P /tmp https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
+  tar -C ~/.local/opt -xvzf /tmp/go${GO_VERSION}.linux-amd64.tar.gz
   rm /tmp/go${GO_VERSION}.linux-amd64.tar.gz
 }
 
-install_go_apps () {
+install_apps () {
   PATH=$PATH:~/.local/opt/go/bin
   go install github.com/anmitsu/goful@latest
   go install github.com/jesseduffield/lazygit@latest
@@ -77,23 +91,8 @@ install_go_apps () {
   go install github.com/xo/usql@latest
 }
 
-init
-
 case ${1} in
-  zsh) install_ohmyzsh;;
-  git) install_git;;
-  docker) install_docker;;
-  flutter) install_flutter;;
-  golang) install_go;;
-  apps) install_go_apps;;
-  init) init
-    install_ohmyzsh
-    install_git
-    install_docker
-    install_sublime_merge
-    install_flutter
-    install_go
-    install_go_apps
-    ;;
+  init) init;;
+  install) install_$2;;
+  *) echo Unknown command;;
 esac
-
