@@ -1,5 +1,9 @@
 export TERM=xterm-256color
 
+if ! which google-chrome > /dev/null && which microsoft-edge > /dev/null; then
+  export CHROME_EXECUTABLE=microsoft-edge
+fi
+
 export ANDROID_HOME=$HOME/.local/opt/android
 export ANDROID_SDK_PATH=$HOME/.local/opt/android
 export DOTNET_ROOT=$HOME/.local/opt/dotnet
