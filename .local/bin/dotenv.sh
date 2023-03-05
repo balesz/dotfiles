@@ -3,21 +3,18 @@
 cd ~
 
 init () {
-  cd ~
   mkdir -p ~/.local/opt
   sudo apt-get -y update
   sudo apt-get -y upgrade
-  sudo apt-get -y install apt-utils build-essential git software-properties-common wget unzip zip
+  sudo apt-get -y install apt-utils build-essential software-properties-common git wget unzip zip
 }
 
 install_ohmyzsh () {
-  cd ~
   sudo apt-get -y install zsh
   sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 }
 
 install_git () {
-  cd ~
   sudo add-apt-repository ppa:git-core/ppa
   sudo apt-get -y update
   sudo apt-get -y install git
@@ -25,14 +22,12 @@ install_git () {
 }
 
 install_wezterm () {
-  cd ~
   wget https://github.com/wez/wezterm/releases/download/20221119-145034-49b9839f/wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb
   sudo apt-get -y install ./wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb
   rm wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb 
 }
 
 install_font () {
-  cd ~
   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
   mkdir -p ~/.local/share/fonts/JetBrainsMonoNF
   unzip -d ~/.local/share/fonts/JetBrainsMonoNF JetBrainsMono.zip
@@ -42,14 +37,13 @@ install_font () {
 }
 
 install_neovim () {
-  cd ~
+  sudo apt-get -y install xsel ripgrep fd-find
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
   sudo apt-get -y install ./nvim-linux64.deb
   rm nvim-linux64.deb
 }
 
 install_docker () {
-  cd ~
   sudo apt-get -y remove docker docker-engine docker.io containerd runc
   sudo apt-get -y purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
   sudo rm -rf /var/lib/docker
@@ -66,7 +60,6 @@ install_docker () {
 }
 
 install_sublime_merge () {
-  cd ~
   wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
   sudo apt-get -y install apt-transport-https
   echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -80,6 +73,7 @@ install_node () {
 }
 
 install_flutter () {
+  sudo apt-get -y install clang cmake ninja-build libgtk-3-dev
   PATH=$PATH:~/.local/opt/flutter/bin
   rm -rf ~/.local/opt/flutter
   cd ~/.local/opt
