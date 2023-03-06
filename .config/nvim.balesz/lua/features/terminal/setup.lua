@@ -34,19 +34,19 @@ if pcall(require, "toggleterm") then
   local toggleterm = require "toggleterm.terminal"
 
   local horizontal = toggleterm.Terminal:new {
-    cmd = "tmux",
+    --cmd = "tmux",
     direction = "horizontal",
     hidden = true,
   }
 
   local vertical = toggleterm.Terminal:new {
-    cmd = "tmux",
+    --cmd = "tmux",
     direction = "vertical",
     hidden = true,
   }
 
   local float = toggleterm.Terminal:new {
-    cmd = "tmux",
+    --cmd = "tmux",
     direction = "float",
     hidden = true,
   }
