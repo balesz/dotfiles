@@ -1,7 +1,9 @@
 vim.keymap.set("n", "x", "<cmd>Bdelete<CR>")
 
 if pcall(require, "bufferline") then
-  local close_command = "Bdelete! %d"
+  local close_command = function(bufnum)
+    require("bufdelete").bufdelete(bufnum, true)
+  end
   require("bufferline").setup {
     options = {
       always_show_bufferline = true,
@@ -10,7 +12,7 @@ if pcall(require, "bufferline") then
       close_command = close_command,
       right_mouse_command = close_command,
       middle_mouse_command = close_command,
-      separator_style = "slant",
+      separator_style = "slope",
       sort_by = "insert_after_current",
       offsets = {
         {
