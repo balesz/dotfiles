@@ -16,10 +16,10 @@ vim.keymap.set("n", "<C-s>", function()
   if vim.bo.modified then vim.cmd("w!") end
 end, { noremap = true })
 
-vim.keymap.set("n", "<Leader>h", "<C-w><Left>", { noremap = true })
-vim.keymap.set("n", "<Leader>l", "<C-w><Right>", { noremap = true })
-vim.keymap.set("n", "<Leader>j", "<C-w><Down>", { noremap = true })
-vim.keymap.set("n", "<Leader>k", "<C-w><Up>", { noremap = true })
+vim.keymap.set("n", "<Leader><C-h>", "<C-w><Left>", { noremap = true })
+vim.keymap.set("n", "<Leader><C-l>", "<C-w><Right>", { noremap = true })
+vim.keymap.set("n", "<Leader><C-j>", "<C-w><Down>", { noremap = true })
+vim.keymap.set("n", "<Leader><C-k>", "<C-w><Up>", { noremap = true })
 
 vim.keymap.set("n", "<C-h>", "<Home>", { noremap = true })
 vim.keymap.set("n", "<C-l>", "<End>", { noremap = true })
