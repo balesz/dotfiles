@@ -6,6 +6,7 @@ fi
 
 export ANDROID_HOME=$HOME/.local/opt/android
 export ANDROID_SDK_PATH=$HOME/.local/opt/android
+export JAVA_HOME=$HOME/.local/opt/android-studio/jbr
 export DOTNET_ROOT=$HOME/.local/opt/dotnet
 export FLUTTER_ROOT=$HOME/.local/opt/flutter
 
