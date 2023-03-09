@@ -25,3 +25,4 @@ skip-levels = 1
 
 [keys.normal.backspace]
 s = ":w"
+x = ":bc!"
