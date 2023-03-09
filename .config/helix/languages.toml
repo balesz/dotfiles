@@ -1,0 +1,11 @@
+[[language]]
+name = "dart"
+auto-format = true
+
+[language.config.dart]
+enableSdkFormatter = true
+lineLength = 200
+completeFunctionCalls = true
+showTodos = true
+enableSnippets = true
+documentation = "full"
