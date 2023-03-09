@@ -16,6 +16,7 @@
 !/.config
 /.config/*
 !/.config/wezterm
+!/.config/helix
 !/.config/nvim.balesz
 !/.config/nvim.nvchad
 !/.config/nvim.nvchad.custom
