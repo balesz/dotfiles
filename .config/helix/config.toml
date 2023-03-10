@@ -4,7 +4,7 @@ theme = "tokyonight_storm"
 mouse = true
 auto-pairs = true
 rulers = [80,100, 120,200]
-bufferline = "always"
+bufferline = "never"
 
 [editor.cursor-shape]
 insert = "bar"

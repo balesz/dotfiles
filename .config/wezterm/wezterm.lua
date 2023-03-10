@@ -18,7 +18,7 @@ local font = require "font"
 local keymaps = require "keymaps"
 
 return {
-  color_scheme = "nord",
+  color_scheme = "tokyonight-storm",
   default_cwd = defaults.cwd,
   default_domain = defaults.domain,
   default_prog = defaults.prog,
