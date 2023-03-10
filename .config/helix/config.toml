@@ -24,5 +24,6 @@ render = true
 skip-levels = 1
 
 [keys.normal.backspace]
+q = ":q!"
 s = ":w"
 x = ":bc!"
