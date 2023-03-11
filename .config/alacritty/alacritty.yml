@@ -7,7 +7,6 @@ window:
     lines: 40
   startup_mode: Windowed
   decoration: full
-  opacity: 0.9
   resize_increments: true
 font:
   normal:
