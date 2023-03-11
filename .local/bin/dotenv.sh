@@ -91,6 +91,15 @@ install_go () {
 }
 
 install_apps () {
+  DIR=`mktemp -d`
+  wget -P $DIR https://github.com/zellij-org/zellij/releases/download/v0.35.2/zellij-x86_64-unknown-linux-musl.tar.gz
+  sudo tar -C /usr/local/bin -xvzf $DIR/zellij-x86_64-unknown-linux-musl.tar.gz
+  wget -P $DIR https://github.com/sayanarijit/xplr/releases/download/v0.20.2/xplr-linux.tar.gz
+  sudo tar -C /usr/local/bin -xvzf $DIR/xplr-linux.tar.gz
+  rm -rf $DIR
+}
+
+install_goapps () {
   PATH=$PATH:~/.local/opt/go/bin
   go install github.com/anmitsu/goful@latest
   go install github.com/jesseduffield/lazygit@latest
