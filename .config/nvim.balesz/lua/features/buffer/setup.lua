@@ -12,7 +12,7 @@ if pcall(require, "bufferline") then
       close_command = close_command,
       right_mouse_command = close_command,
       middle_mouse_command = close_command,
-      separator_style = "slope",
+      separator_style = "thick",
       sort_by = "insert_after_current",
       offsets = {
         {
