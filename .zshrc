@@ -100,6 +100,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias nv="NVIM_APPNAME=nvim.balesz nvim"
+alias nvchad="NVIM_APPNAME=nvim.nvchad nvim"
+
 bindkey "\eh" backward-char
 bindkey "\el" forward-char
 
