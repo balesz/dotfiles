@@ -1,4 +1,6 @@
-vim.keymap.set("n", "x", "<cmd>Bdelete<CR>")
+if pcall(require, "bufdelete") then
+  vim.keymap.set("n", "<BS>x", "<cmd>Bdelete<CR>")
+end
 
 if pcall(require, "bufferline") then
   local close_command = function(bufnum)
