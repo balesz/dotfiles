@@ -101,6 +101,7 @@ install_apps () {
 
 install_goapps () {
   PATH=$PATH:~/.local/opt/go/bin
+  env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
   go install github.com/anmitsu/goful@latest
   go install github.com/jesseduffield/lazygit@latest
   go install github.com/jesseduffield/lazydocker@latest
