@@ -33,6 +33,11 @@ install_font () {
   unzip -d ~/.local/share/fonts/JetBrainsMonoNF JetBrainsMono.zip
   rm ~/.local/share/fonts/JetBrainsMonoNF/*Windows\ Compatible.ttf
   rm JetBrainsMono.zip
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip 
+  mkdir -p ~/.local/share/fonts/FiraCodeNF
+  unzip -d ~/.local/share/fonts/FiraCodeNF FiraCode.zip
+  rm ~/.local/share/fonts/FiraCodeNF/*Windows\ Compatible.ttf
+  rm FiraCode.zip
   fc-cache -f -v
 }
 
