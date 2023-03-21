@@ -22,9 +22,9 @@ install_git () {
 }
 
 install_wezterm () {
-  wget https://github.com/wez/wezterm/releases/download/20221119-145034-49b9839f/wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb
-  sudo apt-get -y install ./wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb
-  rm wezterm-20221119-145034-49b9839f.Ubuntu22.04.deb 
+  wget -O wezterm.deb https://github.com/wez/wezterm/releases/download/20230320-124340-559cb7b0/wezterm-20230320-124340-559cb7b0.Ubuntu22.04.deb
+  sudo apt-get -y install ./wezterm.deb
+  rm wezterm.deb 
 }
 
 install_font () {
