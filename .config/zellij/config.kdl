@@ -8,6 +8,7 @@ mouse_mode true
 keybinds clear-defaults=true {
     normal {
         bind "Alt f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "Alt g" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
     }
     locked {
         bind "Alt x" { SwitchToMode "Normal"; }
@@ -36,7 +37,7 @@ keybinds clear-defaults=true {
         bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
-        bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+        bind "g" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
         bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
