@@ -3,9 +3,9 @@ import:
 
 shell:
   program: zsh
-  args:
-    - -c
-    - zellij attach -c main
+  # args:
+  #   - -c
+  #   - zellij attach -c main
 
 window:
   dimensions:
