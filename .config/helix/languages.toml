@@ -19,5 +19,13 @@ args = [ "debug_adapter" ]
 [[language.debugger.templates]]
 name = "debug"
 request = "launch"
-completion = [ { name = "program", completion = "filename", default = "lib/main.dart" } ]
-args = { program = "{0}", console = "internalTerminal" }
+
+[[language.debugger.templates.completion]]
+name = "program"
+completion = "filename"
+default = "lib/main.dart"
+
+[language.debugger.templates.args]
+program = "{0}"
+toolArgs = ["-v", "-d", "chrome"]
+sendLogsToClient = true
