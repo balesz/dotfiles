@@ -33,6 +33,8 @@ skip-levels = 1
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+"C-j" = ["scroll_down", "move_line_down"]
+"C-k" = ["scroll_up", "move_line_up"]
 
 [keys.normal.backspace]
 q = ":q!"
