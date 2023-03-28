@@ -31,7 +31,7 @@ return {
   ssh_backend = "Ssh2",
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = true,
-  --window_background_opacity = 0.9,
+  window_background_opacity = 0.9,
   window_padding = {
     left = "0cell",
     right = "0cell",

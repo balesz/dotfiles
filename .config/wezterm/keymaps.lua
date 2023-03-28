@@ -21,10 +21,12 @@ local function override_in_shell(lhs, rhs)
 end
 
 return {
-  override_in_shell({ key = "h", mods = "ALT" }, { key = "LeftArrow" }),
-  override_in_shell({ key = "j", mods = "ALT" }, { key = "a", mods = "CTRL" }),
-  override_in_shell({ key = "k", mods = "ALT" }, { key = "e", mods = "CTRL" }),
-  override_in_shell({ key = "l", mods = "ALT" }, { key = "RightArrow" }),
-  override_in_shell({ key = "j", mods = "CTRL" }, { key = "DownArrow" }),
-  override_in_shell({ key = "k", mods = "CTRL" }, { key = "UpArrow" }),
+  override_in_shell({ key = "h", mods = "CTRL|ALT" }, { key = "LeftArrow" }),
+  override_in_shell({ key = "j", mods = "CTRL|ALT" }, { key = "DownArrow" }),
+  override_in_shell({ key = "k", mods = "CTRL|ALT" }, { key = "UpArrow" }),
+  override_in_shell({ key = "l", mods = "CTRL|ALT" }, { key = "RightArrow" }),
+  override_in_shell({ key = "h", mods = "CTRL|SHIFT" }, { key = "Home" }),
+  override_in_shell({ key = "j", mods = "CTRL|SHIFT" }, { key = "PageDown" }),
+  override_in_shell({ key = "k", mods = "CTRL|SHIFT" }, { key = "PageUp" }),
+  override_in_shell({ key = "l", mods = "CTRL|SHIFT" }, { key = "End" }),
 }
