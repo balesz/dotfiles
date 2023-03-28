@@ -1,27 +1,12 @@
 local wezterm = require "wezterm"
--- wezterm-gui.exe --config-file \\wsl.localhost\{DISTRIBUTION}\home\{USER}\.config\wezterm\wezterm.lua
-if wezterm.config_dir:find("wsl.localhost") then
-  local wsl_path = wezterm.config_dir
-  if not package.path:find(wsl_path) then
-    package.path = table.concat({
-      package.path,
-      wsl_path .. "\\?.lua",
-      wsl_path .. "\\?\\init.lua",
-    }, ";")
-  end
-end
+local wsl = require "wsl"
 
 require "title"
-
-local defaults = require "defaults"
 local font = require "font"
 local keymaps = require "keymaps"
 
-return {
+local M = {
   color_scheme = "tokyonight-storm",
-  default_cwd = defaults.cwd,
-  default_domain = defaults.domain,
-  default_prog = defaults.prog,
   exit_behavior = "Close",
   font = font.font,
   font_size = font.size,
@@ -38,5 +23,12 @@ return {
     top = "0cell",
     bottom = "0cell",
   },
-  wsl_domains = defaults.wsl_domains,
 }
+
+if wsl.wsl_domains ~= nil then
+  M.wsl_domains = wsl.wsl_domains
+  M.default_cwd = wsl.default_cwd
+  M.default_domain = wsl.default_domain
+end
+
+return M
