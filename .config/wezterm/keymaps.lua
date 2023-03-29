@@ -7,7 +7,7 @@ local function override_in_shell(lhs, rhs)
     mods = lhs.mods,
     action = wezterm.action_callback(function(win, pane)
       local proc_name = pane:get_foreground_process_name()
-      if proc_name:find("zsh") then
+      if proc_name:find("zsh") or proc_name:find("zellij") then
         win:perform_action(action.SendKey {
           mods = rhs.mods, key = rhs.key
         }, pane)
