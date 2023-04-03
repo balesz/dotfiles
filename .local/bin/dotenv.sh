@@ -7,6 +7,7 @@ init () {
   sudo apt-get -y update
   sudo apt-get -y upgrade
   sudo apt-get -y install apt-utils build-essential software-properties-common git wget unzip zip
+  sudo apt-get -y install xcape
 }
 
 install_ohmyzsh () {
@@ -25,6 +26,21 @@ install_terminal () {
   wget -O wezterm.deb https://github.com/wez/wezterm/releases/download/20230326-111934-3666303c/wezterm-20230326-111934-3666303c.Ubuntu22.04.deb
   sudo apt-get -y install ./wezterm.deb
   rm wezterm.deb 
+}
+
+install_keyd () {
+  mkdir -p ~/.local/src
+  cd ~/.local/src
+  git clone https://github.com/rvaiya/keyd
+  cd keyd
+  make && sudo make install
+  cd ~/.local/src
+  rm -rf keyd
+  sudo systemctl stop keyd && sudo systemctl disable keyd
+  sudo mkdir -p /etc/keyd
+  sudo ln -s ~/.config/keyd/default.conf /etc/keyd/default.conf
+  sudo systemctl enable keyd && sudo systemctl start keyd
+  cd ~
 }
 
 install_font () {
