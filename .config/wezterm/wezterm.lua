@@ -3,7 +3,6 @@ local wsl = require "wsl"
 
 require "title"
 local font = require "font"
-local keymaps = require "keymaps"
 
 local M = {
   color_scheme = "tokyonight-storm",
@@ -12,7 +11,6 @@ local M = {
   font_size = font.size,
   initial_cols = 120,
   initial_rows = 40,
-  keys = keymaps,
   ssh_backend = "Ssh2",
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = true,
