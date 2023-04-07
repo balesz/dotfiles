@@ -58,10 +58,10 @@ install_font () {
 }
 
 install_neovim () {
-  sudo apt-get -y install xsel ripgrep fd-find
-  wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
-  sudo apt-get -y install ./nvim-linux64.deb
-  rm nvim-linux64.deb
+  rm ~/.local/bin/nvim.appimage
+  wget -P ~/.local/bin https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  chmod +x ~/.local/bin/nvim.appimage
+  ln -s ~/.local/bin/nvim.appimage ~/.local/bin/nvim
 }
 
 install_docker () {
