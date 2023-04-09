@@ -28,27 +28,27 @@ layout {
         }
     }
 
-    swap_floating_layout name="staggered" {
-        floating_panes
-    }
     swap_floating_layout name="spread" {
         floating_panes max_panes=1 {
-            pane {y "50%"; x "50%"; }
+            pane { x "51%"; y "2%"; width "47%"; height "95%"; }
         }
         floating_panes max_panes=2 {
-            pane { x "2%"; y "25%"; width "47%"; }
-            pane { x "51%"; y "25%"; width "47%"; }
+            pane { x "51%"; y "2%"; width "47%"; height "47%"; }
+            pane focus=true { x "51%"; y "55%"; width "47%"; height "47%"; }
         }
         floating_panes max_panes=3 {
-            pane { x "2%"; y "2%"; width "47%"; }
-            pane { x "51%"; y "2%"; width "47%"; }
-            pane { y "55%"; width "50%"; height "45%"; }
+            pane { x "51%"; y "2%"; width "47%"; height "47%"; }
+            pane { x "51%"; y "55%"; width "47%"; height "47%"; }
+            pane focus=true { x "2%"; y "2%"; width "47%"; height "95%"; }
         }
         floating_panes max_panes=4 {
-            pane { x "2%"; y "2%"; width "47%"; height "46%"; }
-            pane { x "51%"; y "2%"; width "47%"; height "46%"; }
-            pane { x "2%"; y "55%"; width "47%";  height "46%"; }
-            pane { x "51%"; y "55%"; width "47%";  height "46%"; }
+            pane { x "51%"; y "2%"; width "47%"; height "47%"; }
+            pane { x "51%"; y "55%"; width "47%"; height "47%"; }
+            pane { x "2%"; y "2%"; width "47%"; height "47%"; }
+            pane focus=true { x "2%"; y "55%"; width "47%"; height "47%"; }
         }
+    }
+    swap_floating_layout name="staggered" {
+        floating_panes
     }
 }
