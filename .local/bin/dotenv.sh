@@ -58,10 +58,15 @@ install_font () {
 }
 
 install_neovim () {
-  rm ~/.local/bin/nvim.appimage
-  wget -P ~/.local/bin https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-  chmod +x ~/.local/bin/nvim.appimage
-  ln -s ~/.local/bin/nvim.appimage ~/.local/bin/nvim
+  DIR=~/.local/bin
+  rm $DIR/nvim.appimage $DIR/neovide.AppImage
+  wget -P $DIR https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  wget -P $DIR https://github.com/neovide/neovide/releases/download/0.10.4/neovide.AppImage.zip
+  unzip -d $DIR $DIR/neovide.AppImage.zip
+  rm $DIR/neovide.AppImage.zip
+  chmod +x $DIR/nvim.appimage $DIR/neovide.AppImage
+  ln -s $DIR/nvim.appimage $DIR/nvim
+  ln -s $DIR/neovide.AppImage $DIR/neovide
 }
 
 install_docker () {
