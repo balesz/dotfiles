@@ -34,8 +34,8 @@ layout {
         }
     }
     tab name="Neovim" cwd=".config/nvim.balesz" {
-        pane command="hx" {
-            args "init.lua"
+        pane command="zsh" {
+            args "-c" "NVIM_APPNAME=nvim.balesz nvim init.lua"
         }
     }
 }
