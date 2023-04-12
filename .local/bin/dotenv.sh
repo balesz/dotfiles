@@ -136,6 +136,15 @@ install_goapps () {
   go install github.com/xo/usql@latest
 }
 
+install_protoc () {
+  sudo wget -P /usr/local https://github.com/protocolbuffers/protobuf/releases/download/v22.2/protoc-22.2-linux-x86_64.zip 
+  sudo unzip -d /usr/local /usr/local/protoc-22.2-linux-x86_64.zip
+  sudo rm /usr/local/readme.txt
+  go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+  go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+  dart pub global activate protoc_plugin
+}
+
 case ${1} in
   init) init;;
   install) install_$2;;
