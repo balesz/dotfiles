@@ -137,8 +137,8 @@ install_goapps () {
 }
 
 install_protoc () {
-  sudo wget -P /usr/local https://github.com/protocolbuffers/protobuf/releases/download/v22.2/protoc-22.2-linux-x86_64.zip 
-  sudo unzip -d /usr/local /usr/local/protoc-22.2-linux-x86_64.zip
+  sudo wget -P /usr/local https://github.com/protocolbuffers/protobuf/releases/download/v22.3/protoc-22.3-linux-x86_64.zip
+  sudo unzip -d /usr/local /usr/local/protoc-22.3-linux-x86_64.zip
   sudo rm /usr/local/readme.txt
   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
