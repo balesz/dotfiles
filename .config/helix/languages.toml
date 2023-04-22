@@ -3,6 +3,7 @@ name = "dart"
 auto-format = true
 
 [language.config.dart]
+analysisExcludedFolders = ["__work__"]
 enableSdkFormatter = true
 lineLength = 200
 completeFunctionCalls = true

@@ -2,7 +2,7 @@ theme = "tokyonight_storm"
 
 [editor]
 auto-pairs = true
-bufferline = "always"
+bufferline = "never"
 color-modes = true
 cursorline = true
 line-number = "relative"
@@ -10,7 +10,7 @@ mouse = true
 rulers = [80,100, 120,200]
 
 [editor.statusline]
-left = ["mode", "spinner", "file-type", "file-encoding"]
+left = ["mode", "spinner", "spacer", "version-control", "file-encoding"]
 center = ["file-name"]
 right = ["diagnostics", "selections",  "position", "position-percentage"]
 
