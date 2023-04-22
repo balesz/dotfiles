@@ -20,6 +20,8 @@
 !/.config/alacritty
 !/.config/helix
 !/.config/zellij
+!/.config/lazygit
+/.config/lazygit/state.yml
 !/.config/nvim.balesz
 !/.config/nvim.nvchad
 !/.config/nvim.nvchad.custom
