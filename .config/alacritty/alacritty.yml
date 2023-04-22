@@ -14,7 +14,7 @@ window:
   startup_mode: Windowed
   decorations: full
   resize_increments: true
-  opacity: 0.9
+  # opacity: 0.9
 font:
   normal:
     family: JetBrainsMono Nerd Font Mono
