@@ -17,3 +17,8 @@ export PATH=$PATH:$FLUTTER_ROOT/bin:$HOME/.pub-cache/bin
 export PATH=$PATH:$DOTNET_ROOT
 export PATH=$PATH:$ANDROID_SDK_PATH/platform-tools:$ANDROID_SDK_PATH/tools:$ANDROID_SDK_PATH/cmdline-tools/latest/bin
 
+if [[ $OSTYPE = darwin* ]]; then
+  export GEM_HOME=$HOME/.gem
+  export HELIX_RUNTIME=$HOME/.local/opt/helix/runtime
+  export PATH=$PATH:$GEM_HOME/bin:$GEM_HOME/ruby/2.6.0/bin
+fi
