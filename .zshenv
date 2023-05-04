@@ -22,3 +22,7 @@ if [[ $OSTYPE = darwin* ]]; then
   export HELIX_RUNTIME=$HOME/.local/opt/helix/runtime
   export PATH=$PATH:$GEM_HOME/bin:$GEM_HOME/ruby/2.6.0/bin
 fi
+
+alias nv="NVIM_APPNAME=nvim.balesz nvim"
+alias nvchad="NVIM_APPNAME=nvim.nvchad nvim"
+alias lg="lazygit -ucd ~/.config/lazygit"
