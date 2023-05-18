@@ -125,6 +125,11 @@ install_apps () {
     sudo tar -C /usr/local/bin -xvzf $DIR/zellij-x86_64-unknown-linux-musl.tar.gz
     wget -P $DIR https://github.com/sayanarijit/xplr/releases/download/v0.21.1/xplr-linux.tar.gz
     sudo tar -C /usr/local/bin -xvzf $DIR/xplr-linux.tar.gz
+  elif [ `uname -s` = Darwin ]; then
+    curl -LJ https://github.com/helix-editor/helix/releases/download/23.05/helix-23.05-aarch64-macos.tar.xz > $DIR/helix.tar.xz
+    rm -rf ~/.local/opt/helix ; mkdir ~/.local/opt/helix
+    tar -C ~/.local/opt/helix --strip-components=1 -xvzf $DIR/helix.tar.xz
+    rm ~/.local/bin/hx ; ln -s ~/.local/opt/helix/hx ~/.local/bin/hx
   fi
   rm -rf $DIR
 }
@@ -147,6 +152,11 @@ install_protoc () {
   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
   dart pub global activate protoc_plugin
+}
+
+install_test () {
+  DIR=`mktemp -d`
+  rm -rf $DIR
 }
 
 case ${1} in
