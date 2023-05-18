@@ -118,12 +118,14 @@ install_go () {
 
 install_apps () {
   DIR=`mktemp -d`
-  wget -P $DIR https://github.com/helix-editor/helix/releases/download/23.05/helix-23.05-x86_64.AppImage
-  sudo mv $DIR/helix-23.05-x86_64.AppImage /usr/local/bin/hx ; sudo chmod +x /usr/local/bin/hx
-  wget -P $DIR https://github.com/zellij-org/zellij/releases/download/v0.36.0/zellij-x86_64-unknown-linux-musl.tar.gz
-  sudo tar -C /usr/local/bin -xvzf $DIR/zellij-x86_64-unknown-linux-musl.tar.gz
-  wget -P $DIR https://github.com/sayanarijit/xplr/releases/download/v0.21.1/xplr-linux.tar.gz
-  sudo tar -C /usr/local/bin -xvzf $DIR/xplr-linux.tar.gz
+  if [ `uname -s` = Linux ]; then
+    wget -P $DIR https://github.com/helix-editor/helix/releases/download/23.05/helix-23.05-x86_64.AppImage
+    sudo mv $DIR/helix-23.05-x86_64.AppImage /usr/local/bin/hx ; sudo chmod +x /usr/local/bin/hx
+    wget -P $DIR https://github.com/zellij-org/zellij/releases/download/v0.36.0/zellij-x86_64-unknown-linux-musl.tar.gz
+    sudo tar -C /usr/local/bin -xvzf $DIR/zellij-x86_64-unknown-linux-musl.tar.gz
+    wget -P $DIR https://github.com/sayanarijit/xplr/releases/download/v0.21.1/xplr-linux.tar.gz
+    sudo tar -C /usr/local/bin -xvzf $DIR/xplr-linux.tar.gz
+  fi
   rm -rf $DIR
 }
 
