@@ -143,6 +143,8 @@ install_goapps () {
   go install github.com/go-task/task/v3/cmd/task@latest
   go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
   go install github.com/xo/usql@latest
+  go install github.com/maaslalani/nap@main
+  go install github.com/charmbracelet/gum@latest
 }
 
 install_protoc () {
