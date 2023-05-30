@@ -145,6 +145,7 @@ install_goapps () {
   go install github.com/xo/usql@latest
   go install github.com/maaslalani/nap@main
   go install github.com/charmbracelet/gum@latest
+  go install github.com/wvanlint/twf/cmd/twf@latest
 }
 
 install_protoc () {
