@@ -118,15 +118,20 @@ install_go () {
 
 install_apps () {
   DIR=`mktemp -d`
+  VER_HELIX=23.05
+  VER_ZELLIJ=0.37.0
+  VER_XPLR=0.21.2
   if [ `uname -s` = Linux ]; then
-    wget -P $DIR https://github.com/helix-editor/helix/releases/download/23.05/helix-23.05-x86_64.AppImage
-    sudo mv $DIR/helix-23.05-x86_64.AppImage /usr/local/bin/hx ; sudo chmod +x /usr/local/bin/hx
-    wget -P $DIR https://github.com/zellij-org/zellij/releases/download/v0.36.0/zellij-x86_64-unknown-linux-musl.tar.gz
+    wget -P $DIR https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-x86_64.AppImage
+    sudo mv $DIR/helix-${VER_HELIX}-x86_64.AppImage /usr/local/bin/hx ; sudo chmod +x /usr/local/bin/hx
+    ###
+    wget -P $DIR https://github.com/zellij-org/zellij/releases/download/v${VER_ZELLIJ}/zellij-x86_64-unknown-linux-musl.tar.gz
     sudo tar -C /usr/local/bin -xvzf $DIR/zellij-x86_64-unknown-linux-musl.tar.gz
-    wget -P $DIR https://github.com/sayanarijit/xplr/releases/download/v0.21.1/xplr-linux.tar.gz
+    ###
+    wget -P $DIR https://github.com/sayanarijit/xplr/releases/download/v${VER_XPLR}/xplr-linux.tar.gz
     sudo tar -C /usr/local/bin -xvzf $DIR/xplr-linux.tar.gz
   elif [ `uname -s` = Darwin ]; then
-    curl -LJ https://github.com/helix-editor/helix/releases/download/23.05/helix-23.05-aarch64-macos.tar.xz > $DIR/helix.tar.xz
+    curl -LJ https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-aarch64-macos.tar.xz > $DIR/helix.tar.xz
     rm -rf ~/.local/opt/helix ; mkdir ~/.local/opt/helix
     tar -C ~/.local/opt/helix --strip-components=1 -xvzf $DIR/helix.tar.xz
     rm ~/.local/bin/hx ; ln -s ~/.local/opt/helix/hx ~/.local/bin/hx
