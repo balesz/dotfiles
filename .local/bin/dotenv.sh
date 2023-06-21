@@ -119,7 +119,7 @@ install_go () {
 install_apps () {
   DIR=`mktemp -d`
   VER_HELIX=23.05
-  VER_ZELLIJ=0.37.0
+  VER_ZELLIJ=0.37.2
   VER_XPLR=0.21.2
   if [ `uname -s` = Linux ]; then
     wget -P $DIR https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-x86_64.AppImage
