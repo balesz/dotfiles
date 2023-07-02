@@ -109,7 +109,7 @@ install_flutter () {
 }
 
 install_go () {
-  GO_VERSION=1.20.2
+  GO_VERSION=1.20.5
   rm -rf ~/.local/opt/go
   wget -P /tmp https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
   tar -C ~/.local/opt -xvzf /tmp/go${GO_VERSION}.linux-amd64.tar.gz
