@@ -111,9 +111,9 @@ install_flutter () {
 install_go () {
   GO_VERSION=1.20.5
   rm -rf ~/.local/opt/go
-  if [ `uname -s` == Linux ]; then
+  if [ `uname -s` = Linux ]; then
     curl -LJ https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz --output /tmp/go.tgz
-  elif [ `uname -s` == Darwin ]; then
+  elif [ `uname -s` = Darwin ]; then
     curl -LJ https://go.dev/dl/go${GO_VERSION}.darwin-arm64.tar.gz --output /tmp/go.tgz
   fi
   tar -C ~/.local/opt -xvzf /tmp/go.tgz
