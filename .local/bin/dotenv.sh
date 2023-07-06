@@ -119,6 +119,7 @@ install_go () {
   fi
   tar -C ~/.local/opt -xvzf /tmp/go.tgz
   rm /tmp/go.tgz
+  go install golang.org/x/tools/gopls@latest
 }
 
 install_apps () {
