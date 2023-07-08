@@ -1,0 +1,16 @@
+set dircounts
+set drawbox
+set hidden
+set mouse
+set tabstop 4
+
+set preview
+set previewer ~/.config/lf/previewer.sh
+map i $LESSOPEN='| ~/.config/lf/previewer.sh %s' less -R $f
+
+cmd open &{{
+  case $(file --mime-type -Lb $f) in
+    text/*) lf -remote "send $id \$hx \$fx";;
+    *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+  esac
+}}

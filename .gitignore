@@ -23,6 +23,7 @@
 !/.config/lazygit
 /.config/lazygit/state.yml
 !/.config/git
+!/.config/lf
 !/.config/nvim.balesz
 !/.config/nvim.nvchad
 !/.config/nvim.nvchad.custom
