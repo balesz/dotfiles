@@ -7,7 +7,7 @@ init () {
   sudo apt-get -y update
   sudo apt-get -y upgrade
   sudo apt-get -y install apt-utils build-essential software-properties-common git wget unzip zip
-  sudo apt-get -y install xcape xclip xsel
+  sudo apt-get -y install xcape xclip xsel highlight
 }
 
 install_ohmyzsh () {
