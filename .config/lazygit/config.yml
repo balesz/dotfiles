@@ -223,7 +223,12 @@ keybinding:
         update: u
         bulkMenu: b
 disableStartupPopups: false
-customCommands: []
+customCommands:
+    - key: f
+      context: files
+      command: git fetch --prune
+      description: Fetch and prune
+      loadingText: Fetching...
 services: {}
 notARepository: prompt
 promptToReturnFromSubprocess: true
