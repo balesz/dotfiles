@@ -1,4 +1,5 @@
 export TERM=xterm-256color
+export EDITOR=hx
 
 if ! which google-chrome > /dev/null && which microsoft-edge > /dev/null; then
   export CHROME_EXECUTABLE=microsoft-edge
