@@ -60,8 +60,8 @@ git:
     skipHookPrefix: WIP
     autoFetch: true
     autoRefresh: true
-    branchlogcmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=reference {{branchname}} --'
-    allbrancheslogcmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium'
+    branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=reference {{branchName}} --'
+    allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium'
     overrideGpg: false
     disableForcePushing: false
     commitPrefixes: {}
