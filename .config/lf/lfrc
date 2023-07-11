@@ -14,3 +14,6 @@ cmd open &{{
     *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
   esac
 }}
+
+cmd lazygit $lazygit
+map <backspace2>g lazygit
