@@ -24,7 +24,7 @@ install_git () {
 }
 
 install_terminal () {
-  wget -O wezterm.deb https://github.com/wez/wezterm/releases/download/20230408-112425-69ae8472/wezterm-20230408-112425-69ae8472.Ubuntu22.04.deb
+  wget -O wezterm.deb https://github.com/wez/wezterm/releases/download/20230712-072601-f4abf8fd/wezterm-20230712-072601-f4abf8fd.Ubuntu22.04.deb
   sudo apt-get -y install ./wezterm.deb
   rm wezterm.deb 
 }
