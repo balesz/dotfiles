@@ -38,4 +38,9 @@ layout {
             args "-c" "NVIM_APPNAME=nvim.balesz nvim init.lua"
         }
     }
+    tab name="Lazygit" cwd=".config/lazygit" {
+        pane command="hx" {
+            args "config.yml"
+        }
+    }
 }
