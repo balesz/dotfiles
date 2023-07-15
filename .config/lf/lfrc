@@ -16,4 +16,6 @@ cmd open &{{
 }}
 
 cmd lazygit $lazygit
+
 map <backspace2>g lazygit
+map D :delete $fx 
