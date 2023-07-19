@@ -148,6 +148,7 @@ install_apps () {
 install_goapps () {
   PATH=$PATH:~/.local/opt/go/bin
   go install golang.org/x/tools/gopls@latest
+  go install github.com/jwilder/dockerize@master
   env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
   go install github.com/anmitsu/goful@latest
   go install github.com/jesseduffield/lazygit@latest
