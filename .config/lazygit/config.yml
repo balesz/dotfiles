@@ -60,7 +60,7 @@ git:
     skipHookPrefix: WIP
     autoFetch: true
     autoRefresh: true
-    branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=reference {{branchName}} --'
+    branchLogCmd: "git log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' {{branchName}} --"
     allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium'
     overrideGpg: false
     disableForcePushing: false
