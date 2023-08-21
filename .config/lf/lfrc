@@ -3,6 +3,8 @@ set drawbox
 set hidden
 set mouse
 set tabstop 4
+set preview
+set previewer ~/.config/lf/previewer.sh
 
 cmd open &{{
   case $(file --mime-type -Lb $f) in

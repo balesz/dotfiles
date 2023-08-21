@@ -1,9 +1,8 @@
 #!/bin/sh
 
-CMD="less"
-if [ -x highlight ]; then
-  CMD="highlight -O ansi"
-fi
+CMD="cat"
+test -e `which highlight` && CMD="highlight -O ansi"
+test -e `which pygmentize` && CMD="pygmentize -g"
 
 case "$1" in
   *.tar*) tar tf "$1";;
