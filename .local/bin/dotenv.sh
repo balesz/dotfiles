@@ -162,11 +162,15 @@ install_goapps () {
 }
 
 install_protoc () {
-  sudo wget -P /usr/local https://github.com/protocolbuffers/protobuf/releases/download/v22.3/protoc-22.3-linux-x86_64.zip
-  sudo unzip -d /usr/local /usr/local/protoc-22.3-linux-x86_64.zip
-  sudo rm /usr/local/readme.txt
+  VER="24.2"
+  DIR="$HOME/.local"
+  ARCH="x86_64" && [ `uname -m` = aarch64 ] && ARCH="aarch_64"
+  wget -P $DIR "https://github.com/protocolbuffers/protobuf/releases/download/v$VER/protoc-$VER-linux-$ARCH.zip"
+  unzip -o -d $DIR "$DIR/protoc-$VER-linux-$ARCH.zip"
+  rm -f "$DIR/readme.txt"
   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+  go install github.com/bufbuild/buf/cmd/buf@latest
   dart pub global activate protoc_plugin
 }
 
