@@ -33,7 +33,7 @@ keybinds clear-defaults=true {
         bind "j" "Down" { MoveFocus "Down"; }
         bind "k" "Up" { MoveFocus "Up"; }
         bind "p" { SwitchFocus; }
-        bind "n" { NewPane; SwitchToMode "Normal"; }
+        bind "n" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
@@ -130,7 +130,7 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "Alt x" { SwitchToMode "Locked"; }
         bind "Alt q" { Quit; }
-        bind "Alt n" { NewPane; }
+        bind "Alt n" { NewPane "Right"; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt j" "Alt Down" { MoveFocus "Down"; }
