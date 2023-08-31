@@ -14,7 +14,7 @@ auto-format = true
 
 [[grammar]]
 name = "dart"
-source = { git = "https://github.com/UserNobody14/tree-sitter-dart", rev = "master" }
+source = { git = "https://github.com/UserNobody14/tree-sitter-dart", rev = "e398400a0b785af3cf571f5a57eccab242f0cdf9" }
 
 [language.config.dart]
 analysisExcludedFolders = ["./__work__"]
@@ -23,6 +23,7 @@ lineLength = 200
 completeFunctionCalls = true
 showTodos = true
 enableSnippets = true
+updateImportsOnRename = true
 documentation = "full"
 
 [language.debugger]

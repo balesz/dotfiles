@@ -19,6 +19,7 @@
 !/.config/wezterm
 !/.config/alacritty
 !/.config/helix
+/.config/helix/runtime
 !/.config/zellij
 !/.config/lazygit
 /.config/lazygit/state.yml
