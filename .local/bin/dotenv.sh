@@ -3,6 +3,24 @@
 cd ~
 
 init () {
+  if [ `uname -o` = "Android" ]; then
+    init_termux
+  else
+    init_linux
+  fi
+}
+
+init_termux () {
+  pkg install \
+  x11-repo tur-repo proot proot-distro \
+  file which git wget curl zip unzip \
+  zsh openssh okc-agents \
+  pkg-config cmake ninja gtk3 mesa \
+  zellij helix helix-grammars lazygit lf \
+  dart golang rust android-tools openjdk-17 python python-pip
+}
+
+init_linux () {
   mkdir -p ~/.local/opt
   sudo apt-get -y update
   sudo apt-get -y upgrade
