@@ -21,7 +21,7 @@ if [ ! $JAVA_HOME ]; then
 fi
 export DOTNET_ROOT=$HOME/.local/opt/dotnet
 export FLUTTER_ROOT=$HOME/.local/opt/flutter
-export FLUTTER_GIT_URL=http://github.com/flutter/flutter
+export FLUTTER_GIT_URL=https://github.com/flutter/flutter.git
 
 if [[ $OSTYPE = darwin* ]]; then
   export GEM_HOME=$HOME/.gem
