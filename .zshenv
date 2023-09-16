@@ -22,6 +22,7 @@ fi
 export DOTNET_ROOT=$HOME/.local/opt/dotnet
 export FLUTTER_ROOT=$HOME/.local/opt/flutter
 export FLUTTER_GIT_URL=https://github.com/flutter/flutter.git
+export BUN_INSTALL="$HOME/.bun"
 
 if [[ $OSTYPE = darwin* ]]; then
   export GEM_HOME=$HOME/.gem
@@ -42,6 +43,7 @@ export PATH=$DOTNET_ROOT:$PATH
 export PATH=$ANDROID_SDK_PATH/cmdline-tools/latest/bin:$PATH
 export PATH=$ANDROID_SDK_PATH/platform-tools:$PATH
 export PATH=$ANDROID_SDK_PATH/tools:$PATH
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias nv="NVIM_APPNAME=nvim.balesz nvim"
 alias nvchad="NVIM_APPNAME=nvim.nvchad nvim"
