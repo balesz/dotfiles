@@ -16,7 +16,7 @@ init_termux () {
   file which git wget curl zip unzip \
   zsh openssh okc-agents \
   pkg-config cmake ninja gtk3 mesa \
-  zellij helix helix-grammars lazygit lf \
+  zellij helix helix-grammars lazygit lf bat git-delta\
   dart golang rust android-tools openjdk-17 python python-pip
 }
 
@@ -177,6 +177,7 @@ install_goapps () {
   go install github.com/maaslalani/nap@main
   go install github.com/charmbracelet/gum@latest
   go install github.com/wvanlint/twf/cmd/twf@latest
+  go install github.com/doronbehar/pistol/cmd/pistol@latest
 }
 
 install_protoc () {

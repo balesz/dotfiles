@@ -1,6 +1,7 @@
 #!/bin/sh
 
-CAT="cat"
+CMD="cat"
+test -e `which bat` && CMD="bat --color=always --theme=base16 --paging=never"
 test -e `which highlight` && CMD="highlight -O ansi"
 test -e `which pygmentize` && CMD="pygmentize -g"
 
