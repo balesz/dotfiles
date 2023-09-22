@@ -9,6 +9,13 @@ roots = []
 grammar = "bash"
 
 [[language]]
+name = "yaml"
+auto-format = true
+
+[language.config.yaml]
+schemastore = { enable = true }
+
+[[language]]
 name = "dart"
 auto-format = true
 
