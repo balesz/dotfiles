@@ -16,7 +16,6 @@ init_termux () {
   file which git wget curl zip unzip \
   zsh openssh okc-agents \
   pkg-config cmake ninja gtk3 mesa \
-  zellij helix helix-grammars lazygit lf bat git-delta\
   dart golang rust android-tools openjdk-17 python python-pip
 }
 
@@ -142,25 +141,44 @@ install_go () {
 
 install_apps () {
   DIR=`mktemp -d`
+  VER_BAT=0.23.0
+  VER_GIT_DELTA=0.16.5
   VER_HELIX=23.05
-  VER_ZELLIJ=0.38.1
   VER_XPLR=0.21.2
-  if [ `uname -s` = Linux ]; then
-    wget -P $DIR https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-x86_64.AppImage
-    sudo mv $DIR/helix-${VER_HELIX}-x86_64.AppImage /usr/local/bin/hx ; sudo chmod +x /usr/local/bin/hx
-    ###
-    wget -P $DIR https://github.com/zellij-org/zellij/releases/download/v${VER_ZELLIJ}/zellij-x86_64-unknown-linux-musl.tar.gz
-    sudo tar -C /usr/local/bin -xvzf $DIR/zellij-x86_64-unknown-linux-musl.tar.gz
-    ###
-    wget -P $DIR https://github.com/sayanarijit/xplr/releases/download/v${VER_XPLR}/xplr-linux.tar.gz
-    sudo tar -C /usr/local/bin -xvzf $DIR/xplr-linux.tar.gz
+  VER_ZELLIJ=0.38.2
+  if [ `uname -o` = Android ]; then
+    pkg install zellij helix helix-grammars lazygit lf bat git-delta
+  elif [ `uname -s` = Linux ]; then
+    ## bat
+    curl -LJ https://github.com/sharkdp/bat/releases/download/v${VER_BAT}/bat_${VER_BAT}_amd64.deb > $DIR/bat.deb
+    sudo apt install $DIR/bat.deb
+    ## delta
+    curl -LJ https://github.com/dandavison/delta/releases/download/${VER_GIT_DELTA}/git-delta_${VER_GIT_DELTA}_amd64.deb > $DIR/git-delta.deb
+    sudo apt install $DIR/git-delta.deb
+    ## helix
+    curl -LJ https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-x86_64.AppImage > $DIR/hx
+    sudo mv $DIR/hx /usr/local/bin/hx ; sudo chmod +x /usr/local/bin/hx
+    ## xplr
+    curl -LJ https://github.com/sayanarijit/xplr/releases/download/v${VER_XPLR}/xplr-linux.tar.gz > $DIR/xplr.tar.gz
+    sudo tar -C /usr/local/bin -xvzf $DIR/xplr.tar.gz
+    ## zellij
+    curl -LJ https://github.com/zellij-org/zellij/releases/download/v${VER_ZELLIJ}/zellij-x86_64-unknown-linux-musl.tar.gz > $DIR/zellij.tar.gz
+    sudo tar -C /usr/local/bin -xvzf $DIR/zellij.tar.gz
   elif [ `uname -s` = Darwin ]; then
+    ## delta
+    curl -LJ https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-aarch64-apple-darwin.tar.gz > $DIR/delta.tar.gz
+    tar -C $DIR --strip-components=1 -xvzf $DIR/delta.tar.gz
+    mv $DIR/delta ~/.local/bin/
+    ## helix
     curl -LJ https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-aarch64-macos.tar.xz > $DIR/helix.tar.xz
     rm -rf ~/.local/opt/helix ; mkdir ~/.local/opt/helix
     tar -C ~/.local/opt/helix --strip-components=1 -xvzf $DIR/helix.tar.xz
     rm ~/.local/bin/hx ; ln -s ~/.local/opt/helix/hx ~/.local/bin/hx
   fi
   rm -rf $DIR
+  if [ `which go` ]; then
+    echo
+  fi
 }
 
 install_goapps () {

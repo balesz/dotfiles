@@ -8,12 +8,6 @@ else
   export EDITOR=vi
 fi
 
-if ! which google-chrome > /dev/null && which microsoft-edge > /dev/null; then
-  export CHROME_EXECUTABLE=microsoft-edge
-elif ! which google-chrome > /dev/null && which chromium-browser > /dev/null; then
-  export CHROME_EXECUTABLE=chromium-browser
-fi
-
 export ANDROID_HOME=$HOME/.local/opt/android
 export ANDROID_SDK_PATH=$HOME/.local/opt/android
 if [ ! $JAVA_HOME ]; then
@@ -22,28 +16,28 @@ fi
 export DOTNET_ROOT=$HOME/.local/opt/dotnet
 export FLUTTER_ROOT=$HOME/.local/opt/flutter
 export FLUTTER_GIT_URL=https://github.com/flutter/flutter.git
-export BUN_INSTALL="$HOME/.bun"
+export BUN_INSTALL=$HOME/.bun
+export GEM_HOME=$HOME/.gem
 
-if [[ $OSTYPE = darwin* ]]; then
-  export GEM_HOME=$HOME/.gem
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/opt/go/bin
+export PATH=$PATH:$FLUTTER_ROOT/bin
+export PATH=$PATH:$BUN_INSTALL/bin
+export PATH=$PATH:$DOTNET_ROOT
+export PATH=$PATH:$ANDROID_SDK_PATH/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_SDK_PATH/platform-tools
+export PATH=$PATH:$ANDROID_SDK_PATH/tools
+export PATH=$PATH:$GEM_HOME/bin:$GEM_HOME/ruby/2.6.0/bin
+
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/.pub-cache/bin
+export PATH=$PATH:$HOME/.local/opt/npm/bin
+export PATH=$PATH:$HOME/.local/share/nvim/mason/bin
+
+if [ `uname -s` = Darwin ]; then
   export HELIX_RUNTIME=$HOME/.local/opt/helix/runtime
-  export PATH=$GEM_HOME/bin:$GEM_HOME/ruby/2.6.0/bin:$PATH
   export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 fi
-
-export PATH=/mnt/c/.local/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/opt/npm/bin:$PATH
-export PATH=$HOME/.local/share/nvim/mason/bin:$PATH
-export PATH=$HOME/.local/opt/go/bin:$PATH
-export PATH=$HOME/.pub-cache/bin:$PATH
-export PATH=$HOME/go/bin:$PATH
-export PATH=$FLUTTER_ROOT/bin:$PATH
-export PATH=$DOTNET_ROOT:$PATH
-export PATH=$ANDROID_SDK_PATH/cmdline-tools/latest/bin:$PATH
-export PATH=$ANDROID_SDK_PATH/platform-tools:$PATH
-export PATH=$ANDROID_SDK_PATH/tools:$PATH
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias nv="NVIM_APPNAME=nvim.balesz nvim"
 alias nvchad="NVIM_APPNAME=nvim.nvchad nvim"
