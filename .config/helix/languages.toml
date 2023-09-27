@@ -52,3 +52,24 @@ default = "lib/main.dart"
 program = "{0}"
 toolArgs = ["-v", "-d", "chrome"]
 sendLogsToClient = true
+
+[[language]]
+name = "c-sharp"
+scope = "source.csharp"
+injection-regex = "c-?sharp"
+file-types = ["cs"]
+roots = ["sln", "csproj"]
+comment-token = "//"
+indent = { tab-width = 4, unit = "\t" }
+auto-format = true
+
+[language.language-server]
+command = "dotnet"
+args = [ "/home/balint/.local/opt/omnisharp/OmniSharp.dll", "-lsp", "-v" ]
+timeout = 120
+
+[[language]]
+name = "protobuf"
+auto-format = true
+language-server = { command = "pls" }
+# formatter = { command = "buf", args = ["format"] }
