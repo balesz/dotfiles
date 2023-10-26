@@ -1,29 +1,20 @@
-[[language]]
-name = "env"
-scope = "source.env"
-file-types = ["env", ".env", ".env.local", ".env.development", ".env.production", ".env.dist", ".envrc"]
-injection-regex = "env"
-comment-token = "#"
-indent = { tab-width = 4, unit = "\t" }
-roots = []
-grammar = "bash"
+###############################################################################
+# Language Servers ############################################################
+###############################################################################
 
-[[language]]
-name = "yaml"
-auto-format = true
+[language-server.my-omnisharp]
+command = "dotnet"
+args = [ "/home/balint/.local/opt/omnisharp/OmniSharp.dll", "-lsp", "-v" ]
+timeout = 120
 
-[language.config.yaml]
-schemastore = { enable = true }
+[language-server.pls]
+command = "pls"
 
-[[language]]
-name = "dart"
-auto-format = true
+###############################################################################
+# Language Server Configurations ##############################################
+###############################################################################
 
-[[grammar]]
-name = "dart"
-source = { git = "https://github.com/UserNobody14/tree-sitter-dart", rev = "e398400a0b785af3cf571f5a57eccab242f0cdf9" }
-
-[language.config.dart]
+[language-server.dart.config.dart]
 analysisExcludedFolders = ["./__work__"]
 enableSdkFormatter = true
 lineLength = 200
@@ -32,6 +23,32 @@ showTodos = true
 enableSnippets = true
 updateImportsOnRename = true
 documentation = "full"
+
+[language-server.yaml-language-server.config.yaml]
+schemastore = { enable = true }
+
+###############################################################################
+# Language Configurations #####################################################
+###############################################################################
+
+[[language]]
+name = "c-sharp"
+scope = "source.csharp"
+injection-regex = "c-?sharp"
+file-types = ["cs"]
+roots = ["sln", "csproj"]
+comment-token = "//"
+indent = { tab-width = 4, unit = "\t" }
+auto-format = true
+language-servers = [ "my-omnisharp" ]
+
+[[language]]
+name = "dart"
+auto-format = true
+
+[[grammar]]
+name = "dart"
+source = { git = "https://github.com/UserNobody14/tree-sitter-dart", rev = "e398400a0b785af3cf571f5a57eccab242f0cdf9" }
 
 [language.debugger]
 name = "dart"
@@ -54,22 +71,21 @@ toolArgs = ["-v", "-d", "chrome"]
 sendLogsToClient = true
 
 [[language]]
-name = "c-sharp"
-scope = "source.csharp"
-injection-regex = "c-?sharp"
-file-types = ["cs"]
-roots = ["sln", "csproj"]
-comment-token = "//"
+name = "env"
+scope = "source.env"
+file-types = ["env", ".env", ".env.local", ".env.development", ".env.production", ".env.dist", ".envrc"]
+injection-regex = "env"
+comment-token = "#"
 indent = { tab-width = 4, unit = "\t" }
-auto-format = true
-
-[language.language-server]
-command = "dotnet"
-args = [ "/home/balint/.local/opt/omnisharp/OmniSharp.dll", "-lsp", "-v" ]
-timeout = 120
+roots = []
+grammar = "bash"
 
 [[language]]
 name = "protobuf"
 auto-format = true
-language-server = { command = "pls" }
-# formatter = { command = "buf", args = ["format"] }
+language-servers = [ "pls" ]
+formatter = { command = "clang-format", args = [ "-style={BasedOnStyle: Chromium,ColumnLimit: 100}" ] }
+
+[[language]]
+name = "yaml"
+auto-format = true
