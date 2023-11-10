@@ -150,20 +150,27 @@ install_apps () {
     pkg install zellij helix helix-grammars lazygit lf bat git-delta
   elif [ `uname -s` = Linux ]; then
     ## bat
+    echo "\nInstalling bat..."
     curl -LJ https://github.com/sharkdp/bat/releases/download/v${VER_BAT}/bat_${VER_BAT}_amd64.deb > $DIR/bat.deb
     sudo apt install $DIR/bat.deb
     ## delta
+    echo "\nInstalling delta..."
     curl -LJ https://github.com/dandavison/delta/releases/download/${VER_GIT_DELTA}/git-delta_${VER_GIT_DELTA}_amd64.deb > $DIR/git-delta.deb
     sudo apt install $DIR/git-delta.deb
     ## helix
-    curl -LJ https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-x86_64.AppImage > $DIR/hx
-    sudo mv $DIR/hx /usr/local/bin/hx ; sudo chmod +x /usr/local/bin/hx
+    echo "\nInstalling helix..."
+    curl -LJ https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-x86_64-linux.tar.xz > $DIR/helix.tar.xz
+    rm -rf ~/.local/opt/helix ; mkdir -p ~/.local/opt/helix
+    tar -C ~/.local/opt/helix --strip-components=1 -xf $DIR/helix.tar.xz
+    rm ~/.local/bin/hx ; ln -s ~/.local/opt/helix/hx ~/.local/bin/hx
     ## xplr
+    echo "\nInstalling xplr..."
     curl -LJ https://github.com/sayanarijit/xplr/releases/download/v${VER_XPLR}/xplr-linux.tar.gz > $DIR/xplr.tar.gz
-    sudo tar -C /usr/local/bin -xvzf $DIR/xplr.tar.gz
+    sudo tar -C ~/.local/bin -xvzf $DIR/xplr.tar.gz
     ## zellij
+    echo "\nInstalling zellij..."
     curl -LJ https://github.com/zellij-org/zellij/releases/download/v${VER_ZELLIJ}/zellij-x86_64-unknown-linux-musl.tar.gz > $DIR/zellij.tar.gz
-    sudo tar -C /usr/local/bin -xvzf $DIR/zellij.tar.gz
+    sudo tar -C ~/.local/bin -xvzf $DIR/zellij.tar.gz
   elif [ `uname -s` = Darwin ]; then
     ## delta
     curl -LJ https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-aarch64-apple-darwin.tar.gz > $DIR/delta.tar.gz
