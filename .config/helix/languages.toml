@@ -84,7 +84,7 @@ grammar = "bash"
 name = "protobuf"
 auto-format = true
 language-servers = [ "pls" ]
-formatter = { command = "clang-format", args = [ "-style={BasedOnStyle: Chromium,ColumnLimit: 100}" ] }
+formatter = { command = "clang-format", args = [ "-style={BasedOnStyle: Chromium}" ] }
 
 [[language]]
 name = "yaml"
