@@ -145,7 +145,7 @@ install_apps () {
   VER_GIT_DELTA=0.16.5
   VER_HELIX=23.10
   VER_XPLR=0.21.2
-  VER_ZELLIJ=0.39.0
+  VER_ZELLIJ=0.39.1
   if [ `uname -o` = Android ]; then
     pkg install zellij helix helix-grammars lazygit lf bat git-delta
   elif [ `uname -s` = Linux ]; then
