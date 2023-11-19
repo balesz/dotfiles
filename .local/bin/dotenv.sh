@@ -147,7 +147,10 @@ install_apps () {
   VER_XPLR=0.21.2
   VER_ZELLIJ=0.39.1
   if [ `uname -o` = Android ]; then
-    pkg install zellij helix helix-grammars lazygit lf bat git-delta
+    pkg install \
+    zellij helix helix-grammars lazygit \
+    lf walk jq unar poppler fd ripgrep fzf zoxide \
+    bat git-delta
   elif [ `uname -s` = Linux ]; then
     ## bat
     echo "\nInstalling bat..."
