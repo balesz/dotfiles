@@ -4,7 +4,7 @@
 
 [language-server.my-omnisharp]
 command = "dotnet"
-args = [ "/home/balint/.local/opt/omnisharp/OmniSharp.dll", "-lsp" ]
+args = [ "/home/balint/.local/opt/omnisharp/OmniSharp.dll", "-lsp", "--zero-based-indices" ]
 timeout = 120
 
 [language-server.pls]
