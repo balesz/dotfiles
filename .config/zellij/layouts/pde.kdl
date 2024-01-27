@@ -8,37 +8,37 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="PDE" cwd=".config/zellij/layouts" focus=true {
+    tab name="pde" cwd="~/.config/zellij/layouts" focus=true {
         pane command="hx" {
             args "pde.kdl"
         }
     }
-    tab name="Alacritty" cwd=".config/alacritty" {
+    tab name="alacritty" cwd="~/.config/alacritty" {
         pane command="hx" {
             args "alacritty.yml"
         }
     }
-    tab name="WezTerm" cwd=".config/wezterm" {
+    tab name="wezterm" cwd="~/.config/wezterm" {
         pane command="hx" {
             args "wezterm.lua"
         }
     }
-    tab name="Zellij" cwd=".config/zellij" {
+    tab name="zellij" cwd="~/.config/zellij" {
         pane command="hx" {
             args "--vsplit" "config.kdl" "layouts/default.kdl"
         }
     }
-    tab name="Helix" cwd=".config/helix" {
+    tab name="helix" cwd="~/.config/helix" {
         pane command="hx" {
             args "--vsplit" "config.toml" "languages.toml"
         }
     }
-    tab name="Neovim" cwd=".config/nvim.balesz" {
+    tab name="neovim" cwd="~/.config/nvim.balesz" {
         pane command="zsh" {
             args "-c" "NVIM_APPNAME=nvim.balesz nvim init.lua"
         }
     }
-    tab name="Lazygit" cwd=".config/lazygit" {
+    tab name="lazygit" cwd="~/.config/lazygit" {
         pane command="hx" {
             args "config.yml"
         }
