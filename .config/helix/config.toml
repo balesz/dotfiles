@@ -42,6 +42,6 @@ o = "file_picker_in_current_buffer_directory"
 
 [keys.normal.backspace]
 q = ":q!"
-s = ":w"
-w = [":set auto-format false", ":w!", ":set auto-format true"]
+s = ":w!"
 x = ":bc!"
+w = [":set auto-format false", ":w!", ":set auto-format true"]
