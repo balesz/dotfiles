@@ -7,6 +7,7 @@ mouse_mode true
 
 keybinds clear-defaults=true {
     normal {
+        bind "Alt e" { EditScrollback; SwitchToMode "Normal"; }
         bind "Alt f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "Alt g" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
     }
