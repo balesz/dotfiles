@@ -143,6 +143,14 @@ install_go () {
   go install golang.org/x/tools/gopls@latest
 }
 
+install_dotnet () {
+  curl -LJ https://dot.net/v1/dotnet-install.sh > ~/dotnet-install.sh
+  chmod +x ~/dotnet-install.sh
+  ~/dotnet-install.sh --install-dir ~/.local/opt/dotnet --version 8.0.202
+  ~/dotnet-install.sh --install-dir ~/.local/opt/dotnet --version 7.0.407
+  rm ~/dotnet-install.sh
+}
+
 install_apps () {
   DIR=`mktemp -d`
   VER_BAT=0.23.0
