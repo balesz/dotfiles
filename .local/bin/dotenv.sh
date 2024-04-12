@@ -218,6 +218,7 @@ install_goapps () {
   go install github.com/charmbracelet/gum@latest
   go install github.com/wvanlint/twf/cmd/twf@latest
   go install github.com/doronbehar/pistol/cmd/pistol@latest
+  go install github.com/mathaou/termdbms@latest
 }
 
 install_protoc () {
