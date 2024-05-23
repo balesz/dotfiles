@@ -13,7 +13,7 @@ true-color = true
 
 [editor.statusline]
 left = ["mode", "spinner", "spacer", "version-control", "file-encoding"]
-center = ["file-name"]
+center = ["file-base-name"]
 right = ["diagnostics", "selections",  "position", "position-percentage"]
 
 [editor.cursor-shape]

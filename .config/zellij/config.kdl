@@ -52,6 +52,8 @@ keybinds clear-defaults=true {
         bind "j" "Down" { MovePane "Down"; }
         bind "k" "Up" { MovePane "Up"; }
         bind "l" "Right" { MovePane "Right"; }
+        bind "H" "Down" { MoveTab "Left"; }
+        bind "L" "Up" { MoveTab "Right"; }
     }
     tab {
         bind "Alt t" { SwitchToMode "Normal"; }
@@ -74,6 +76,8 @@ keybinds clear-defaults=true {
         bind "8" { GoToTab 8; SwitchToMode "Normal"; }
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
         bind "Tab" { ToggleTab; }
+        bind "H" "Down" { MoveTab "Left"; }
+        bind "L" "Up" { MoveTab "Right"; }
     }
     scroll {
         bind "Alt s" { SwitchToMode "Normal"; }
