@@ -94,16 +94,6 @@ toolArgs = ["-v", "-d", "chrome"]
 sendLogsToClient = true
 
 [[language]]
-name = "env"
-scope = "source.env"
-file-types = ["env", ".env", ".env.local", ".env.development", ".env.production", ".env.dist", ".envrc"]
-injection-regex = "env"
-comment-token = "#"
-indent = { tab-width = 4, unit = "\t" }
-roots = []
-grammar = "bash"
-
-[[language]]
 name = "protobuf"
 auto-format = true
 language-servers = [ "pls" ]

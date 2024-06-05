@@ -46,4 +46,6 @@ q = ":q!"
 x = ":bc!"
 r = ":reload-all"
 s = ":w!"
-w = [":set auto-format false", ":w!", ":set auto-format true"]
+S = [":set auto-format false", ":w!", ":set auto-format true"]
+w = ":set soft-wrap.enable false"
+W = ":set soft-wrap.enable true"
