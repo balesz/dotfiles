@@ -130,7 +130,7 @@ install_go () {
   if [ `uname -o` = Android ]; then
     pkg install golang
   elif [ `uname -s` = Linux ]; then
-    GO_VERSION=1.22.4
+    GO_VERSION=1.22.5
     rm -rf ~/.local/opt/go
     if [ `uname -s` = Linux ]; then
       curl -LJ https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz --output /tmp/go.tgz
