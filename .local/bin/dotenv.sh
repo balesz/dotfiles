@@ -234,6 +234,10 @@ install_protoc () {
   dart pub global activate protoc_plugin
 }
 
+install_lsp () {
+  node i -g yaml-language-server
+}
+
 install_test () {
   DIR=`mktemp -d`
   rm -rf $DIR
