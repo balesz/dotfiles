@@ -2,11 +2,17 @@
 
 cd ~
 
+test () {
+  echo Testing...
+}
+
 init () {
   if [ `uname -o` = "Android" ]; then
     init_termux
-  else
+  elif [ `uname -s` = "Linux" ]; then
     init_linux
+  elif [ `uname -s` = "Darwin" ]; then
+    init_macos
   fi
 }
 
@@ -19,6 +25,10 @@ init_termux () {
   dart golang rust android-tools openjdk-17 python python-pip
 }
 
+init_macos () {
+  echo Init MacOS
+}
+
 init_linux () {
   mkdir -p ~/.local/opt
   sudo apt-get -y update
@@ -27,9 +37,15 @@ init_linux () {
   sudo apt-get -y install xcape xclip xsel highlight
 }
 
-install_ohmyzsh () {
-  sudo apt-get -y install zsh
-  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+install_ohmyzsh () { 
+  if [ `uname -s` = "Linux" ]; then
+    sudo apt-get -y install zsh
+  fi
+  if which wget; then
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  elif which curl; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi
 }
 
 install_git () {
@@ -62,17 +78,19 @@ install_keyd () {
 }
 
 install_font () {
-  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
-  mkdir -p ~/.local/share/fonts/JetBrainsMonoNF
-  unzip -d ~/.local/share/fonts/JetBrainsMonoNF JetBrainsMono.zip
-  rm ~/.local/share/fonts/JetBrainsMonoNF/*Windows\ Compatible.ttf
-  rm JetBrainsMono.zip
-  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip 
-  mkdir -p ~/.local/share/fonts/FiraCodeNF
-  unzip -d ~/.local/share/fonts/FiraCodeNF FiraCode.zip
-  rm ~/.local/share/fonts/FiraCodeNF/*Windows\ Compatible.ttf
-  rm FiraCode.zip
-  fc-cache -f -v
+  curl -LJ https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip > JetBrainsMono.zip
+  curl -LJ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip > FiraCode.zip 
+  if [ `uname -s` = Linux ]; then
+    mkdir -p ~/.local/share/fonts/JetBrainsMonoNF
+    unzip -d ~/.local/share/fonts/JetBrainsMonoNF JetBrainsMono.zip
+    rm ~/.local/share/fonts/JetBrainsMonoNF/*Windows\ Compatible.ttf
+    rm JetBrainsMono.zip
+    mkdir -p ~/.local/share/fonts/FiraCodeNF
+    unzip -d ~/.local/share/fonts/FiraCodeNF FiraCode.zip
+    rm ~/.local/share/fonts/FiraCodeNF/*Windows\ Compatible.ttf
+    rm FiraCode.zip
+    fc-cache -f -v
+  fi
 }
 
 install_neovim () {
@@ -117,7 +135,9 @@ install_node () {
 }
 
 install_flutter () {
-  sudo apt-get -y install clang cmake ninja-build libgtk-3-dev
+  if [ `uname -s` = Linux ]; then
+    sudo apt-get -y install clang cmake ninja-build libgtk-3-dev
+  fi
   PATH=$PATH:~/.local/opt/flutter/bin
   rm -rf ~/.local/opt/flutter
   cd ~/.local/opt
@@ -127,16 +147,19 @@ install_flutter () {
 }
 
 install_go () {
+  GO_VERSION=1.22.5
   if [ `uname -o` = Android ]; then
     pkg install golang
   elif [ `uname -s` = Linux ]; then
-    GO_VERSION=1.22.5
     rm -rf ~/.local/opt/go
-    if [ `uname -s` = Linux ]; then
-      curl -LJ https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz --output /tmp/go.tgz
-    elif [ `uname -s` = Darwin ]; then
-      curl -LJ https://go.dev/dl/go${GO_VERSION}.darwin-arm64.tar.gz --output /tmp/go.tgz
-    fi
+    mkdir -p ~/.local/opt/go
+    curl -LJ https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz --output /tmp/go.tgz
+    tar -C ~/.local/opt -xvzf /tmp/go.tgz
+    rm /tmp/go.tgz
+  elif [ `uname -s` = Darwin ]; then
+    rm -rf ~/.local/opt/go
+    mkdir -p ~/.local/opt/go
+    curl -LJ https://go.dev/dl/go${GO_VERSION}.darwin-arm64.tar.gz --output /tmp/go.tgz
     tar -C ~/.local/opt -xvzf /tmp/go.tgz
     rm /tmp/go.tgz
   fi
@@ -181,21 +204,27 @@ install_apps () {
     ## xplr
     echo "\nInstalling xplr..."
     curl -LJ https://github.com/sayanarijit/xplr/releases/download/v${VER_XPLR}/xplr-linux.tar.gz > $DIR/xplr.tar.gz
-    sudo tar -C ~/.local/bin -xvzf $DIR/xplr.tar.gz
+    tar -C ~/.local/bin -xvzf $DIR/xplr.tar.gz
     ## zellij
     echo "\nInstalling zellij..."
     curl -LJ https://github.com/zellij-org/zellij/releases/download/v${VER_ZELLIJ}/zellij-x86_64-unknown-linux-musl.tar.gz > $DIR/zellij.tar.gz
-    sudo tar -C ~/.local/bin -xvzf $DIR/zellij.tar.gz
+    tar -C ~/.local/bin -xvzf $DIR/zellij.tar.gz
   elif [ `uname -s` = Darwin ]; then
     ## delta
-    curl -LJ https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-aarch64-apple-darwin.tar.gz > $DIR/delta.tar.gz
+    echo "\nInstalling delta..."
+    curl -LJ https://github.com/dandavison/delta/releases/download/${VER_GIT_DELTA}/delta-${VER_GIT_DELTA}-aarch64-apple-darwin.tar.gz > $DIR/delta.tar.gz
     tar -C $DIR --strip-components=1 -xvzf $DIR/delta.tar.gz
     mv $DIR/delta ~/.local/bin/
     ## helix
+    echo "\nInstalling helix..."
     curl -LJ https://github.com/helix-editor/helix/releases/download/${VER_HELIX}/helix-${VER_HELIX}-aarch64-macos.tar.xz > $DIR/helix.tar.xz
     rm -rf ~/.local/opt/helix ; mkdir ~/.local/opt/helix
     tar -C ~/.local/opt/helix --strip-components=1 -xvzf $DIR/helix.tar.xz
     rm ~/.local/bin/hx ; ln -s ~/.local/opt/helix/hx ~/.local/bin/hx
+    # zellij
+    echo "\nInstalling zellij..."
+    curl -LJ https://github.com/zellij-org/zellij/releases/download/v${VER_ZELLIJ}/zellij-aarch64-apple-darwin.tar.gz > $DIR/zellij.tar.gz
+    tar -C ~/.local/bin -xvzf $DIR/zellij.tar.gz
   fi
   rm -rf $DIR
   if [ `which go` ]; then
@@ -246,5 +275,6 @@ install_test () {
 case ${1} in
   init) init;;
   install) install_$2;;
+  test) test;;
   *) echo Unknown command;;
 esac
