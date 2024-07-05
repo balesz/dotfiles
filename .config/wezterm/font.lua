@@ -10,6 +10,6 @@ if os.getenv("OS") == "Windows_NT" then
 end
 
 M.font = wezterm.font(font)
-M.size = 10
+M.size = 12
 
 return M
