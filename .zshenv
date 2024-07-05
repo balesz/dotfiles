@@ -19,20 +19,20 @@ export FLUTTER_GIT_URL=https://github.com/flutter/flutter.git
 export BUN_INSTALL=$HOME/.bun
 export GEM_HOME=$HOME/.gem
 
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.local/opt/go/bin
-export PATH=$PATH:$FLUTTER_ROOT/bin
-export PATH=$PATH:$BUN_INSTALL/bin
-export PATH=$PATH:$DOTNET_ROOT
-export PATH=$PATH:$ANDROID_SDK_PATH/cmdline-tools/latest/bin
-export PATH=$PATH:$ANDROID_SDK_PATH/platform-tools
-export PATH=$PATH:$ANDROID_SDK_PATH/tools
-export PATH=$PATH:$GEM_HOME/bin:$GEM_HOME/ruby/2.6.0/bin
-
-export PATH=$PATH:$HOME/go/bin
-export PATH=$PATH:$HOME/.pub-cache/bin
-export PATH=$PATH:$HOME/.local/opt/npm/bin
-export PATH=$PATH:$HOME/.local/share/nvim/mason/bin
+NEWPATH=$HOME/.local/bin
+NEWPATH=$NEWPATH:$HOME/.local/opt/go/bin
+NEWPATH=$NEWPATH:$FLUTTER_ROOT/bin
+NEWPATH=$NEWPATH:$BUN_INSTALL/bin
+NEWPATH=$NEWPATH:$DOTNET_ROOT
+NEWPATH=$NEWPATH:$ANDROID_SDK_PATH/cmdline-tools/latest/bin
+NEWPATH=$NEWPATH:$ANDROID_SDK_PATH/platform-tools
+NEWPATH=$NEWPATH:$ANDROID_SDK_PATH/tools
+NEWPATH=$NEWPATH:$GEM_HOME/bin:$GEM_HOME/ruby/2.6.0/bin
+NEWPATH=$NEWPATH:$HOME/go/bin
+NEWPATH=$NEWPATH:$HOME/.pub-cache/bin
+NEWPATH=$NEWPATH:$HOME/.local/opt/npm/bin
+NEWPATH=$NEWPATH:$HOME/.local/share/nvim/mason/bin
+export PATH=$PATH:$NEWPATH
 
 if [ `uname -s` = Darwin ]; then
   export HELIX_RUNTIME=$HOME/.local/opt/helix/runtime
