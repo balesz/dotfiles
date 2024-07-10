@@ -264,7 +264,7 @@ install_protoc () {
 }
 
 install_lsp () {
-  node i -g yaml-language-server
+  sudo npm i -g yaml-language-server
 }
 
 install_test () {
