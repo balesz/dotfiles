@@ -7,6 +7,7 @@ elif which nvim > /dev/null; then
 else
   export EDITOR=vi
 fi
+export VISUAL=$EDITOR
 
 export ANDROID_HOME=$HOME/.local/opt/android
 export ANDROID_SDK_PATH=$HOME/.local/opt/android
@@ -32,7 +33,7 @@ NEWPATH=$NEWPATH:$HOME/go/bin
 NEWPATH=$NEWPATH:$HOME/.pub-cache/bin
 NEWPATH=$NEWPATH:$HOME/.local/opt/npm/bin
 NEWPATH=$NEWPATH:$HOME/.local/share/nvim/mason/bin
-export PATH=$PATH:$NEWPATH
+export PATH=$NEWPATH:$PATH
 
 if [ `uname -s` = Darwin ]; then
   export HELIX_RUNTIME=$HOME/.local/opt/helix/runtime
