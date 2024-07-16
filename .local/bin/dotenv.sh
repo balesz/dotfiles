@@ -178,7 +178,7 @@ install_apps () {
   DIR=`mktemp -d`
   VER_BAT=0.23.0
   VER_GIT_DELTA=0.16.5
-  VER_HELIX=24.03
+  VER_HELIX=24.07
   VER_XPLR=0.21.8
   VER_ZELLIJ=0.40.1
   if [ `uname -o` = Android ]; then
