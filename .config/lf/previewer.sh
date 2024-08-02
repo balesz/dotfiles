@@ -1,9 +1,13 @@
 #!/bin/sh
 
 CMD="cat"
-test -e `which bat` && CMD="bat --color=always --theme=base16 --paging=never"
-test -e `which highlight` && CMD="highlight -O ansi"
-test -e `which pygmentize` && CMD="pygmentize -g"
+if [ -e `which bat` ]; then
+  CMD="bat --color=always --theme=base16 --paging=never"
+elif [ -e `which highlight` ]; then
+  CMD="highlight -O ansi"
+elif [ -e `which pygmentize` ]; then
+  CMD="pygmentize -g"
+fi
 
 TYPE=`file --mime-type -Lb "$1"`
 
