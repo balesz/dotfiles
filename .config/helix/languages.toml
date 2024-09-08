@@ -13,6 +13,9 @@ command = "pls"
 [language-server.hx-lsp]
 command = "hx-lsp"
 
+[language-server.buffer-language-server]
+command = "buffer-language-server"
+
 ###############################################################################
 # Language Server Configurations ##############################################
 ###############################################################################
@@ -71,7 +74,7 @@ args = { processId = "{0}" }
 [[language]]
 name = "dart"
 auto-format = true
-language-servers = [ "dart", "hx-lsp" ]
+language-servers = [ "dart", "hx-lsp", "buffer-language-server" ]
 
 [[grammar]]
 name = "dart"

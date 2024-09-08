@@ -266,6 +266,7 @@ install_protoc () {
 install_lsp () {
   sudo npm i -g yaml-language-server
   cargo install --force hx-lsp
+  cargo install buffer-language-server
 }
 
 install_test () {
