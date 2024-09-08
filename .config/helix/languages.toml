@@ -10,12 +10,15 @@ timeout = 120
 [language-server.pls]
 command = "pls"
 
+[language-server.hx-lsp]
+command = "hx-lsp"
+
 ###############################################################################
 # Language Server Configurations ##############################################
 ###############################################################################
 
 [language-server.dart.config.dart]
-analysisExcludedFolders = ["./__work__"]
+analysisExcludedFolders = ["__work__", ".work"]
 enableSdkFormatter = true
 lineLength = 200
 completeFunctionCalls = true
@@ -68,6 +71,7 @@ args = { processId = "{0}" }
 [[language]]
 name = "dart"
 auto-format = true
+language-servers = [ "dart", "hx-lsp" ]
 
 [[grammar]]
 name = "dart"

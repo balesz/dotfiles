@@ -1,0 +1,47 @@
+{
+  "freezed class": {
+    "prefix": "freezed",
+    "description": "Freezed class",
+    "body": [
+      "import 'package:freezed_annotation/freezed_annotation.dart';",
+      "",
+      "part '${TM_FILENAME_BASE}.freezed.dart';",
+      "",
+      "@freezed",
+      "class FooBar with _\\$FooBar {",
+      "const factory FooBar() = _FooBar;",
+      "}"
+    ]
+  },
+  "riverpod provider": {
+    "prefix": "provider",
+    "description": "Riverpod provider",
+    "body": [
+      "import 'package:riverpod_annotation/riverpod_annotation.dart';",
+      "",
+      "part '${TM_FILENAME_BASE}.g.dart';",
+      "",
+      "class FooBarState {}",
+      "",
+      "@riverpod",
+      "FooBarState fooBar(FooBarRef ref) => FooBarState();"
+    ]
+  },
+  "riverpod notifier": {
+    "prefix": "notifier",
+    "description": "Riverpod notifier",
+    "body": [
+      "import 'package:riverpod_annotation/riverpod_annotation.dart';",
+      "",
+      "part '${TM_FILENAME_BASE}.g.dart';",
+      "",
+      "class FooBarState {}",
+      "",
+      "@riverpod",
+      "class FooBarNotifier extends _\\$FooBarNotifier {",
+      "@override",
+      "FooBarState build() => FooBarState();",
+      "}"
+    ]
+  }
+}
