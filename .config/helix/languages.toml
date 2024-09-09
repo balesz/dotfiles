@@ -74,7 +74,7 @@ args = { processId = "{0}" }
 [[language]]
 name = "dart"
 auto-format = true
-language-servers = [ "dart", "hx-lsp", "buffer-language-server" ]
+language-servers = [ "dart", "hx-lsp" ]
 
 [[grammar]]
 name = "dart"
