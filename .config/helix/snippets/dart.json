@@ -35,12 +35,29 @@
       "",
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
-      "class FooBarState {}",
+      "typedef FooBarState = ();",
       "",
       "@riverpod",
       "class FooBarNotifier extends _\\$FooBarNotifier {",
       "@override",
-      "FooBarState build() => FooBarState();",
+      "FooBarState build() => ();",
+      "}"
+    ]
+  },
+  "riverpod logic": {
+    "prefix": "logic",
+    "description": "Logic based on StateNotifier",
+    "body": [
+      "import 'package:riverpod_annotation/riverpod_annotation.dart';",
+      "",
+      "part '${TM_FILENAME_BASE}.g.dart';",
+      "",
+      "typedef FooBarState = ();",
+      "",
+      "@riverpod",
+      "class FooBarLogic extends _\\$FooBarLogic {",
+      "@override",
+      "FooBarState build() => ();",
       "}"
     ]
   }
