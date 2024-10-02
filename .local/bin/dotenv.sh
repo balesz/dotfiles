@@ -264,7 +264,9 @@ install_protoc () {
 }
 
 install_lsp () {
-  sudo npm i -g yaml-language-server
+  npm i -g typescript-language-server
+  npm i -g vscode-json-languageserver
+  npm i -g yaml-language-server
   cargo install --force hx-lsp
   cargo install buffer-language-server
 }
