@@ -50,3 +50,5 @@ s = ":w!"
 S = [":set auto-format false", ":w!", ":set auto-format true"]
 w = ":set soft-wrap.enable false"
 W = ":set soft-wrap.enable true"
+u = ":pipe tr '[a-z]' '[A-Z]'"
+l = ":pipe tr '[A-Z]' '[a-z]'"
