@@ -48,16 +48,21 @@
     "prefix": "logic",
     "description": "Logic based on StateNotifier",
     "body": [
+      "import 'package:freezed_annotation/freezed_annotation.dart';",
       "import 'package:riverpod_annotation/riverpod_annotation.dart';",
       "",
+      "part '${TM_FILENAME_BASE}.freezed.dart';",
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
-      "typedef FooBarState = ();",
+      "@freezed",
+      "class FooBarState with _\\$FooBarState {",
+      "  const factory FooBarState() = _FooBarState;",
+      "}",
       "",
       "@riverpod",
       "class FooBarLogic extends _\\$FooBarLogic {",
-      "@override",
-      "FooBarState build() => ();",
+      "  @override",
+      "  FooBarState build() => FooBarState();",
       "}"
     ]
   }
