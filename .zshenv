@@ -1,13 +1,5 @@
 export TERM=xterm-256color
 
-if which hx > /dev/null; then
-  export EDITOR=hx
-elif which nvim > /dev/null; then
-  export EDITOR=nvim
-else
-  export EDITOR=vi
-fi
-export VISUAL=$EDITOR
 
 export ANDROID_HOME=$HOME/.local/opt/android
 export ANDROID_SDK_PATH=$HOME/.local/opt/android
@@ -39,6 +31,15 @@ if [ `uname -s` = Darwin ]; then
   export HELIX_RUNTIME=$HOME/.local/opt/helix/runtime
   export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 fi
+
+if which hx > /dev/null; then
+  export EDITOR=hx
+elif which nvim > /dev/null; then
+  export EDITOR=nvim
+else
+  export EDITOR=vi
+fi
+export VISUAL=$EDITOR
 
 if [ -e /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
