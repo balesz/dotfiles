@@ -63,6 +63,20 @@
       "class FooBarLogic extends _\\$FooBarLogic {",
       "  @override",
       "  FooBarState build() => FooBarState();",
+      "}"      
+    ]
+  },
+  "chopper service": {
+    "prefix": "chopper",
+    "description": "Chopper Service",
+    "body": [
+      "import 'package:chopper/chopper.dart';",
+      "",
+      "part '${TM_FILENAME_BASE}.chopper.dart';",
+      "",
+      "@ChopperApi()",
+      "abstract class FooBarService extends ChopperService {",
+      "  static FooBarService create([ChopperClient? client]) => _\\$FooBarService(client);",
       "}"
     ]
   }
