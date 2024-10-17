@@ -6,10 +6,12 @@
       "import 'package:freezed_annotation/freezed_annotation.dart';",
       "",
       "part '${TM_FILENAME_BASE}.freezed.dart';",
+      "part '${TM_FILENAME_BASE}.g.dart';",
       "",
       "@freezed",
       "class FooBar with _\\$FooBar {",
-      "const factory FooBar() = _FooBar;",
+      "  factory FooBar.fromJson(Map<String, dynamic> json) => _\\$FooBarFromJson(json);",
+      "  const factory FooBar() = _FooBar;",
       "}"
     ]
   },
