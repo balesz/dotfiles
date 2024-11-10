@@ -4,6 +4,7 @@ set hidden
 set mouse
 set tabstop 4
 set preview
+set ratios 1:2:3
 set previewer ~/.config/lf/previewer.sh
 
 cmd open &{{
@@ -16,4 +17,4 @@ cmd open &{{
 cmd lazygit $lazygit
 
 map <backspace2>g lazygit
-map D :delete $fx 
+map D :delete $fx

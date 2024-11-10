@@ -1,6 +1,5 @@
 export TERM=xterm-256color
 
-
 export ANDROID_HOME=$HOME/.local/opt/android
 export ANDROID_SDK_PATH=$HOME/.local/opt/android
 if [ ! $JAVA_HOME ]; then
@@ -50,4 +49,6 @@ alias nv="NVIM_APPNAME=nvim.balesz nvim"
 alias nvchad="NVIM_APPNAME=nvim.nvchad nvim"
 alias lg="lazygit -ucd ~/.config/lazygit"
 
-. "$HOME/.cargo/env"
+if [ -f $HOME/.cargo/env ]; then
+  . "$HOME/.cargo/env"
+fi
