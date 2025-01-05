@@ -16,27 +16,17 @@ swap_tiled_layout name="stacked" {
     }
 }
 
-swap_floating_layout name="spread" {
+swap_floating_layout name="default" {
     floating_panes max_panes=1 {
         pane { x "51%"; y "3%"; width "47%"; height "94%"; }
     }
     floating_panes max_panes=2 {
-        pane { x "51%"; y "3%"; width "47%"; height "45%"; }
-        pane focus=true { x "51%"; y "50%"; width "47%"; height "46%"; }
+        pane { x "51%"; y "3%"; width "47%"; height "47%"; }
+        pane { x "51%"; y "50%"; width "47%"; height "47%"; }
     }
     floating_panes max_panes=3 {
-        pane { x "51%"; y "3%"; width "47%"; height "45%"; }
-        pane { x "51%"; y "50%"; width "47%"; height "46%"; }
-        pane focus=true { x "2%"; y "3%"; width "47%"; height "94%"; }
+        pane { x "51%"; y "3%"; width "47%"; height "30%"; }
+        pane { x "51%"; y "34%"; width "47%"; height "30%"; }
+        pane { x "51%"; y "65%"; width "47%"; height "30%"; }
     }
-    floating_panes max_panes=4 {
-        pane { x "51%"; y "3%"; width "47%"; height "45%"; }
-        pane { x "51%"; y "50%"; width "47%"; height "46%"; }
-        pane { x "2%"; y "3%"; width "47%"; height "45%"; }
-        pane focus=true { x "2%"; y "50%"; width "47%"; height "46%"; }
-    }
-}
-
-swap_floating_layout name="staggered" {
-    floating_panes
 }
