@@ -9,9 +9,9 @@
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
       "@freezed",
-      "class FooBar with _\\$FooBar {",
-      "  factory FooBar.fromJson(Map<String, dynamic> json) => _\\$FooBarFromJson(json);",
-      "  const factory FooBar() = _FooBar;",
+      "class ${1:FooBar} with _\\$${1:FooBar} {",
+      "  factory ${1:FooBar}.fromJson(Map<String, dynamic> json) => _\\$${1:FooBar}FromJson(json);",
+      "  const factory ${1:FooBar}() = _${1:FooBar};",
       "}"
     ]
   },
@@ -23,10 +23,10 @@
       "",
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
-      "class FooBarState {}",
+      "class ${1:FooBar}State {}",
       "",
       "@riverpod",
-      "FooBarState fooBar(FooBarRef ref) => FooBarState();"
+      "${1:FooBar}State ${1:FooBar}(${1:FooBar}Ref ref) => ${1:FooBar}State();"
     ]
   },
   "riverpod notifier": {
@@ -37,12 +37,12 @@
       "",
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
-      "class FooBarState {}",
+      "class ${1:FooBar}State {}",
       "",
       "@riverpod",
-      "class FooBarNotifier extends _\\$FooBarNotifier {",
+      "class ${1:FooBar}Notifier extends _\\$${1:FooBar}Notifier {",
       "@override",
-      "FooBarState build() { return FooBarState(); }",
+      "${1:FooBar}State build() { return ${1:FooBar}State(); }",
       "}"
     ]
   },
@@ -57,14 +57,14 @@
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
       "@freezed",
-      "class FooBarState with _\\$FooBarState {",
-      "const factory FooBarState() = _FooBarState;",
+      "class ${1:FooBar}State with _\\$${1:FooBar}State {",
+      "const factory ${1:FooBar}State() = _${1:FooBar}State;",
       "}",
       "",
       "@riverpod",
-      "class FooBarLogic extends _\\$FooBarLogic {",
+      "class ${1:FooBar}Logic extends _\\$${1:FooBar}Logic {",
       "@override",
-      "FooBarState build() { return FooBarState(); }",
+      "${1:FooBar}State build() { return ${1:FooBar}State(); }",
       "}"
     ]
   },
@@ -77,8 +77,8 @@
       "part '${TM_FILENAME_BASE}.chopper.dart';",
       "",
       "@ChopperApi()",
-      "abstract class FooBarService extends ChopperService {",
-      "  static FooBarService create([ChopperClient? client]) => _\\$FooBarService(client);",
+      "abstract class ${1:FooBar}Service extends ChopperService {",
+      "  static ${1:FooBar}Service create([ChopperClient? client]) => _\\$${1:FooBar}Service(client);",
       "}"
     ]
   }
