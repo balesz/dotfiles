@@ -5,11 +5,15 @@ auto-pairs = true
 bufferline = "never"
 color-modes = true
 cursorline = true
+end-of-line-diagnostics = "hint"
 line-number = "relative"
 mouse = true
 popup-border = "all"
 rulers = [80,100, 120,200]
 true-color = true
+
+[editor.inline-diagnostics]
+cursor-line = "error"
 
 [editor.statusline]
 left = ["mode", "spinner", "spacer", "version-control", "file-encoding"]
