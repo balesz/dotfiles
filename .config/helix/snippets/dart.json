@@ -37,12 +37,12 @@
       "",
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
-      "typedef FooBarState = ();",
+      "class FooBarState {}",
       "",
       "@riverpod",
       "class FooBarNotifier extends _\\$FooBarNotifier {",
       "@override",
-      "FooBarState build() => ();",
+      "FooBarState build() { return FooBarState(); }",
       "}"
     ]
   },
@@ -58,14 +58,14 @@
       "",
       "@freezed",
       "class FooBarState with _\\$FooBarState {",
-      "  const factory FooBarState() = _FooBarState;",
+      "const factory FooBarState() = _FooBarState;",
       "}",
       "",
       "@riverpod",
       "class FooBarLogic extends _\\$FooBarLogic {",
-      "  @override",
-      "  FooBarState build() => FooBarState();",
-      "}"      
+      "@override",
+      "FooBarState build() { return FooBarState(); }",
+      "}"
     ]
   },
   "chopper service": {
