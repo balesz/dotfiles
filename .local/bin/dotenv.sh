@@ -178,9 +178,9 @@ install_apps () {
   DIR=`mktemp -d`
   VER_BAT=0.23.0
   VER_GIT_DELTA=0.16.5
-  VER_HELIX=24.07
+  VER_HELIX=25.01
   VER_XPLR=0.21.8
-  VER_ZELLIJ=0.41.1
+  VER_ZELLIJ=0.41.2
   if [ `uname -o` = Android ]; then
     pkg install \
     zellij helix helix-grammars lazygit \
