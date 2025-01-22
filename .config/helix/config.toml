@@ -13,7 +13,7 @@ rulers = [80,100, 120,200]
 true-color = true
 
 [editor.inline-diagnostics]
-cursor-line = "error"
+cursor-line = "hint"
 
 [editor.statusline]
 left = ["mode", "spinner", "spacer", "version-control", "file-encoding"]
