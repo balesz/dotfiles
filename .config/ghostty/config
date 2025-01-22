@@ -1,0 +1,13 @@
+theme = tokyonight-storm
+font-family = "JetBrainsMono Nerd Font"
+#font-family = "FiraCode Nerd Font"
+font-size = 12
+
+macos-non-native-fullscreen = true
+macos-option-as-alt = "true"
+
+window-padding-y = 16,0
+
+keybind = clear
+keybind = ctrl+alt+r=reload_config
+keybind = alt+enter=toggle_fullscreen
