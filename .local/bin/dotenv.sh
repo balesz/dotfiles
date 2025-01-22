@@ -147,7 +147,7 @@ install_flutter () {
 }
 
 install_go () {
-  GO_VERSION=1.22.5
+  GO_VERSION=1.23.5
   if [ `uname -o` = Android ]; then
     pkg install golang
   elif [ `uname -s` = Linux ]; then
@@ -176,9 +176,10 @@ install_dotnet () {
 
 install_apps () {
   DIR=`mktemp -d`
+  VER_ATAC=0.18.1
   VER_BAT=0.23.0
   VER_GIT_DELTA=0.16.5
-  VER_HELIX=25.01
+  VER_HELIX=25.01.1
   VER_XPLR=0.21.8
   VER_ZELLIJ=0.41.2
   if [ `uname -o` = Android ]; then
@@ -187,6 +188,10 @@ install_apps () {
     lf walk jq unar poppler fd ripgrep fzf zoxide \
     bat git-delta
   elif [ `uname -s` = Linux ]; then
+    ## atac
+    echo "\nInstalling ATAC..."
+    curl -LJ https://github.com/Julien-cpsn/ATAC/releases/download/v${VER_ATAC}/atac-v${VER_ATAC}-x86_64-unknown-linux-gnu.tar.gz > $DIR/atac.tar.gz
+    tar -C ~/.local/bin -xvzf $DIR/atac.tar.gz
     ## bat
     echo "\nInstalling bat..."
     curl -LJ https://github.com/sharkdp/bat/releases/download/v${VER_BAT}/bat_${VER_BAT}_amd64.deb > $DIR/bat.deb
@@ -210,6 +215,10 @@ install_apps () {
     curl -LJ https://github.com/zellij-org/zellij/releases/download/v${VER_ZELLIJ}/zellij-x86_64-unknown-linux-musl.tar.gz > $DIR/zellij.tar.gz
     tar -C ~/.local/bin -xvzf $DIR/zellij.tar.gz
   elif [ `uname -s` = Darwin ]; then
+    ## atac
+    echo "\nInstalling ATAC..."
+    curl -LJ https://github.com/Julien-cpsn/ATAC/releases/download/v${VER_ATAC}/atac-v${VER_ATAC}-aarch64-apple-darwin.tar.gz > $DIR/atac.tar.gz
+    tar -C ~/.local/bin -xvzf $DIR/atac.tar.gz
     ## delta
     echo "\nInstalling delta..."
     curl -LJ https://github.com/dandavison/delta/releases/download/${VER_GIT_DELTA}/delta-${VER_GIT_DELTA}-aarch64-apple-darwin.tar.gz > $DIR/delta.tar.gz
@@ -237,17 +246,17 @@ install_goapps () {
   go install golang.org/x/tools/gopls@latest
   go install github.com/jwilder/dockerize@master
   env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
-  go install github.com/anmitsu/goful@latest
-  go install github.com/jesseduffield/lazygit@latest
-  go install github.com/jesseduffield/lazydocker@latest
-  go install github.com/go-task/task/v3/cmd/task@latest
-  go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
-  go install github.com/xo/usql@latest
-  go install github.com/maaslalani/nap@main
-  go install github.com/charmbracelet/gum@latest
-  go install github.com/wvanlint/twf/cmd/twf@latest
-  go install github.com/doronbehar/pistol/cmd/pistol@latest
-  go install github.com/mathaou/termdbms@latest
+  echo Install goful...; go install github.com/anmitsu/goful@latest
+  echo Install lazygit...; go install github.com/jesseduffield/lazygit@latest
+  echo Install lazydocker...; go install github.com/jesseduffield/lazydocker@latest
+  echo Install task...; go install github.com/go-task/task/v3/cmd/task@latest
+  echo Install gotop...; go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
+  echo Install usql...; go install github.com/xo/usql@latest
+  echo Install nap...; go install github.com/maaslalani/nap@main
+  echo Install gum...; go install github.com/charmbracelet/gum@latest
+  echo Install twf...; go install github.com/wvanlint/twf/cmd/twf@latest
+  echo Install pistol...; go install github.com/doronbehar/pistol/cmd/pistol@latest
+  echo Install termdbms...; go install github.com/mathaou/termdbms@latest
 }
 
 install_protoc () {
@@ -269,6 +278,7 @@ install_lsp () {
   npm i -g yaml-language-server
   cargo install --force hx-lsp
   cargo install buffer-language-server
+  cargo install --git https://github.com/estin/simple-completion-language-server.git
 }
 
 install_test () {
