@@ -147,7 +147,7 @@ install_flutter () {
 }
 
 install_go () {
-  GO_VERSION=1.23.5
+  GO_VERSION=1.24.5
   if [ `uname -o` = Android ]; then
     pkg install golang
   elif [ `uname -s` = Linux ]; then
@@ -177,11 +177,12 @@ install_dotnet () {
 install_apps () {
   DIR=`mktemp -d`
   VER_ATAC=0.18.1
-  VER_BAT=0.23.0
-  VER_GIT_DELTA=0.16.5
-  VER_HELIX=25.01.1
-  VER_XPLR=0.21.8
-  VER_ZELLIJ=0.41.2
+  VER_BAT=0.25.0
+  VER_GIT_DELTA=0.18.2
+  VER_HELIX=25.07.1
+  VER_VI_MONGO=0.1.22
+  VER_XPLR=0.21.10
+  VER_ZELLIJ=0.43.1
   if [ `uname -o` = Android ]; then
     pkg install \
     zellij helix helix-grammars lazygit \
@@ -230,6 +231,12 @@ install_apps () {
     rm -rf ~/.local/opt/helix ; mkdir ~/.local/opt/helix
     tar -C ~/.local/opt/helix --strip-components=1 -xvzf $DIR/helix.tar.xz
     rm ~/.local/bin/hx ; ln -s ~/.local/opt/helix/hx ~/.local/bin/hx
+    # vi-mongo
+    echo "\nInstalling vi mongo..."
+    curl -LJ https://github.com/kopecmaciej/vi-mongo/releases/download/v${VER_VI_MONGO}/vi-mongo_Darwin_arm64.tar.gz > $DIR/vi-mongo.tar.gz
+    tar -C $DIR -xvzf $DIR/vi-mongo.tar.gz
+    mv $DIR/vi-mongo ~/.local/bin/vi-mongo
+    chmod +x ~/.local/bin/vi-mongo
     # zellij
     echo "\nInstalling zellij..."
     curl -LJ https://github.com/zellij-org/zellij/releases/download/v${VER_ZELLIJ}/zellij-aarch64-apple-darwin.tar.gz > $DIR/zellij.tar.gz
@@ -243,28 +250,33 @@ install_apps () {
 
 install_goapps () {
   PATH=$PATH:~/.local/opt/go/bin
-  go install golang.org/x/tools/gopls@latest
-  go install github.com/jwilder/dockerize@master
-  env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
-  echo Install goful...; go install github.com/anmitsu/goful@latest
-  echo Install lazygit...; go install github.com/jesseduffield/lazygit@latest
-  echo Install lazydocker...; go install github.com/jesseduffield/lazydocker@latest
-  echo Install task...; go install github.com/go-task/task/v3/cmd/task@latest
-  echo Install gotop...; go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
-  echo Install usql...; go install github.com/xo/usql@latest
-  echo Install nap...; go install github.com/maaslalani/nap@main
-  echo Install gum...; go install github.com/charmbracelet/gum@latest
-  echo Install twf...; go install github.com/wvanlint/twf/cmd/twf@latest
-  echo Install pistol...; go install github.com/doronbehar/pistol/cmd/pistol@latest
-  echo Install termdbms...; go install github.com/mathaou/termdbms@latest
+  echo Installing gopls...; go install golang.org/x/tools/gopls@latest
+  echo Installing dockerize...; go install github.com/jwilder/dockerize@master
+  echo Installing lf...; env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
+  echo Installing goful...; go install github.com/anmitsu/goful@latest
+  echo Installing lazygit...; go install github.com/jesseduffield/lazygit@latest
+  echo Installing lazydocker...; go install github.com/jesseduffield/lazydocker@latest
+  echo Installing task...; go install github.com/go-task/task/v3/cmd/task@latest
+  echo Installing gotop...; go install github.com/xxxserxxx/gotop/v4/cmd/gotop@latest
+  echo Installing usql...; go install github.com/xo/usql@latest
+  echo Installing nap...; go install github.com/maaslalani/nap@main
+  echo Installing gum...; go install github.com/charmbracelet/gum@latest
+  echo Installing twf...; go install github.com/wvanlint/twf/cmd/twf@latest
+  echo Installing pistol...; go install github.com/doronbehar/pistol/cmd/pistol@latest
+  echo Installing termdbms...; go install github.com/mathaou/termdbms@latest
+  echo Installing charm...; go install github.com/charmbracelet/crush@latest
 }
 
 install_protoc () {
-  VER="24.2"
+  VER="31.1"
   DIR="$HOME/.local"
   ARCH="x86_64" && [ `uname -m` = aarch64 ] && ARCH="aarch_64"
-  wget -P $DIR "https://github.com/protocolbuffers/protobuf/releases/download/v$VER/protoc-$VER-linux-$ARCH.zip"
-  unzip -o -d $DIR "$DIR/protoc-$VER-linux-$ARCH.zip"
+  if [ `uname -s` = Linux ]; then
+    curl -LJ "https://github.com/protocolbuffers/protobuf/releases/download/v$VER/protoc-$VER-linux-$ARCH.zip" > $DIR/protoc.zip
+  elif [ `uname -s` = Darwin ]; then
+    curl -LJ "https://github.com/protocolbuffers/protobuf/releases/download/v$VER/protoc-$VER-osx-$ARCH.zip" > $DIR/protoc.zip
+  fi
+  unzip -o -d $DIR "$DIR/protoc.zip"
   rm -f "$DIR/readme.txt"
   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
@@ -273,8 +285,8 @@ install_protoc () {
 }
 
 install_lsp () {
+  npm i -g vscode-langservers-extracted
   npm i -g typescript-language-server
-  npm i -g vscode-json-languageserver
   npm i -g yaml-language-server
   cargo install --force hx-lsp
   cargo install buffer-language-server
