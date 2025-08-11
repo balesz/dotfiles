@@ -11,6 +11,7 @@
       "@freezed",
       "class ${1:FooBar} with _\\$${1:FooBar} {",
       "  factory ${1:FooBar}.fromJson(Map<String, dynamic> json) => _\\$${1:FooBar}FromJson(json);",
+      "  const ${1:FooBar}._();",
       "  const factory ${1:FooBar}() = _${1:FooBar};",
       "}"
     ]
@@ -19,6 +20,7 @@
     "prefix": "provider",
     "description": "Riverpod provider",
     "body": [
+      "import 'package:riverpod/riverpod.dart';",
       "import 'package:riverpod_annotation/riverpod_annotation.dart';",
       "",
       "part '${TM_FILENAME_BASE}.g.dart';",
@@ -26,7 +28,7 @@
       "class ${1:FooBar}State {}",
       "",
       "@riverpod",
-      "${1:FooBar}State ${1:FooBar}(${1:FooBar}Ref ref) => ${1:FooBar}State();"
+      "${1:FooBar}State ${1:FooBar}(Ref ref) => ${1:FooBar}State();"
     ]
   },
   "riverpod notifier": {
@@ -56,15 +58,40 @@
       "part '${TM_FILENAME_BASE}.freezed.dart';",
       "part '${TM_FILENAME_BASE}.g.dart';",
       "",
-      "@freezed",
-      "class ${1:FooBar}State with _\\$${1:FooBar}State {",
-      "const factory ${1:FooBar}State() = _${1:FooBar}State;",
-      "}",
-      "",
       "@riverpod",
       "class ${1:FooBar}Logic extends _\\$${1:FooBar}Logic {",
       "@override",
       "${1:FooBar}State build() { return ${1:FooBar}State(); }",
+      "}",
+      "",
+      "################################################################################",
+      "",
+      "@freezed",
+      "class ${1:FooBar}State with _\\$${1:FooBar}State {",
+      "const factory ${1:FooBar}State() = _${1:FooBar}State;",
+      "}"
+    ]
+  },
+  "riverpod repository": {
+    "prefix": "repository",
+    "description": "Repository based on StateNotifier",
+    "body": [
+      "import 'package:freezed_annotation/freezed_annotation.dart';",
+      "import 'package:riverpod_annotation/riverpod_annotation.dart';",
+      "",
+      "part '${TM_FILENAME_BASE}.freezed.dart';",
+      "part '${TM_FILENAME_BASE}.g.dart';",
+      "",
+      "@freezed",
+      "class ${1:FooBar}Entity with _\\$${1:FooBar}Entity {",
+      "factory ${1:FooBar}Entity.fromJson(Map<String, dynamic> json) => _\\$${1:FooBar}EntityFromJson(json);",
+      "const factory ${1:FooBar}Entity() = _${1:FooBar}Entity;",
+      "}",
+      "",
+      "@riverpod",
+      "class ${1:FooBar}Repository extends _\\$${1:FooBar}Repository {",
+      "@override",
+      "${1:FooBar}Entity build() { return ${1:FooBar}Entity(); }",
       "}"
     ]
   },
