@@ -1,9 +1,10 @@
 git:
   branchLogCmd: "git log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' {{branchName}} --"
-  allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium'
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium
 customCommands:
-    - key: F
-      context: files
-      command: git fetch --prune
-      description: Fetch and prune
-      loadingText: Fetching...
+  - key: F
+    context: files
+    command: git fetch --prune
+    description: Fetch and prune
+    loadingText: Fetching...
