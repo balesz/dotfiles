@@ -147,7 +147,7 @@ install_flutter () {
 }
 
 install_go () {
-  GO_VERSION=1.24.5
+  GO_VERSION=1.25.1
   if [ `uname -o` = Android ]; then
     pkg install golang
   elif [ `uname -s` = Linux ]; then
