@@ -147,7 +147,7 @@ install_flutter () {
 }
 
 install_go () {
-  GO_VERSION=1.25.1
+  GO_VERSION=1.25.6
   if [ `uname -o` = Android ]; then
     pkg install golang
   elif [ `uname -s` = Linux ]; then
@@ -176,12 +176,12 @@ install_dotnet () {
 
 install_apps () {
   DIR=`mktemp -d`
-  VER_ATAC=0.18.1
-  VER_BAT=0.25.0
+  VER_ATAC=0.22.1
+  VER_BAT=0.26.1
   VER_GIT_DELTA=0.18.2
   VER_HELIX=25.07.1
-  VER_VI_MONGO=0.1.22
-  VER_XPLR=0.21.10
+  VER_VI_MONGO=0.1.32
+  VER_XPLR=1.1.0
   VER_ZELLIJ=0.43.1
   if [ `uname -o` = Android ]; then
     pkg install \
@@ -264,7 +264,7 @@ install_goapps () {
   echo Installing twf...; go install github.com/wvanlint/twf/cmd/twf@latest
   echo Installing pistol...; go install github.com/doronbehar/pistol/cmd/pistol@latest
   echo Installing termdbms...; go install github.com/mathaou/termdbms@latest
-  echo Installing charm...; go install github.com/charmbracelet/crush@latest
+  echo Installing crush...; go install github.com/charmbracelet/crush@latest
 }
 
 install_protoc () {
