@@ -265,6 +265,7 @@ install_goapps () {
   echo Installing pistol...; go install github.com/doronbehar/pistol/cmd/pistol@latest
   echo Installing termdbms...; go install github.com/mathaou/termdbms@latest
   echo Installing crush...; go install github.com/charmbracelet/crush@latest
+  echo Installing glow...; go install github.com/charmbracelet/glow/v2@latest
 }
 
 install_protoc () {
