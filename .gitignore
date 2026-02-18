@@ -6,12 +6,17 @@
 !.zprofile
 !.zshrc
 !.tmux.conf
+!Taskfile.yaml
 
 !/.local
 /.local/*
 !/.local/bin
 /.local/bin/*
 !/.local/bin/dotenv.sh
+
+!/.local/opt
+/.local/opt/*
+!/.local/opt/agents
 
 !/.config
 /.config/*

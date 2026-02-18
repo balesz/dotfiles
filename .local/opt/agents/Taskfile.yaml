@@ -1,0 +1,23 @@
+version: 3
+
+tasks:
+
+  claude:build:
+    desc: Build Claude Docker Image
+    dir: '{{.TASKFILE_DIR}}'
+    preconditions:
+      - sh: test -f Dockerfile.claude
+        msg: Dockerfile.claude not found
+    cmd: docker build -f Dockerfile.claude -t claude:latest .
+
+  claude:run:
+    desc: Run Claude Docker Image
+    preconditions:
+      - sh: docker image inspect claude >/dev/null 2>&1
+        msg: Image 'claude' not found
+    cmd: |-
+      docker run --rm -it \
+      -v ~/.claude:/root/.claude \
+      -v ~/.claude.json:/root/.claude.json \
+      -v {{.USER_WORKING_DIR}}:/src \
+      --name claude claude

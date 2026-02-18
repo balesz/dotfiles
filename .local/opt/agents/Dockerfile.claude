@@ -1,0 +1,21 @@
+FROM debian:latest
+
+ENV PATH=/root/.local/bin:/root/.local/opt/flutter/bin:/root/.local/opt/go/bin:$PATH
+
+RUN apt-get update ; apt-get upgrade -y
+RUN apt-get install -y curl git unzip xz-utils zip libglu1-mesa gpg
+RUN apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev mesa-utils
+
+WORKDIR /root/.local/opt
+ADD --unpack=true https://go.dev/dl/go1.26.0.linux-amd64.tar.gz .
+RUN git clone -b stable https://github.com/flutter/flutter.git flutter
+RUN go version ; flutter doctor
+RUN dart pub global activate fvm
+RUN dart pub global activate flutterfire_cli
+RUN dart pub global activate intl_translation
+
+WORKDIR /root
+RUN curl -fsSL https://claude.ai/install.sh | bash
+
+WORKDIR /src
+ENTRYPOINT [ "claude", "--plugin-dir", ".claude/plugin" ]

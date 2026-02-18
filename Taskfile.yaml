@@ -1,0 +1,9 @@
+version: 3
+
+includes:
+  agents: '{{.HOME}}/.local/opt/agents/Taskfile.yaml'
+
+tasks:
+  default:
+    desc: List Global Tasks
+    cmd: task -g --list-all
