@@ -285,12 +285,14 @@ install_protoc () {
 }
 
 install_lsp () {
+  PATH=$PATH:~/.local/opt/go/bin
   npm i -g vscode-langservers-extracted
   npm i -g typescript-language-server
   npm i -g yaml-language-server
   cargo install --force hx-lsp
   cargo install buffer-language-server
   cargo install --git https://github.com/estin/simple-completion-language-server.git
+  go install github.com/docker/docker-language-server/cmd/docker-language-server@latest
 }
 
 install_agents () {
