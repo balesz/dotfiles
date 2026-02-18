@@ -264,7 +264,6 @@ install_goapps () {
   echo Installing twf...; go install github.com/wvanlint/twf/cmd/twf@latest
   echo Installing pistol...; go install github.com/doronbehar/pistol/cmd/pistol@latest
   echo Installing termdbms...; go install github.com/mathaou/termdbms@latest
-  echo Installing crush...; go install github.com/charmbracelet/crush@latest
   echo Installing glow...; go install github.com/charmbracelet/glow/v2@latest
 }
 
@@ -292,6 +291,13 @@ install_lsp () {
   cargo install --force hx-lsp
   cargo install buffer-language-server
   cargo install --git https://github.com/estin/simple-completion-language-server.git
+}
+
+install_agents () {
+  PATH=$PATH:~/.local/opt/go/bin
+  echo Installing crush...; go install github.com/charmbracelet/crush@latest
+  echo Installing claude... ; curl -fsSL https://claude.ai/install.sh | bash
+  echo Installing opencode... ; curl -fsSL https://opencode.ai/install | bash
 }
 
 install_test () {
