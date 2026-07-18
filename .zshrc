@@ -107,3 +107,12 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:/Users/bbode/.lmstudio/bin"
 # End of LM Studio CLI section
 
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/balesz/.dart-cli-completion/zsh-config.zsh ]] && . /home/balesz/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

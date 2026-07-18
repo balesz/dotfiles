@@ -10,6 +10,7 @@ export FLUTTER_ROOT=$HOME/.local/opt/flutter
 export FLUTTER_GIT_URL=https://github.com/flutter/flutter.git
 export BUN_INSTALL=$HOME/.bun
 export GEM_HOME=$HOME/.gem
+export RUST_ROOT=$HOME/.cargo
 
 NEWPATH=$HOME/.local/bin
 NEWPATH=$NEWPATH:$HOME/.local/opt/go/bin
@@ -25,6 +26,7 @@ NEWPATH=$NEWPATH:$HOME/go/bin
 NEWPATH=$NEWPATH:$HOME/.pub-cache/bin
 NEWPATH=$NEWPATH:$HOME/.local/opt/npm/bin
 NEWPATH=$NEWPATH:$HOME/.local/share/nvim/mason/bin
+NEWPATH=$NEWPATH:$RUST_ROOT/bin
 export PATH=$NEWPATH:$PATH
 
 if [ `uname -s` = Darwin ]; then
