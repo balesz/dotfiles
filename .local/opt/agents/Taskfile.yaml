@@ -1,23 +1,30 @@
 version: 3
 
-tasks:
+vars:
+  IMAGE: claude:sandbox
 
+tasks:
   claude:build:
     desc: Build Claude Docker Image
-    dir: '{{.TASKFILE_DIR}}'
+    dir: "{{.TASKFILE_DIR}}"
     preconditions:
       - sh: test -f Dockerfile.claude
         msg: Dockerfile.claude not found
-    cmd: docker build -f Dockerfile.claude -t claude:latest .
+    cmd: |-
+      docker build -f Dockerfile.claude -t {{.IMAGE}} .
 
   claude:run:
     desc: Run Claude Docker Image
+    dir: "{{.USER_WORKING_DIR}}"
+    vars:
+      ARGS: --model opus
+      EXISTS:
+        sh: "(sbx ls | grep {{.USER_WORKING_DIR}}) || echo ''"
     preconditions:
-      - sh: docker image inspect claude >/dev/null 2>&1
+      - sh: test -n "$(docker image ls --format '{{.Repository}}:{{.Tag}}' {{.IMAGE}})"
         msg: Image 'claude' not found
-    cmd: |-
-      docker run --rm -it \
-      -v ~/.claude:/root/.claude \
-      -v ~/.claude.json:/root/.claude.json \
-      -v {{.USER_WORKING_DIR}}:/src \
-      --name claude claude
+    cmds:
+      - cmd: sbx run claude -- {{.ARGS}} {{.CLI_ARGS}}
+        if: '[ -n "{{.EXISTS}}" ]'
+      - cmd: sbx run -t {{.IMAGE}} claude -- {{.ARGS}} {{.CLI_ARGS}}
+        if: '[ -z "{{.EXISTS}}" ]'

@@ -1,17 +1,27 @@
 FROM docker/sandbox-templates:claude-code
 
-ARG PREFIX=/home/agent/.local
+ARG ARG_HOME
+RUN test -n "${ARG_HOME}" || (echo "ERROR: ARG_HOME is required!" && exit 1)
+ARG ARG_USER
+RUN test -n "${ARG_USER}" || (echo "ERROR: ARG_USER is required!" && exit 1)
+ENV HOMEDIR=${ARG_HOME}/${ARG_USER}
 
 USER root
+
 RUN apt-get update ; apt-get upgrade -y
 RUN apt-get install -y curl git unzip xz-utils zip libglu1-mesa gpg
 RUN apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev mesa-utils
-RUN npm i -g firebase-tools
+
+WORKDIR ${ARG_HOME}
+RUN usermod -m -d ${HOMEDIR} agent
 
 USER agent
-ENV PATH=${PREFIX}/opt/go/bin:${PREFIX}/opt/flutter/bin:/home/agent/.pub-cache/bin:$PATH
 
-WORKDIR ${PREFIX}/opt
+# ENV HOME=/home/agent
+ENV HOME=${HOMEDIR}
+ENV PATH=${HOME}/.local/bin:${HOME}/.local/opt/flutter/bin:${HOME}/.pub-cache/bin:${HOME}/.local/opt/go/bin:$PATH
+
+WORKDIR ${HOME}/.local/opt
 ADD --unpack=true https://go.dev/dl/go1.26.4.linux-arm64.tar.gz .
 RUN go version
 RUN git clone -b stable https://github.com/flutter/flutter.git flutter
@@ -20,3 +30,6 @@ RUN dart pub global activate fvm
 RUN dart pub global activate flutterfire_cli
 RUN dart pub global activate intl_translation
 RUN fvm install 3.41.9
+
+WORKDIR ${HOMEDIR}
+ENTRYPOINT  ["claude" "--dangerously-skip-permissions"]
