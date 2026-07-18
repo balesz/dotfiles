@@ -17,16 +17,16 @@ swap_tiled_layout name="stacked" {
 }
 
 swap_floating_layout name="default" {
-    floating_panes max_panes=1 {
-        pane { x "51%"; y "3%"; width "48%"; height "94%"; }
+    floating_panes exact_panes=1 {
+        pane { x "51%"; y "1"; width "51%"; height "98%"; }
     }
-    floating_panes max_panes=2 {
-        pane { x "51%"; y "3%"; width "48%"; height "47%"; }
-        pane { x "51%"; y "50%"; width "48%"; height "47%"; }
+    floating_panes exact_panes=2 {
+        pane { x "51%"; y "1"; width "51%"; height "49%"; }
+        pane { x "51%"; y "50%"; width "51%"; height "51%"; }
     }
-    floating_panes max_panes=3 {
-        pane { x "51%"; y "3%"; width "48%"; height "30%"; }
-        pane { x "51%"; y "34%"; width "48%"; height "30%"; }
-        pane { x "51%"; y "65%"; width "48%"; height "30%"; }
+    floating_panes exact_panes=3 {
+        pane { x "51%"; y "1"; width "51%"; height "33%"; }
+        pane { x "51%"; y "34%"; width "51%"; height "33%"; }
+        pane { x "51%"; y "67%"; width "51%"; height "35%"; }
     }
 }
