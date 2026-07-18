@@ -182,7 +182,7 @@ install_apps () {
   VER_HELIX=25.07.1
   VER_VI_MONGO=0.1.32
   VER_XPLR=1.1.0
-  VER_ZELLIJ=0.43.1
+  VER_ZELLIJ=0.44.3
   if [ `uname -o` = Android ]; then
     pkg install \
     zellij helix helix-grammars lazygit \
