@@ -1,2 +1,4 @@
 .DS_Store
 __work__/
+
+**/.claude/settings.local.json
