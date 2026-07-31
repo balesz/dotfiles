@@ -12,6 +12,9 @@ tasks:
         msg: Dockerfile.claude not found
     cmd: |-
       docker build -f Dockerfile.claude -t {{.IMAGE}} .
+      docker image save {{.IMAGE}} -o /tmp/docker-image.tar
+      sbx template load /tmp/docker-image.tar
+      rm /tmp/docker-image.tar
 
   claude:run:
     desc: Run Claude Docker Image
@@ -20,9 +23,6 @@ tasks:
       ARGS: --model opus
       EXISTS:
         sh: "(sbx ls | grep {{.USER_WORKING_DIR}}) || echo ''"
-    preconditions:
-      - sh: test -n "$(docker image ls --format '{{.Repository}}:{{.Tag}}' {{.IMAGE}})"
-        msg: Image 'claude' not found
     cmds:
       - cmd: sbx run claude -- {{.ARGS}} {{.CLI_ARGS}}
         if: '[ -n "{{.EXISTS}}" ]'

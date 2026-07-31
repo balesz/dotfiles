@@ -12,7 +12,7 @@ USER agent
 ENV PATH=${PREFIX}/opt/go/bin:${PREFIX}/opt/flutter/bin:/home/agent/.pub-cache/bin:$PATH
 
 WORKDIR ${PREFIX}/opt
-ADD --unpack=true https://go.dev/dl/go1.26.4.linux-arm64.tar.gz .
+ADD --unpack=true https://go.dev/dl/go1.26.5.linux-arm64.tar.gz .
 RUN go version
 RUN git clone -b stable https://github.com/flutter/flutter.git flutter
 RUN flutter doctor
