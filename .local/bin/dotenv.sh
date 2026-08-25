@@ -147,7 +147,7 @@ install_flutter () {
 }
 
 install_go () {
-  GO_VERSION=1.25.6
+  GO_VERSION=1.26.5
   if [ `uname -o` = Android ]; then
     pkg install golang
   elif [ `uname -s` = Linux ]; then
@@ -182,7 +182,7 @@ install_apps () {
   VER_HELIX=25.07.1
   VER_VI_MONGO=0.1.32
   VER_XPLR=1.1.0
-  VER_ZELLIJ=0.44.3
+  VER_ZELLIJ=0.45.0
   if [ `uname -o` = Android ]; then
     pkg install \
     zellij helix helix-grammars lazygit \
