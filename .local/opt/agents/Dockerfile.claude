@@ -19,4 +19,3 @@ RUN flutter doctor
 RUN dart pub global activate fvm
 RUN dart pub global activate flutterfire_cli
 RUN dart pub global activate intl_translation
-RUN fvm install 3.41.9
