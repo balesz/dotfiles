@@ -268,7 +268,7 @@ install_goapps () {
 }
 
 install_protoc () {
-  VER="31.1"
+  VER="32.1"
   DIR="$HOME/.local"
   ARCH="x86_64" && [ `uname -m` = aarch64 ] && ARCH="aarch_64"
   if [ `uname -s` = Linux ]; then
